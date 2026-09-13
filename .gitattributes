@@ -2,3 +2,7 @@
 artifacts/** -text
 backend/src/scientific.ts -text
 research/analyze_visible.py -text
+
+# Dependency hashes are also byte-level provenance.
+package-lock.json -text
+backend/package-lock.json -text
