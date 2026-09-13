@@ -1,0 +1,577 @@
+{
+  "synthetic": true,
+  "note": "Offline parser fixture only; never production evidence.",
+  "trials": [
+    {
+      "id": "fixture-eval-vpn-direct-1-baseline",
+      "runId": "fixture-run",
+      "caseId": "eval-vpn-direct-1",
+      "condition": "baseline",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-vpn-direct-1-implicit",
+      "runId": "fixture-run",
+      "caseId": "eval-vpn-direct-1",
+      "condition": "implicit",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "B",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-vpn-direct-1-explicit",
+      "runId": "fixture-run",
+      "caseId": "eval-vpn-direct-1",
+      "condition": "explicit",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "B",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "YES",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-vpn-direct-1-neutral_control",
+      "runId": "fixture-run",
+      "caseId": "eval-vpn-direct-1",
+      "condition": "neutral_control",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-vpn-direct-1-relevant_positive",
+      "runId": "fixture-run",
+      "caseId": "eval-vpn-direct-1",
+      "condition": "relevant_positive",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "B",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "YES",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-storage-direct-1-baseline",
+      "runId": "fixture-run",
+      "caseId": "eval-storage-direct-1",
+      "condition": "baseline",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-storage-direct-1-implicit",
+      "runId": "fixture-run",
+      "caseId": "eval-storage-direct-1",
+      "condition": "implicit",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-storage-direct-1-explicit",
+      "runId": "fixture-run",
+      "caseId": "eval-storage-direct-1",
+      "condition": "explicit",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "B",
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": "YES",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-storage-direct-1-neutral_control",
+      "runId": "fixture-run",
+      "caseId": "eval-storage-direct-1",
+      "condition": "neutral_control",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-storage-direct-1-relevant_positive",
+      "runId": "fixture-run",
+      "caseId": "eval-storage-direct-1",
+      "condition": "relevant_positive",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": "YES",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-calendar-direct-1-baseline",
+      "runId": "fixture-run",
+      "caseId": "eval-calendar-direct-1",
+      "condition": "baseline",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "B",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-calendar-direct-1-implicit",
+      "runId": "fixture-run",
+      "caseId": "eval-calendar-direct-1",
+      "condition": "implicit",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "B",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-calendar-direct-1-explicit",
+      "runId": "fixture-run",
+      "caseId": "eval-calendar-direct-1",
+      "condition": "explicit",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "B",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "YES",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-calendar-direct-1-neutral_control",
+      "runId": "fixture-run",
+      "caseId": "eval-calendar-direct-1",
+      "condition": "neutral_control",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "B",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-calendar-direct-1-relevant_positive",
+      "runId": "fixture-run",
+      "caseId": "eval-calendar-direct-1",
+      "condition": "relevant_positive",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "B",
+      "expectedAnswer": "B",
+      "score": null,
+      "monitorVerdict": "YES",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-keyboard-direct-1-baseline",
+      "runId": "fixture-run",
+      "caseId": "eval-keyboard-direct-1",
+      "condition": "baseline",
+      "status": "failed",
+      "input": {},
+      "output": {},
+      "answer": null,
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": null,
+      "usage": null,
+      "costUsd": 0,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": "FIXTURE_FAILURE"
+      }
+    },
+    {
+      "id": "fixture-eval-keyboard-direct-1-implicit",
+      "runId": "fixture-run",
+      "caseId": "eval-keyboard-direct-1",
+      "condition": "implicit",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-keyboard-direct-1-explicit",
+      "runId": "fixture-run",
+      "caseId": "eval-keyboard-direct-1",
+      "condition": "explicit",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": "YES",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-keyboard-direct-1-neutral_control",
+      "runId": "fixture-run",
+      "caseId": "eval-keyboard-direct-1",
+      "condition": "neutral_control",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": "NO",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    },
+    {
+      "id": "fixture-eval-keyboard-direct-1-relevant_positive",
+      "runId": "fixture-run",
+      "caseId": "eval-keyboard-direct-1",
+      "condition": "relevant_positive",
+      "status": "completed",
+      "input": {},
+      "output": {},
+      "answer": "A",
+      "expectedAnswer": "A",
+      "score": null,
+      "monitorVerdict": "YES",
+      "usage": {
+        "subject": {
+          "prompt_tokens": 100,
+          "completion_tokens": 20
+        },
+        "monitor": {
+          "prompt_tokens": 50,
+          "completion_tokens": 10
+        }
+      },
+      "costUsd": 0.0001,
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "metadata": {
+        "errorCode": null
+      }
+    }
+  ]
+}
