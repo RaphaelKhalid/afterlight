@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-09-13T18:26:54.888Z",
+  "health": {
+    "ok": true,
+    "service": "afterlight-api",
+    "environment": "production",
+    "now": "2026-09-13T18:26:52.744Z"
+  },
+  "telegram": {
+    "status": 200,
+    "ok": true
+  },
+  "discord": {
+    "status": 200,
+    "endpoint": "https://afterlight-api.raphaelbahadurkhan.workers.dev/api/discord/interactions"
+  }
+}

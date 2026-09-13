@@ -1,0 +1,89 @@
+{
+  "id": "reward-recent",
+  "startedAt": "2026-09-13T17:57:45.243Z",
+  "completedAt": "2026-09-13T17:57:46.437Z",
+  "request": {
+    "query": "chain of thought reward compatibility monitorability drift optimization 2026",
+    "startPublishedDate": "2026-06-01T00:00:00Z",
+    "endPublishedDate": "2026-09-14T00:00:00Z",
+    "type": "auto",
+    "numResults": 10
+  },
+  "httpStatus": 200,
+  "requestId": "5e3ca55da83e9513dac3ac59b66e5789",
+  "costDollars": {
+    "total": 0.007,
+    "search": {
+      "neural": 0.007
+    }
+  },
+  "costStatus": "provider-returned",
+  "rawResponseSha256": "15a4bbd9bf1e833cfe5c7c6da6d80137b0b038352a51b66297020b7bfd2c8dad",
+  "results": [
+    {
+      "id": "https://arxiv.org/abs/2608.29464",
+      "url": "https://arxiv.org/abs/2608.29464",
+      "title": "[2608.29464] Chain-of-Thought Faithfulness of Reasoning Models Varies with Where and How Preference Cues Are Delivered",
+      "publishedDate": "2026-08-29T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.alphaxiv.org/abs/2607.09786",
+      "url": "https://www.alphaxiv.org/abs/2607.09786",
+      "title": "Length Penalties Make Chain-of-Thought Less Monitorable | alphaXiv",
+      "publishedDate": "2026-07-08T00:00:00.000Z",
+      "author": "Bryce Little"
+    },
+    {
+      "id": "https://www.alphaxiv.org/abs/2606.28166",
+      "url": "https://www.alphaxiv.org/abs/2606.28166",
+      "title": "Tandem Reinforcement Learning with Verifiable Rewards | alphaXiv",
+      "publishedDate": "2026-06-26T00:00:00.000Z",
+      "author": "Ashton Anderson"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.04735v1",
+      "url": "https://arxiv.org/abs/2608.04735v1",
+      "title": "[2608.04735v1] Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings",
+      "publishedDate": "2026-08-05T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.alphaxiv.org/abs/2605.07804",
+      "url": "https://www.alphaxiv.org/abs/2605.07804",
+      "title": "Prune-OPD: Efficient and Reliable On-Policy Distillation for Long-Horizon Reasoning | alphaXiv",
+      "publishedDate": "2026-06-01T00:00:00.000Z",
+      "author": "Jing Tang"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.04194",
+      "url": "https://arxiv.org/abs/2609.04194",
+      "title": "[2609.04194] Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning",
+      "publishedDate": "2026-09-03T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.layerthelatestinalattice.com/papers/arxiv:2608.20011",
+      "url": "https://www.layerthelatestinalattice.com/papers/arxiv:2608.20011",
+      "title": "Manifold Drift in Flow Preference Optimization: A Root Cause of Reward Hacking | Lattice",
+      "publishedDate": "2026-08-20T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.09776",
+      "url": "https://arxiv.org/abs/2609.09776",
+      "title": "[2609.09776] Proof-Carrying Cognition: Closing the Verification Gap with Reality-Settled Reward",
+      "publishedDate": "2026-09-09T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.alphaxiv.org/abs/2607.19824",
+      "url": "https://www.alphaxiv.org/abs/2607.19824",
+      "title": "Rewarding Better Thinking for LLM Preference Alignment | alphaXiv",
+      "publishedDate": "2026-07-22T00:00:00.000Z",
+      "author": "Ying Zhang"
+    },
+    {
+      "id": "https://www.sota2.com/research/paper/6a279e9890966ade919bfd3e",
+      "url": "https://www.sota2.com/research/paper/6a279e9890966ade919bfd3e",
+      "title": "Gradient-Guided Reward Optimization for Inference-time Alignment · SOTA2 Research",
+      "publishedDate": "2026-06-08T00:00:00.000Z",
+      "author": "Ruqi Zhang"
+    }
+  ]
+}

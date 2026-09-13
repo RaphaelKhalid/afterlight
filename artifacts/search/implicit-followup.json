@@ -1,0 +1,76 @@
+{
+  "id": "implicit-followup",
+  "startedAt": "2026-09-13T17:57:42.542Z",
+  "completedAt": "2026-09-13T17:57:43.799Z",
+  "request": {
+    "query": "\"Chain-of-Thought Monitoring Can Be Unreliable\" implicit influence Duzan follow up replication",
+    "type": "auto",
+    "numResults": 10
+  },
+  "httpStatus": 200,
+  "requestId": "aa5bebfc0ca629c22170030faba40b0c",
+  "costDollars": {
+    "total": 0.007,
+    "search": {
+      "neural": 0.007
+    }
+  },
+  "costStatus": "provider-returned",
+  "rawResponseSha256": "c282ccfe3235eee5791cdc159dcb3be56745ff910687a700514315570d18d9ad",
+  "results": [
+    {
+      "id": "https://arxiv.org/html/2608.04735v1",
+      "url": "https://arxiv.org/html/2608.04735v1",
+      "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence ...",
+      "publishedDate": "2026-08-05T00:00:00.000Z"
+    },
+    {
+      "id": "https://github.com/agatha-duzan/implicit-vs-explicit-influence",
+      "url": "https://github.com/agatha-duzan/implicit-vs-explicit-influence",
+      "title": "agatha-duzan/implicit-vs-explicit-influence"
+    },
+    {
+      "id": "https://www.layerthelatestinalattice.com/papers/de84c1263e82c97dd2bab9bd88e3ba48e1d71320",
+      "url": "https://www.layerthelatestinalattice.com/papers/de84c1263e82c97dd2bab9bd88e3ba48e1d71320",
+      "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings | Lattice",
+      "publishedDate": "2026-08-05T00:00:00.000Z"
+    },
+    {
+      "id": "https://awesomepapers.io/generative-models/papers/2608.04735",
+      "url": "https://awesomepapers.io/generative-models/papers/2608.04735",
+      "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings — Generative Models · Code & Paper"
+    },
+    {
+      "id": "https://bittide.aicompass.dev/article/2aa19fa4-cba5-494d-8ee1-4136a311e045",
+      "url": "https://bittide.aicompass.dev/article/2aa19fa4-cba5-494d-8ee1-4136a311e045",
+      "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings"
+    },
+    {
+      "id": "https://www.matsprogram.org/research/reasoning-models-struggle-to-control-their-chains-of-thought",
+      "url": "https://www.matsprogram.org/research/reasoning-models-struggle-to-control-their-chains-of-thought",
+      "title": "Reasoning Models Struggle to Control their Chains of Thought - MATS Research"
+    },
+    {
+      "id": "https://theflow.svmpsp.dev/related/992f89fe3d48a8953d747407ebc8a5bc4b14793ddefc8c0724dd7ae463ff1cb5",
+      "url": "https://theflow.svmpsp.dev/related/992f89fe3d48a8953d747407ebc8a5bc4b14793ddefc8c0724dd7ae463ff1cb5",
+      "title": "The Flow - AI News Aggregator",
+      "author": "Maheep Chaudhary"
+    },
+    {
+      "id": "https://www.zhuanzhiai.com/paper/4166d6361002a767dbd81d0dc2f99cf2",
+      "url": "https://www.zhuanzhiai.com/paper/4166d6361002a767dbd81d0dc2f99cf2",
+      "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings - 专知论文"
+    },
+    {
+      "id": "http://arxiver.lazybrains.com/author/1945684",
+      "url": "http://arxiver.lazybrains.com/author/1945684",
+      "title": "Arxiver"
+    },
+    {
+      "id": "https://paper.dou.ac/p/2608.04735v1",
+      "url": "https://paper.dou.ac/p/2608.04735v1",
+      "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings | 每日论文",
+      "publishedDate": "2026-08-05T00:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+.env*
+.cache
+backend
+research
+tools
+artifacts
+docs
+AGENTS.md
+local-access.json
+*.log

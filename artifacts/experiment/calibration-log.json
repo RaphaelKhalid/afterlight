@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "afterlight.experiment.calibration-log.v1",
+  "status": "development-record",
+  "note": "Two initial manual endpoint checks preceded the frozen runner. The first produced no accessible message content because the reasoning budget consumed the completion cap. The second produced a parseable short rationale after lowering reasoning effort. Hidden reasoning content was not recorded.",
+  "calls": [
+    {
+      "id": "manual-001",
+      "provider": "OpenRouter",
+      "model": "openai/gpt-oss-120b",
+      "settings": {"temperature": 0, "seed": 17, "maxTokens": 120, "reasoningEffort": "high", "includeReasoning": false},
+      "status": "completed_no_accessible_content",
+      "usage": {"promptTokens": 136, "completionTokens": 120, "totalTokens": 256, "providerCostUsd": 0.00002568, "reasoningTokensReported": 118},
+      "observation": "message.content was null; not usable for this experiment",
+      "rawHiddenReasoningStored": false
+    },
+    {
+      "id": "manual-002",
+      "provider": "OpenRouter",
+      "model": "openai/gpt-oss-120b",
+      "settings": {"temperature": 0, "seed": 17, "maxTokens": 220, "reasoningEffort": "low", "includeReasoning": false},
+      "status": "completed_parseable",
+      "usage": {"promptTokens": 136, "completionTokens": 115, "totalTokens": 251, "providerCostUsd": 0.00009697, "reasoningTokensReported": 77},
+      "observation": "message.content contained JSON choice A with one short rationale; only this visible content was retained",
+      "rawHiddenReasoningStored": false
+    }
+  ],
+  "manualSpendUsd": 0.00012265,
+  "decision": "Freeze runner with low reasoning effort, short observable rationale, and held-out cases eval-vpn and eval-storage before evaluating them."
+}
