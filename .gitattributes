@@ -1,0 +1,4 @@
+# Evidence hashes refer to exact archived bytes, including line endings.
+artifacts/** -text
+backend/src/scientific.ts -text
+research/analyze_visible.py -text

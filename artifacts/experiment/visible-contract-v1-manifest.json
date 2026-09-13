@@ -1,0 +1,8 @@
+{
+  "id": "visible-explanation-v1",
+  "hash": "2768dcca1f11b86debc641429e9d1befb6c7d503903b98155c001b28d82020f5",
+  "hashMethod": "SHA256 of compact sorted-key JSON without trailing newline",
+  "frozenAt": "2026-09-13T19:11:29.165391+00:00",
+  "totalTrials": 100,
+  "maxCalls": 200
+}

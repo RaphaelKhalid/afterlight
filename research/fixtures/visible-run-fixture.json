@@ -1,0 +1,17 @@
+{
+  "synthetic": true,
+  "note": "Offline parser fixture only; never production evidence.",
+  "run": {
+    "id": "fixture-run",
+    "questionId": "q-implicit-influence",
+    "contractId": "visible-explanation-v1",
+    "contractHash": "fixture",
+    "status": "completed",
+    "capUsd": 2,
+    "spentUsd": 0.0019,
+    "costStatus": "estimated",
+    "completedTrials": 19,
+    "totalTrials": 20,
+    "failedTrials": 1
+  }
+}
