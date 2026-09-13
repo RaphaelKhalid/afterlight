@@ -32,11 +32,11 @@ Use the existing completed run. Do not start a new paid run during recording. La
 
 ## Exact click sequence
 
-1. Open [Atlas](https://afterlight-research.vercel.app/#/atlas). Pause on the photograph and research network for three seconds.
+1. Open [Atlas](https://afterlight-research.vercel.app/#/atlas). Pause on the photograph and its research-thread labels for three seconds. The completed-study entry appears directly beneath it.
 2. Open the contextual-influence question, [direct dossier link](https://afterlight-research.vercel.app/#/questions/q-implicit-influence). Show the source passage and closest-work mismatch briefly.
 3. Click **Open designer**. Show conditions, primary outcome, immutable contract, and $2 cap. Do not enter credentials or authorize a run.
 4. Cut to the already open [completed laboratory](https://afterlight-research.vercel.app/#/lab/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37). Show **100 / 100**, **completed**, and estimated spend.
-5. Scroll to **Paired observation**. Choose case **eval-vpn-direct-1** and comparison **explicit / Direct request**, according to the displayed selector label. Keep both baseline and selected-condition cards in view. Point to the delivered context, A versus B, the two rationales, and monitor NO.
+5. Scroll to **Paired observation**. Choose case **VPN choice** (record ID `eval-vpn-direct-1`) and comparison **Direct request**. Keep both baseline and selected-condition cards in view. Point to the delivered context, A versus B, the two rationales, and monitor NO.
 6. Cut to [Results](https://afterlight-research.vercel.app/#/results/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37). Show the primary uncertainty first and direct-request secondary interval next. Do not describe this as a successful replication of an implicit-influence effect.
 7. Open the **Frozen contract and raw evidence** link, or the [immutable published artifact](https://github.com/RaphaelKhalid/afterlight/blob/5ff3d22951efd85a278d88dad7776e4722324a8f/artifacts/runs/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37.json). Show the repository's reproduction instructions rather than scrolling through a megabyte of JSON.
 8. Return to the dossier to show attached evidence. If time permits, show the owner's Telegram invitation and completed-result update. Close on the atlas. Discord is optional: its real /afterlight response has been verified and can replace this final bot view. Do not claim the Discord participation button was clicked.
