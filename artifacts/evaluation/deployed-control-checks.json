@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-09-13T19:28:37.185Z",
+  "tests": [
+    {
+      "name": "unauthorized",
+      "httpStatus": 401,
+      "response": {
+        "error": {
+          "code": "UNAUTHORIZED",
+          "message": "Owner authorization is required to start a paid run."
+        }
+      }
+    },
+    {
+      "name": "changed-contract",
+      "httpStatus": 409,
+      "response": {
+        "error": {
+          "code": "CONTRACT_NOT_VALIDATED",
+          "message": "Only the exact hash of a validated contract can be run."
+        }
+      }
+    },
+    {
+      "name": "budget-stop",
+      "httpStatus": 202,
+      "response": {
+        "run": {
+          "id": "run_a814b624-352a-4fa9-9483-1424e5f5c98b",
+          "status": "queued",
+          "capUsd": 0.005,
+          "totalTrials": 100
+        }
+      }
+    }
+  ]
+}

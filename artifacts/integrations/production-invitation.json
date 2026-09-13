@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-09-13T18:54:51.718Z",
+  "checks": [
+    {
+      "path": "/api/health",
+      "status": 200
+    },
+    {
+      "path": "/api/questions",
+      "status": 200,
+      "questionCount": 6
+    },
+    {
+      "path": "/api/contracts",
+      "status": 200,
+      "contractCount": 1
+    },
+    {
+      "path": "/api/attempts?questionId=q-implicit-influence",
+      "status": 200,
+      "attemptCount": 0
+    }
+  ],
+  "invitation": {
+    "status": 202,
+    "deduplicated": false
+  }
+}

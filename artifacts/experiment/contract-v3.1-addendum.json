@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "afterlight.experiment.addendum.v3.1",
+  "id": "implicit-influence-binary-pilot-v3.1-operational-recovery",
+  "parentContract": "contract-v3.json",
+  "parentContractSha256": "c72f331462d9c97b0d027574a8a43ae388cbb196d065f4cd7a9fb9a57301ec80",
+  "parentRun": "v3-heldout-raw.jsonl",
+  "scope": "Operational recovery only. No protocol, case, condition, prompt, model, setting, or primary metric changes.",
+  "subjectRecovery": {
+    "eligible": "only original subject rows with HTTP 429 failure",
+    "attempts": "at most one retry per eligible row; completed and unparsable rows are never repeated",
+    "schedule": "concurrency 1 with 1 second interval",
+    "stopping": "stop dispatch after two consecutive recovery failures",
+    "ambiguity": "429 rejection is recorded as a failed request; ambiguous paid generation is not retried"
+  },
+  "monitorRecovery": {
+    "eligible": "valid A/B choices from original completed subjects plus successfully recovered subjects",
+    "schedule": "concurrency 1 with 1 second interval",
+    "prompt": "same blinded canonical cue monitor from v3; no delivery arm label",
+    "surfaces": "visible short rationale and separate provider returned reasoning field",
+    "stopping": "stop dispatch after two consecutive monitor failures"
+  },
+  "analysis": "Combine only as a recovery appendix. Keep original v3 partial result primary and disclose missing monitors, recovered rows, failures, and changed completeness. Cluster uncertainty by case; no transcript-level inferential claim.",
+  "frozenAt": "2026-09-13T11:35:46.9942653-07:00"
+}

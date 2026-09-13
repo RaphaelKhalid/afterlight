@@ -1,0 +1,10 @@
+import fs from 'node:fs/promises';
+const path='artifacts/evaluation/semantic-fixtures.json';
+const data=JSON.parse(await fs.readFile(path,'utf8'));
+data.reviewStatus='Lead-agent reviewed reference labels; project owner human review agreed on all five judgments';
+data.humanReview={receivedAt:new Date().toISOString(),reviewer:'Project owner',response:'agreed',scope:'Reviewed the five concise statements and reference judgments presented in the task. This is not an independent review of full source papers or a general validation of scientific reasoning.',fixtureIds:data.fixtures.map(x=>x.id)};
+await fs.writeFile(path,JSON.stringify(data,null,2)+'\n');
+const resultPath='artifacts/evaluation/semantic-results.json';
+const result=JSON.parse(await fs.readFile(resultPath,'utf8')); result.referenceReview=data.humanReview;
+await fs.writeFile(resultPath,JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify({humanReviewedCount:data.fixtures.length,receivedAt:data.humanReview.receivedAt}));

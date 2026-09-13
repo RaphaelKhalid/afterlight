@@ -8,3 +8,6 @@ docs
 AGENTS.md
 local-access.json
 *.log
+public/assets/afterlight-fireworks.png
+node_modules
+backend/node_modules

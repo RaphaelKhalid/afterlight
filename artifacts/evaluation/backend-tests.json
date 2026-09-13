@@ -1,0 +1,156 @@
+{
+  "checkedAt": "2026-09-13T20:44:16.182Z",
+  "tool": "Vitest",
+  "command": "npx vitest run",
+  "success": true,
+  "total": 30,
+  "passed": 30,
+  "failed": 0,
+  "pending": 0,
+  "suites": [
+    {
+      "file": "tests/discord.test.ts",
+      "status": "passed",
+      "tests": [
+        {
+          "title": "Discord interaction boundary accepts a correctly signed body",
+          "status": "passed"
+        },
+        {
+          "title": "Discord interaction boundary rejects a tampered body",
+          "status": "passed"
+        },
+        {
+          "title": "Discord interaction boundary rejects a valid but stale signature",
+          "status": "passed"
+        },
+        {
+          "title": "Discord interaction boundary rejects absent signatures",
+          "status": "passed"
+        },
+        {
+          "title": "Discord interaction boundary answers Discord verification ping without database access",
+          "status": "passed"
+        },
+        {
+          "title": "Discord interaction boundary does not access the database for an unapproved participant",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/handler.integration.test.ts",
+      "status": "passed",
+      "tests": [
+        {
+          "title": "Afterlight Worker handler boundaries serves health and public question routes through the actual Worker",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries rejects an attempted paid run before touching the database when owner auth is absent",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries rejects an invalid Telegram secret without persisting a callback",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries rejects a changed contract hash before queuing owner spend",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries rejects primary-measurement changes without touching the frozen contract or accounting",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries rejects a question identity that does not match the validated contract",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries rejects a cap when historical provider spend exhausts the configured allowance",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries allows only one concurrent reservation when the provider allowance has one cap-sized slot",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries enforces contract expiry and creates case-major trial order",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries stops a queued workflow before dispatch when the run cap is already spent",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries reconciles an interrupted trial and resumes without double-counting completed work",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries accounts a stopped in-flight scientific trial once and updates a released reservation",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries does not resume while an unexpired workflow lease is active",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries reuses its stable workflow instance lease on replay and reconciles an in-flight trial",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries releases a stopped settled run reservation and retains one with an ambiguous trial",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries deduplicates a repeated Telegram callback in D1",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight Worker handler boundaries returns an existing GitHub publication without repeating the side effect",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/policy.test.ts",
+      "status": "passed",
+      "tests": [
+        {
+          "title": "Afterlight spend and deduplication policies rejects an unauthorized or over-reserved cap",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight spend and deduplication policies requires the exact validated contract hash",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight spend and deduplication policies stops dispatch when the remaining cap cannot cover a trial",
+          "status": "passed"
+        },
+        {
+          "title": "Afterlight spend and deduplication policies makes Telegram callbacks and GitHub paths stable deduplication keys",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/scientific.test.ts",
+      "status": "passed",
+      "tests": [
+        {
+          "title": "Fixed live scientific adapter matches all 20 subject and monitor prompts in the frozen Python protocol byte-for-byte",
+          "status": "passed"
+        },
+        {
+          "title": "Fixed live scientific adapter uses the identical candidate cue across baseline, implicit, explicit and neutral monitor prompts",
+          "status": "passed"
+        },
+        {
+          "title": "Fixed live scientific adapter keeps unavailable choices missing instead of scoring a failure as a negative observation",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

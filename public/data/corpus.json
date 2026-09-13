@@ -55,14 +55,16 @@
         ]
       },
       "executable": true,
-      "estimatedCostUsd": 1,
-      "estimatedMinutes": 12,
-      "access": "API only; owner authorization required",
+      "estimatedCostUsd": 0.2,
+      "estimatedMinutes": 15,
+      "access": "OpenAI API with owner authorization",
       "position": {
         "x": 63,
         "y": 43
       },
-      "evidenceIds": []
+      "evidenceIds": [
+        "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37"
+      ]
     },
     {
       "id": "q-cue-channel",

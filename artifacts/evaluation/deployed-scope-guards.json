@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-09-13T20:44:16.179Z",
+  "checks": [
+    {
+      "name": "post-result-primary-change",
+      "httpStatus": 409,
+      "error": {
+        "code": "SCOPE_CHANGE_REQUIRES_NEW_CONTRACT",
+        "message": "Run requests may only provide the frozen contract identity, question identity, and cap.",
+        "details": {
+          "fields": [
+            "primaryOutcome"
+          ]
+        }
+      }
+    },
+    {
+      "name": "mismatched-question",
+      "httpStatus": 409,
+      "error": {
+        "code": "QUESTION_CONTRACT_MISMATCH",
+        "message": "questionId must match the validated contract."
+      }
+    }
+  ],
+  "runIdsUnchanged": true,
+  "frozenContractUnchanged": true,
+  "providerCallsDispatched": 0,
+  "existingCompletedRunId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37"
+}

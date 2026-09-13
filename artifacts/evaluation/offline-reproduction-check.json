@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-09-13T20:17:15.372Z",
+  "networkCalls": false,
+  "planCommand": "node research/reproduce-visible.mjs",
+  "contractHash": "2768dcca1f11b86debc641429e9d1befb6c7d503903b98155c001b28d82020f5",
+  "analysisCommand": "python research/analyze_visible.py --contract artifacts/experiment/visible-contract-v1.json --run artifacts/experiment/visible-run.json --trials artifacts/experiment/visible-trials.json --output-json work/reproduced-analysis.json --output-md work/reproduced-analysis.md",
+  "exactMatchingFields": [
+    "conditionSummaries",
+    "caseClusteredPairedDeltas",
+    "monitorByCondition",
+    "cost"
+  ],
+  "result": "pass"
+}

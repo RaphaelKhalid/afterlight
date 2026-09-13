@@ -1,0 +1,57 @@
+{
+  "checkedAt": "2026-09-13T21:00:09.398Z",
+  "frontend": {
+    "url": "https://afterlight-research.vercel.app",
+    "deploymentId": "dpl_9xytLpWTWPZ4bqd6u5Z5z8uBL5eJ",
+    "state": "READY"
+  },
+  "backend": {
+    "url": "https://afterlight-api.raphaelbahadurkhan.workers.dev",
+    "versionId": "2a5ca8ff-e477-4088-9d7e-f812c5a2e94f"
+  },
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 942,
+      "sha256": "0d6937a3fbc8ebd271e6c10e903b4f1e51dd4795283a08bc91207bc937132689"
+    },
+    {
+      "path": "/assets/index-kXWxG14J.js",
+      "status": 200,
+      "sha256": "8c22d5120314cfb31cc742da603f35fcc3562e2c78d5c71dbcd770717b9abb93",
+      "matchesLocalBuild": true
+    },
+    {
+      "path": "/api/health",
+      "status": 200,
+      "bytes": 98,
+      "sha256": "b6a70264723308c7e5484bf7de1d3a9fb4af14937f2538132208e3ebe4f624b9"
+    },
+    {
+      "path": "/api/runs/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+      "status": 200,
+      "bytes": 37831,
+      "sha256": "28382c2d05185a968bab9e678861dbc036011f2961d883bc42db66078c1fc1ad"
+    },
+    {
+      "path": "/api/runs/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37/trials",
+      "status": 200,
+      "bytes": 603019,
+      "sha256": "2211b2381b87d85f19e0c634bd10bce1213d22b0dedc053d2afd3def01e2105c"
+    },
+    {
+      "path": "/api/questions/q-implicit-influence",
+      "status": 200,
+      "bytes": 57516,
+      "sha256": "33bcacabd0040eb5689158e1ad64c818c1675e8730b059133c41972e29e578ca"
+    }
+  ],
+  "immutableArtifact": {
+    "url": "https://raw.githubusercontent.com/RaphaelKhalid/afterlight/5ff3d22951efd85a278d88dad7776e4722324a8f/artifacts/runs/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37.json",
+    "status": 200,
+    "sha256": "186ebcb4c3dacc8705e068e5c47e29aa6fa3139a7ff6e6e4c11ce45bb4939b84",
+    "matchesInspectedPayload": true
+  },
+  "providerCallsDispatched": 0
+}

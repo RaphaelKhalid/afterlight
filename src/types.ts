@@ -39,7 +39,7 @@ export interface Edge { id: string; source: string; target: string; type: string
 
 export interface Trial {
   id: string; runId: string; caseId: string; condition: string; status: string; input?: unknown; output?: unknown; answer?: string; expectedAnswer?: string
-  score?: number; monitorVerdict?: string; usage?: { inputTokens?: number; outputTokens?: number; totalTokens?: number }; costUsd?: number
+  score?: number; choice?: string; rationale?: string; providerReasoning?: string; observationSurface?: string; monitorVerdict?: string; raw?: Record<string, unknown>; usage?: { inputTokens?: number; outputTokens?: number; totalTokens?: number }; costUsd?: number
   createdAt?: string; completedAt?: string; provider?: string; model?: string; metadata?: Record<string, unknown>
 }
 
@@ -47,10 +47,9 @@ export interface Run {
   id: string; questionId: string; contractId: string; contractHash: string; status: string; createdAt?: string; startedAt?: string; completedAt?: string
   capUsd: number; spentUsd: number; costStatus: string; completedTrials: number; totalTrials: number; failedTrials: number
   conditions?: { id?: string; label: string; description?: string; color?: string }[]; summary?: {
-    headline?: string; conclusion?: string; primaryOutcome?: string; uncertainty?: string; limitations?: string[]; observations?: string[]
-  }; artifactUrl?: string; events?: { at?: string; label: string; detail?: string; type?: string }[]
+    headline?: string; hypothesis?: string; conclusion?: string; primaryOutcome?: string; uncertainty?: string; limitations?: string[]; observations?: string[]; analysis?: Record<string, unknown>
+  }; artifactUrl?: string; events?: { at?: string; createdAt?: string; label?: string; detail?: unknown; type?: string }[]
 }
 
 export interface CorpusPayload { questions: Question[]; papers: Paper[]; edges: Edge[]; coverage?: { searchedAt?: string; paperCount?: number; questionCount?: number; note?: string } }
 export interface DemoPayload { run?: Run; trials?: Trial[]; contract?: Record<string, unknown> }
-

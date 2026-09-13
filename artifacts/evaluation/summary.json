@@ -1,0 +1,233 @@
+{
+  "schemaVersion": "afterlight.evaluation-summary.v1",
+  "createdAt": "2026-09-13T20:30:08.889020+00:00",
+  "status": "complete",
+  "scope": "Machine-readable inventory of recorded handoff evidence. It links existing artifacts and test source; it does not add experiment observations or billing claims.",
+  "categories": {
+    "semantic_review": {
+      "sourceSupport": {
+        "fixtureId": "source-supported",
+        "passed": true,
+        "source": "artifacts/evaluation/semantic-results.json"
+      },
+      "duplicate": {
+        "fixtureId": "duplicate-wording",
+        "passed": true,
+        "source": "artifacts/evaluation/semantic-results.json"
+      },
+      "partial": {
+        "fixtureId": "partial-mitigation",
+        "passed": true,
+        "source": "artifacts/evaluation/semantic-results.json"
+      },
+      "relatedNotAnswer": {
+        "fixtureId": "related-not-answer",
+        "passed": true,
+        "source": "artifacts/evaluation/semantic-results.json"
+      },
+      "review": {
+        "fixtureCount": 5,
+        "passed": 5,
+        "httpStatus": 200,
+        "reviewStatus": "Five concise reference judgments reviewed and agreed by project owner",
+        "fixtureRecord": "artifacts/evaluation/semantic-fixtures.json",
+        "humanReview": {
+          "receivedAt": "2026-09-13T18:34:02.241Z",
+          "reviewer": "Project owner",
+          "response": "agreed",
+          "scope": "Reviewed the five concise statements and reference judgments presented in the task. This is not an independent review of full source papers or a general validation of scientific reasoning.",
+          "fixtureIds": [
+            "source-supported",
+            "duplicate-wording",
+            "partial-mitigation",
+            "related-not-answer",
+            "unsupported-universal"
+          ]
+        }
+      }
+    },
+    "protocol_guards": {
+      "missingCriterion": {
+        "source": "backend/tests/handler.integration.test.ts",
+        "testTitle": "Afterlight Worker handler boundaries enforces contract expiry and creates case-major trial order",
+        "assertedStatus": 422,
+        "assertedErrorCode": "EXECUTABLE_CRITERION_REQUIRED",
+        "assertedNoRunRows": true,
+        "note": "The criterionless contract assertion is one branch of this integration test; the test also covers expiry and case-major ordering."
+      },
+      "postFreezePrimaryChange": {
+        "contractSource": "artifacts/experiment/visible-contract-v1.json",
+        "contractId": "visible-explanation-v1",
+        "frozenAt": "2026-09-13T19:11:29.165391+00:00",
+        "operationalChange": "After repeated documented shared-pool rate limits on OpenRouter, use the direct OpenAI API. This is a new frozen model/endpoint and measurement-surface version. No old scientific observations are replaced or pooled into its primary estimate.",
+        "primaryOutcome": "Mean paired difference across cases in target-aligned choice indicator: contextual aside minus no cue.",
+        "oldObservationsPooled": false,
+        "recoverySource": "artifacts/experiment/v3.2-recovery-summary.json",
+        "originalProtocolAndPrimaryAnalysisUnchanged": true,
+        "adapterChecksSource": "artifacts/evaluation/backend-tests.json",
+        "adapterChecksPassed": [
+          "Fixed live scientific adapter matches all 20 subject and monitor prompts in the frozen Python protocol byte-for-byte",
+          "Fixed live scientific adapter uses the identical candidate cue across baseline, implicit, explicit and neutral monitor prompts"
+        ],
+        "deployedSource": "artifacts/evaluation/deployed-scope-guards.json",
+        "extraPrimaryFieldRejectedWith": "SCOPE_CHANGE_REQUIRES_NEW_CONTRACT",
+        "questionMismatchRejectedWith": "QUESTION_CONTRACT_MISMATCH",
+        "unchangedRunIds": true,
+        "unchangedFrozenContract": true,
+        "providerCallsDispatched": 0
+      }
+    },
+    "production_budget_stop": {
+      "source": "artifacts/evaluation/deployed-budget-stop.json",
+      "run": {
+        "id": "run_a814b624-352a-4fa9-9483-1424e5f5c98b",
+        "status": "stopped",
+        "capUsd": 0.005,
+        "spentUsd": 0,
+        "completedTrials": 0,
+        "failedTrials": 0,
+        "totalTrials": 100
+      },
+      "trialStatuses": {
+        "missing": 1,
+        "pending": 99
+      },
+      "controlRequestSource": "artifacts/evaluation/deployed-control-checks.json",
+      "controlRequest": {
+        "name": "budget-stop",
+        "httpStatus": 202,
+        "response": {
+          "run": {
+            "id": "run_a814b624-352a-4fa9-9483-1424e5f5c98b",
+            "status": "queued",
+            "capUsd": 0.005,
+            "totalTrials": 100
+          }
+        }
+      }
+    },
+    "interruption_resume": {
+      "source": "artifacts/evaluation/persisted-response-recovery.json",
+      "runId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+      "networkCalls": 0,
+      "readCount": 2,
+      "status": "applied-and-resume-requested",
+      "verifiedBeforeResume": {
+        "status": "paused",
+        "completedTrials": 5,
+        "spentUsd": 0.001062
+      },
+      "requestHashesVerified": true,
+      "finalIntegritySource": "artifacts/evaluation/completed-run-integrity.json",
+      "finalRunStatus": "completed",
+      "finalCompletedTrials": 100,
+      "note": "Recovery reused persisted responses and did not dispatch duplicate provider calls."
+    },
+    "security_and_idempotency": {
+      "unauthorizedSpend": {
+        "source": "artifacts/evaluation/deployed-control-checks.json",
+        "httpStatus": 401,
+        "errorCode": "UNAUTHORIZED",
+        "message": "Owner authorization is required to start a paid run."
+      },
+      "callbackDedup": {
+        "source": "artifacts/evaluation/backend-tests.json",
+        "testFile": "backend/tests/handler.integration.test.ts",
+        "testTitle": "Afterlight Worker handler boundaries deduplicates a repeated Telegram callback in D1",
+        "status": "passed"
+      },
+      "githubDedup": {
+        "source": "artifacts/integrations/github-publication.json",
+        "firstHttpStatus": 201,
+        "repeatHttpStatus": 200,
+        "firstDeduplicated": false,
+        "repeatDeduplicated": true,
+        "sameArtifactHash": true,
+        "immutableUrl": "https://github.com/RaphaelKhalid/afterlight/blob/5ff3d22951efd85a278d88dad7776e4722324a8f/artifacts/runs/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37.json"
+      }
+    },
+    "monitor_and_backend_tests": {
+      "monitorControls": {
+        "source": "artifacts/evaluation/visible-monitor-results.json",
+        "planned": 4,
+        "completed": 4,
+        "passed": 4,
+        "limits": "Four synthetic controls check a narrow attribution judgment, not general monitor reliability."
+      },
+      "backendTests": {
+        "source": "artifacts/evaluation/backend-tests.json",
+        "command": "npx vitest run",
+        "total": 30,
+        "passed": 30,
+        "failed": 0,
+        "pending": 0,
+        "integrationTests": 17,
+        "leaseGuardTitles": [
+          "Afterlight Worker handler boundaries accounts a stopped in-flight scientific trial once and updates a released reservation",
+          "Afterlight Worker handler boundaries does not resume while an unexpired workflow lease is active",
+          "Afterlight Worker handler boundaries reuses its stable workflow instance lease on replay and reconciles an in-flight trial",
+          "Afterlight Worker handler boundaries releases a stopped settled run reservation and retains one with an ambiguous trial"
+        ]
+      }
+    },
+    "offline_reproduction": {
+      "source": "artifacts/evaluation/offline-reproduction-check.json",
+      "planCommand": "node research/reproduce-visible.mjs",
+      "analysisCommand": "python research/analyze_visible.py --contract artifacts/experiment/visible-contract-v1.json --run artifacts/experiment/visible-run.json --trials artifacts/experiment/visible-trials.json --output-json work/reproduced-analysis.json --output-md work/reproduced-analysis.md",
+      "networkCalls": false,
+      "exactMatchingFields": [
+        "conditionSummaries",
+        "caseClusteredPairedDeltas",
+        "monitorByCondition",
+        "cost"
+      ],
+      "result": "pass",
+      "contractHash": "2768dcca1f11b86debc641429e9d1befb6c7d503903b98155c001b28d82020f5"
+    },
+    "main_run_integrity": {
+      "source": "artifacts/evaluation/completed-run-integrity.json",
+      "runId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+      "contractHash": "2768dcca1f11b86debc641429e9d1befb6c7d503903b98155c001b28d82020f5",
+      "runStatus": "completed",
+      "plannedTrials": 100,
+      "completedTrials": 100,
+      "failedTrials": 0,
+      "trialRows": 100,
+      "uniqueTrialIds": 100,
+      "providerResponseIds": 200,
+      "uniqueProviderResponseIds": 200,
+      "scientificStageRecords": 200,
+      "stageStatuses": {
+        "completed": 200
+      },
+      "spentUsd": 0.0236126,
+      "costStatus": "estimated",
+      "scientificReviewSource": "artifacts/experiment/visible-scientific-review.json",
+      "primaryResult": "Implicit minus baseline is +0.10 with 95% case-clustered bootstrap CI [-0.10, 0.30], so the primary result is inconclusive. Neutral control is +0.15 [0.00, 0.30], which also does not isolate an implicit cue effect."
+    },
+    "deployed_application": {
+      "browserSource": "artifacts/evaluation/browser-verification.json",
+      "deploymentSource": "artifacts/evaluation/release-deployment.json",
+      "desktopRoutesVerified": [
+        "atlas",
+        "question",
+        "designer",
+        "laboratory",
+        "results"
+      ],
+      "actualReadOnlyApiVerified": true,
+      "publicImmutablePayloadVerified": true
+    }
+  },
+  "semantic_limits": {
+    "source": "artifacts/evaluation/semantic-results.json",
+    "limitations": [
+      "Five selected fixtures do not estimate general research-agent accuracy.",
+      "Reference labels were authored by AI agents. The project owner reviewed five concise statements, not the complete papers or unseen examples.",
+      "The classification call was run once with no retry or tuning on these results."
+    ],
+    "humanReviewScope": "Reviewed the five concise statements and reference judgments presented in the task. This is not an independent review of full source papers or a general validation of scientific reasoning.",
+    "interpretation": "Five passed fixtures document scoped reference-label agreement. They do not estimate general research-agent accuracy or validate complete papers and unseen examples."
+  },
+  "updatedAt": "2026-09-13T21:01:24.015749+00:00"
+}

@@ -1,0 +1,16 @@
+import fs from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const sha=x=>createHash('sha256').update(x).digest('hex');
+const dir='artifacts/experiment';
+const path=dir+'/v3.2-recovery-raw.jsonl';
+const source=await fs.readFile(path,'utf8');
+await fs.mkdir('.cache/private-experiment',{recursive:true});await fs.writeFile('.cache/private-experiment/v3.2-recovery-original.jsonl',source);
+let count=0;
+const clean=x=>{if(Array.isArray(x))return x.map(clean);if(x&&typeof x==='object'){const out={};for(const[k,v]of Object.entries(x)){if(k==='user_id'||k==='userId'){out[k]='[redacted account identifier]';count++;}else out[k]=clean(v);}return out;}return x;};
+const rows=source.trim().split(/\r?\n/).map(line=>{const row=JSON.parse(line);const before=count;if(row.errorBody){try{row.errorBody=JSON.stringify(clean(JSON.parse(row.errorBody)));}catch{}}if(row.rawResponse)row.rawResponse=clean(row.rawResponse);if(count>before)row.redactions=['Private account identifier removed. Scientific request, response, error status, and measurement fields are unchanged.'];return row;});
+const output=rows.map(r=>JSON.stringify(r)).join('\n')+'\n';await fs.writeFile(path,output);
+await fs.writeFile(dir+'/v3.2-redaction-manifest.json',JSON.stringify({createdAt:new Date().toISOString(),rows:rows.length,accountFieldsRedacted:count,originalPrivateSha256:sha(source),publicSha256:sha(output),reason:'Provider error bodies included the owner account identifier. Exact originals are retained privately; public artifacts preserve scientific and operational evidence.',measurementFieldsChanged:false},null,2));
+const ignore=await fs.readFile('.gitignore','utf8');await fs.writeFile('.gitignore',ignore.replaceAll('artifacts/experiment/v3.2-recovery-raw.jsonl','').replaceAll('artifacts/experiment/v3.2-dispatch-journal.jsonl',''));
+const summary=JSON.parse(await fs.readFile(dir+'/v3.2-recovery-summary.json','utf8'));const allowance=summary.knownCostUsd+summary.reservedUnknownUsd;
+await fs.writeFile('backend/work/settle-recovery-budget.sql',`UPDATE budget_reservations SET spent_usd=${allowance}, reserved_usd=${allowance}, status='released',released_at='${new Date().toISOString()}' WHERE id='development-openrouter-v32';\n`);
+console.log(JSON.stringify({rows:rows.length,accountFieldsRedacted:count,knownCost:summary.knownCostUsd,unknownAllowance:summary.reservedUnknownUsd,settledBudgetAllowance:allowance}));

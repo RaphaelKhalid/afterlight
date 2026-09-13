@@ -4,7 +4,7 @@ This guide covers the frozen direct OpenAI visible-explanation adapter. It is se
 
 ## Offline analysis
 
-The analyzer makes no network calls and does not require Node packages or provider credentials. From the `work/afterlight` directory, run:
+The analyzer makes no network calls and does not require Node packages or provider credentials. From the repository root, run:
 
 ```sh
 python research/analyze_visible.py
@@ -42,6 +42,7 @@ cd backend
 npm ci
 npm run check
 npm run test:integration
+npx vitest run
 ```
 
 ## Explicitly authorized paid execution
@@ -64,4 +65,4 @@ Set `AFTERLIGHT_API_BASE` and `AFTERLIGHT_OWNER_TOKEN` in the private environmen
 
 ## Evidence and completion
 
-Freeze the analysis plan before reading the main outcome. Keep the plan hash, contract hash, adapter hash, run ID, raw trial export, scientific-call journal, and analysis output together. A completed status does not remove failed, ambiguous, missing, or invalid rows from the report. A null estimate does not establish equivalence. The direct OpenAI study observes only the final visible rationale and does not expose internal reasoning tokens.
+Freeze the analysis plan before reading the main outcome. Keep the plan hash, contract hash, adapter hash, run ID, raw trial export, scientific-call journal, and analysis output together. A completed status does not remove failed, ambiguous, missing, or invalid rows from the report. A null estimate does not establish equivalence. The direct OpenAI study observes only the final visible rationale and does not expose internal reasoning content.

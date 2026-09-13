@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "afterlight.experiment.recovery.v3.2",
+  "completedAt": "2026-09-13T18:53:29.947492+00:00",
+  "calls": 25,
+  "knownCostUsd": 0.00033222000000000004,
+  "unknownCostCalls": 10,
+  "reservedUnknownUsd": 0.05,
+  "callCeiling": 350,
+  "capUsd": 1.8,
+  "stopReason": "ten rate-limit rejections",
+  "rawEvidence": "v3.2-recovery-raw.jsonl",
+  "dispatchJournal": "v3.2-dispatch-journal.jsonl",
+  "originalSubjectRowsNeverRepeated": 168,
+  "originalProtocolAndPrimaryAnalysisUnchanged": true
+}

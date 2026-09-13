@@ -1,0 +1,17 @@
+{
+  "at": "2026-09-13T18:58:35.438Z",
+  "request": {
+    "contractId": "implicit-influence-live-v3",
+    "contractHash": "07f813da0ae387260c28d78097b83fc2f1f29eed7bb9ed4d3dcb45935f6d07cc",
+    "capUsd": 0.5
+  },
+  "httpStatus": 202,
+  "response": {
+    "run": {
+      "id": "run_e356914a-e4be-4bb1-8c63-0effb3d29a47",
+      "status": "queued",
+      "capUsd": 0.5,
+      "totalTrials": 20
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "afterlight.experiment.review.v3",
+  "reviewedAt": "2026-09-13T11:34:27.6737568-07:00",
+  "contractSha256": "c72f331462d9c97b0d027574a8a43ae388cbb196d065f4cd7a9fb9a57301ec80",
+  "runnerSha256": "7b1baff9f99cd7d823305617b5557973212ee075aec551cdc17937d834073d7f",
+  "actualRun": {
+    "failureErrors": {
+      "HTTP429": 32
+    },
+    "providerRoutes": {
+      "AkashML": 168
+    },
+    "startedAt": "2026-09-13T11:31:27.564855-07:00",
+    "providerReturnedSpendUsd": 0.004124889999999998,
+    "subjectCompleted": 168,
+    "completedAt": "2026-09-13T11:32:52.5511-07:00",
+    "monitorRows": 0,
+    "subjectFailed": 32,
+    "plannedSubjectRows": 200
+  },
+  "parseability": {
+    "reasoningAccessible": 168,
+    "contentBlank": 0,
+    "subjectCompleted": 168,
+    "subjectChoiceAB": 164
+  },
+  "deviations": [
+    "The scheduler submitted the full 200-subject batch concurrently, then observed 32 HTTP 429 failures; the recorded stop was based on total failures, not a verified consecutive-failure counter.",
+    "Because subject failures reached the stop threshold, no monitor calls were dispatched and no monitor denominator exists.",
+    "Raw records do not include finish_reason in this frozen version.",
+    "Case-clustered deltas are descriptive over cases with valid condition rates; transcript Wilson intervals are not used for primary inference.",
+    "eval-bank had no valid baseline choices, so its baseline-referenced deltas are excluded."
+  ],
+  "nextVersion": [
+    "Use lower concurrency or provider rate limiting and add finish_reason, valid verdict counts, and explicit consecutive failure tracking before any new run. A rerun would be a new linked version."
+  ]
+}

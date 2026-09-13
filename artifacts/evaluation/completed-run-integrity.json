@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-09-13T19:56:04.589Z",
+  "runId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+  "contractHash": "2768dcca1f11b86debc641429e9d1befb6c7d503903b98155c001b28d82020f5",
+  "runStatus": "completed",
+  "plannedTrials": 100,
+  "completedTrials": 100,
+  "failedTrials": 0,
+  "trialRows": 100,
+  "uniqueTrialIds": 100,
+  "providerResponseIds": 200,
+  "uniqueProviderResponseIds": 200,
+  "scientificStageRecords": 200,
+  "stageStatuses": {
+    "completed": 200
+  },
+  "spentUsd": 0.0236126,
+  "costStatus": "estimated",
+  "trialsFileSha256": "7cee2321b8de78593ef054f3dc6ee42f184d66b1f6e7bfe5b120892b66375d77",
+  "databaseVerification": {
+    "checkedAt": "2026-09-13T20:15:15.379Z",
+    "maximumTrialAttempts": 1,
+    "trialRows": 100,
+    "reservationStatus": "released",
+    "reservedUsd": 2,
+    "spentUsd": 0.0236126
+  }
+}

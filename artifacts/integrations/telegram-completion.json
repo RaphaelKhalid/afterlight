@@ -1,0 +1,10 @@
+{
+  "sentAt": "2026-09-13T20:22:35.618Z",
+  "httpStatus": 200,
+  "accepted": true,
+  "messageId": 3,
+  "text": "Afterlight completed your research attempt: 100 trials across 20 paired cases, with all 200 responses saved. The primary contextual-cue result was inconclusive (+10 percentage points, interval -10 to +30). Direct requests, a secondary comparison, shifted choices by +55 points (+35 to +75). Main-run cost: about $0.0236, estimated from token usage. Your participation is linked to the recorded result.",
+  "resultUrl": "https://afterlight-research.vercel.app/#/results/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+  "audience": "Owner-authorized private bot chat only",
+  "delivery": "Operator-triggered completion update"
+}
