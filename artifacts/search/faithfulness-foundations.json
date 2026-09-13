@@ -1,0 +1,85 @@
+{
+  "id": "faithfulness-foundations",
+  "startedAt": "2026-09-13T18:01:02.403Z",
+  "request": {
+    "query": "reasoning models faithfulness monitoring verbalize hidden bias 2026 arxiv",
+    "type": "auto",
+    "numResults": 10,
+    "includeDomains": [
+      "arxiv.org"
+    ],
+    "startPublishedDate": "2026-06-01T00:00:00Z",
+    "endPublishedDate": "2026-09-14T00:00:00Z"
+  },
+  "httpStatus": 200,
+  "requestId": "4b85ca308647dfee60b9835a78dc7f3c",
+  "costDollars": {
+    "total": 0.007,
+    "search": {
+      "neural": 0.007
+    }
+  },
+  "costStatus": "provider-returned",
+  "results": [
+    {
+      "id": "https://arxiv.org/abs/2608.29070",
+      "url": "https://arxiv.org/abs/2608.29070",
+      "title": "[2608.29070] Selective Disclosure of Hidden Directives in Reasoning Models: Behavioral Asymmetry and Steering",
+      "publishedDate": "2026-08-29T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.29464",
+      "url": "https://arxiv.org/abs/2608.29464",
+      "title": "Chain-of-Thought Faithfulness of Reasoning Models Varies ... - arXiv",
+      "publishedDate": "2026-08-29T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.04343",
+      "url": "https://arxiv.org/abs/2609.04343",
+      "title": "[2609.04343] A Removal Based Approach to Improve LLM Faithfulness at Test-Time",
+      "publishedDate": "2026-09-03T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.04928v1",
+      "url": "https://arxiv.org/abs/2608.04928v1",
+      "title": "[2608.04928v1] Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?",
+      "publishedDate": "2026-08-05T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.03745v1",
+      "url": "https://arxiv.org/abs/2608.03745v1",
+      "title": "[2608.03745v1] Risky Business: Measuring The Faithfulness-Safety Tension",
+      "publishedDate": "2026-08-04T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2606.03969",
+      "url": "https://arxiv.org/abs/2606.03969",
+      "title": "[2606.03969] Quantifying Faithful Confidence Expression in Large Reasoning Models",
+      "publishedDate": "2026-06-02T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.10060",
+      "url": "https://arxiv.org/abs/2609.10060",
+      "title": "[2609.10060] Reference-Based Bias Detection in LLMs via Relative Representations of Hidden States",
+      "publishedDate": "2026-09-09T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.20670",
+      "url": "https://arxiv.org/abs/2608.20670",
+      "title": "[2608.20670] Why2Speak: Faithful Reasoning for Abstaining Action Policies",
+      "publishedDate": "2026-08-21T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/html/2603.28590v3",
+      "url": "https://arxiv.org/html/2603.28590v3",
+      "title": "A Comprehensive Benchmark for Chain-of-Thought Monitorability in ...",
+      "publishedDate": "2026-08-09T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.04194",
+      "url": "https://arxiv.org/abs/2609.04194",
+      "title": "[2609.04194] Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning",
+      "publishedDate": "2026-09-03T00:00:00.000Z"
+    }
+  ]
+}

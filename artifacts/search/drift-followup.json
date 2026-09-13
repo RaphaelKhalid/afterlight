@@ -1,0 +1,82 @@
+{
+  "id": "drift-followup",
+  "startedAt": "2026-09-13T17:57:48.055Z",
+  "completedAt": "2026-09-13T17:57:49.398Z",
+  "request": {
+    "query": "\"Aligned, Orthogonal or In-conflict\" chain of thought monitorability follow up",
+    "type": "auto",
+    "numResults": 10
+  },
+  "httpStatus": 200,
+  "requestId": "dcfff43ab7a86039652c361c10947184",
+  "costDollars": {
+    "total": 0.007,
+    "search": {
+      "neural": 0.007
+    }
+  },
+  "costStatus": "provider-returned",
+  "rawResponseSha256": "d8077cd0a860a8f58f4a52c7ac4c32112eb754c516fdabbd8e10e389616cbed6",
+  "results": [
+    {
+      "id": "https://arxiv.org/html/2603.30036v1",
+      "url": "https://arxiv.org/html/2603.30036v1",
+      "title": "Aligned, Orthogonal or In-conflict: When can we safely ..."
+    },
+    {
+      "id": "https://arxiv.org/pdf/2603.30036",
+      "url": "https://arxiv.org/pdf/2603.30036",
+      "title": "Aligned, Orthogonal or In-conflict: When can we safely ..."
+    },
+    {
+      "id": "https://www.alignmentforum.org/posts/SvxaKP5KdkksZPcG7/predicting-when-rl-training-breaks-chain-of-thought",
+      "url": "https://www.alignmentforum.org/posts/SvxaKP5KdkksZPcG7/predicting-when-rl-training-breaks-chain-of-thought",
+      "title": ""
+    },
+    {
+      "id": "https://www.alphaxiv.org/abs/2603.30036",
+      "url": "https://www.alphaxiv.org/abs/2603.30036",
+      "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought? | alphaXiv",
+      "publishedDate": "2026-03-31T00:00:00.000Z",
+      "author": "and Rohin Shah"
+    },
+    {
+      "id": "https://huggingface.co/papers/2603.30036",
+      "url": "https://huggingface.co/papers/2603.30036",
+      "title": "Paper page - Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought?",
+      "author": "Max Kaufmann     ,"
+    },
+    {
+      "id": "https://www.alphaxiv.org/overview/2603.30036",
+      "url": "https://www.alphaxiv.org/overview/2603.30036",
+      "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought? | alphaXiv",
+      "publishedDate": "2026-03-31T00:00:00.000Z",
+      "author": "and Rohin Shah"
+    },
+    {
+      "id": "https://www.greaterwrong.com/posts/SvxaKP5KdkksZPcG7/predicting-when-rl-training-breaks-chain-of-thought",
+      "url": "https://www.greaterwrong.com/posts/SvxaKP5KdkksZPcG7/predicting-when-rl-training-breaks-chain-of-thought",
+      "title": "Predicting When RL Training Breaks Chain-of-Thought Monitorability - LessWrong 2.0 viewer",
+      "publishedDate": "2026-04-01T00:00:00.000Z",
+      "author": "David Lindner"
+    },
+    {
+      "id": "https://www.emergentmind.com/papers/2603.30036",
+      "url": "https://www.emergentmind.com/papers/2603.30036",
+      "title": "Safe CoT Optimization in RL",
+      "publishedDate": "2026-03-31T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.lesswrong.com/posts/g8by3avjatXnpvM4A/should-we-train-against-cot-monitors-1",
+      "url": "https://www.lesswrong.com/posts/g8by3avjatXnpvM4A/should-we-train-against-cot-monitors-1",
+      "title": "Should We Train Against (CoT) Monitors?",
+      "publishedDate": "2026-04-23T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.gg/abs/2603.30036",
+      "url": "https://arxiv.gg/abs/2603.30036",
+      "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought? - arXiv.gg",
+      "publishedDate": "2026-03-31T00:00:00.000Z"
+    }
+  ]
+}

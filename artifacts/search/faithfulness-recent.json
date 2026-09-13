@@ -1,0 +1,85 @@
+{
+  "id": "faithfulness-recent",
+  "startedAt": "2026-09-13T17:57:43.800Z",
+  "completedAt": "2026-09-13T17:57:45.241Z",
+  "request": {
+    "query": "reasoning models hidden contextual influence biases faithfulness monitor 2026",
+    "startPublishedDate": "2026-06-01T00:00:00Z",
+    "endPublishedDate": "2026-09-14T00:00:00Z",
+    "type": "auto",
+    "numResults": 10
+  },
+  "httpStatus": 200,
+  "requestId": "98e488d8026f1277d6d49698ff613457",
+  "costDollars": {
+    "total": 0.007,
+    "search": {
+      "neural": 0.007
+    }
+  },
+  "costStatus": "provider-returned",
+  "rawResponseSha256": "430d0abd1a2f144dd5fea51688fda05cb9ec3ff95c48f2aeb4166edf6351b1d8",
+  "results": [
+    {
+      "id": "https://arxiv.org/abs/2608.29070",
+      "url": "https://arxiv.org/abs/2608.29070",
+      "title": "[2608.29070] Selective Disclosure of Hidden Directives in Reasoning Models: Behavioral Asymmetry and Steering",
+      "publishedDate": "2026-08-29T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.29464",
+      "url": "https://arxiv.org/abs/2608.29464",
+      "title": "[2608.29464] Chain-of-Thought Faithfulness of Reasoning Models Varies with Where and How Preference Cues Are Delivered",
+      "publishedDate": "2026-08-29T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.04343",
+      "url": "https://arxiv.org/abs/2609.04343",
+      "title": "[2609.04343] A Removal Based Approach to Improve LLM Faithfulness at Test-Time",
+      "publishedDate": "2026-09-03T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.nature.com/articles/s42256-026-01300-1",
+      "url": "https://www.nature.com/articles/s42256-026-01300-1",
+      "title": "Implicit-bias-like patterns in reasoning models | Nature Machine Intelligence",
+      "publishedDate": "2026-09-01T11:15:52.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.04194",
+      "url": "https://arxiv.org/abs/2609.04194",
+      "title": "[2609.04194] Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning",
+      "publishedDate": "2026-09-03T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.02754",
+      "url": "https://arxiv.org/abs/2609.02754",
+      "title": "[2609.02754] Untangling the Mechanisms of Misleading Context in Medical Question Answering",
+      "publishedDate": "2026-09-02T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.10060",
+      "url": "https://arxiv.org/abs/2609.10060",
+      "title": "[2609.10060] Reference-Based Bias Detection in LLMs via Relative Representations of Hidden States",
+      "publishedDate": "2026-09-09T00:00:00.000Z"
+    },
+    {
+      "id": "https://multigrid.ai/learn/faithfulness-of-reasoning",
+      "url": "https://multigrid.ai/learn/faithfulness-of-reasoning",
+      "title": "Can You Trust a Model’s Stated Reasoning? · Multigrid",
+      "publishedDate": "2026-08-03T00:00:00.000Z"
+    },
+    {
+      "id": "https://aclanthology.org/2026.findings-acl.218.pdf",
+      "url": "https://aclanthology.org/2026.findings-acl.218.pdf",
+      "title": "[PDF] Finding RELIEF: Shaping Reasoning Behavior ... - ACL Anthology",
+      "publishedDate": "2026-07-02T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.alphaxiv.org/abs/2607.06648",
+      "url": "https://www.alphaxiv.org/abs/2607.06648",
+      "title": "Final Checkpoints Are Not Enough: Analyzing Latent Reasoning Faithfulness Along Training Trajectories | alphaXiv",
+      "publishedDate": "2026-07-07T00:00:00.000Z",
+      "author": "Di Wang"
+    }
+  ]
+}

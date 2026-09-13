@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "afterlight-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-13",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "ENVIRONMENT": "production",
+    "OWNER_BUDGET_USD": "25",
+    "OPENAI_BUDGET_USD": "25",
+    "EXA_BUDGET_USD": "10",
+    "OPENROUTER_BUDGET_USD": "6"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "afterlight-research",
+      "database_id": "7455423a-6856-43f6-8ac3-210c9cadcb04",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "workflows": [
+    {
+      "binding": "AFTERLIGHT_WORKFLOW",
+      "name": "afterlight-experiment",
+      "class_name": "AfterlightWorkflow"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "monitorability-recent",
+  "startedAt": "2026-09-13T17:57:40.330Z",
+  "completedAt": "2026-09-13T17:57:42.541Z",
+  "request": {
+    "query": "chain of thought monitorability reasoning faithfulness AI safety 2026",
+    "startPublishedDate": "2026-06-01T00:00:00Z",
+    "endPublishedDate": "2026-09-14T00:00:00Z",
+    "type": "auto",
+    "numResults": 10
+  },
+  "httpStatus": 200,
+  "requestId": "7f8ab11c9f3c9e21ff413e3fdf82fb7f",
+  "costDollars": {
+    "total": 0.007,
+    "search": {
+      "neural": 0.007
+    }
+  },
+  "costStatus": "provider-returned",
+  "rawResponseSha256": "a2d41a87a9a0a1da2953a9b222d8050ae14571631c7de9c85227392fc383778a",
+  "results": [
+    {
+      "id": "https://labs.scale.com/papers/cotm",
+      "url": "https://labs.scale.com/papers/cotm",
+      "title": "Chain of Thought Monitorability | Scale Labs",
+      "publishedDate": "2026-07-19T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2607.23458",
+      "url": "https://arxiv.org/abs/2607.23458",
+      "title": "Two Regimes of Chain-of-Thought Unfaithfulness:Metric-Based Detection Fails Where Models Are Wrong",
+      "publishedDate": "2026-08-23T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.29464",
+      "url": "https://arxiv.org/abs/2608.29464",
+      "title": "[2608.29464] Chain-of-Thought Faithfulness of Reasoning Models Varies with Where and How Preference Cues Are Delivered",
+      "publishedDate": "2026-08-29T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.lesswrong.com/posts/hLPGv8QjPcNLtDp3A/proposal-for-tracking-the-effects-of-architecture-on",
+      "url": "https://www.lesswrong.com/posts/hLPGv8QjPcNLtDp3A/proposal-for-tracking-the-effects-of-architecture-on",
+      "title": "Proposal for tracking the effects of architecture on monitorability — LessWrong",
+      "publishedDate": "2026-09-10T17:18:38.000Z"
+    },
+    {
+      "id": "https://arxiv.org/html/2607.22925v1",
+      "url": "https://arxiv.org/html/2607.22925v1",
+      "title": "Not All LLM Reasoning is Visible in the Chain-of-Thought - arXiv",
+      "publishedDate": "2026-07-24T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.alphaxiv.org/abs/2607.08066",
+      "url": "https://www.alphaxiv.org/abs/2607.08066",
+      "title": "Persuasion Attacks Can Decrease Effectiveness of CoT Monitoring | alphaXiv",
+      "publishedDate": "2026-07-09T00:00:00.000Z",
+      "author": "Victoria Krakovna"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.04194",
+      "url": "https://arxiv.org/abs/2609.04194",
+      "title": "[2609.04194] Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning",
+      "publishedDate": "2026-09-03T00:00:00.000Z"
+    },
+    {
+      "id": "https://www.alphaxiv.org/abs/2603.01437",
+      "url": "https://www.alphaxiv.org/abs/2603.01437",
+      "title": "Post-Hoc Reasoning in Chain of Thought: Decoding and Steering Pre-Committed Answers | alphaXiv",
+      "publishedDate": "2026-07-23T00:00:00.000Z",
+      "author": "Adrià Garriga-Alonso"
+    },
+    {
+      "id": "https://ai.stanford.edu/blog/cot-monitoring-history/",
+      "url": "https://ai.stanford.edu/blog/cot-monitoring-history/",
+      "title": "CoT Monitoring: Where Does a Hot Safety Problem Come From?",
+      "publishedDate": "2026-06-18T00:00:00.000Z",
+      "author": "<a href='https://peterbhase.github.io'>Peter Hase</a> and <a href='https://stanford.edu/~cgpotts/'>Christopher Potts</a>"
+    },
+    {
+      "id": "https://aiweekly.co/alerts/length-penalties-cut-chain-of-thought-monitor-detection",
+      "url": "https://aiweekly.co/alerts/length-penalties-cut-chain-of-thought-monitor-detection",
+      "title": "Length Penalties Cut Chain-of-Thought Monitor Detection | AI Weekly",
+      "publishedDate": "2026-07-16T00:00:00.000Z",
+      "author": "Alexis Dufresne"
+    }
+  ]
+}

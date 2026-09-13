@@ -1,0 +1,85 @@
+{
+  "id": "monitor-intervention",
+  "startedAt": "2026-09-13T18:01:04.159Z",
+  "request": {
+    "query": "chain of thought monitorability controllability safety 2026 arxiv reward hacking",
+    "type": "auto",
+    "numResults": 10,
+    "includeDomains": [
+      "arxiv.org"
+    ],
+    "startPublishedDate": "2026-06-01T00:00:00Z",
+    "endPublishedDate": "2026-09-14T00:00:00Z"
+  },
+  "httpStatus": 200,
+  "requestId": "de3c6d3e7f005f7e54773fea6a8faa83",
+  "costDollars": {
+    "total": 0.007,
+    "search": {
+      "neural": 0.007
+    }
+  },
+  "costStatus": "provider-returned",
+  "results": [
+    {
+      "id": "https://arxiv.org/abs/2608.04928v1",
+      "url": "https://arxiv.org/abs/2608.04928v1",
+      "title": "[2608.04928v1] Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?",
+      "publishedDate": "2026-08-05T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.04735v1",
+      "url": "https://arxiv.org/abs/2608.04735v1",
+      "title": "[2608.04735v1] Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings",
+      "publishedDate": "2026-08-05T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/html/2604.16242v2",
+      "url": "https://arxiv.org/html/2604.16242v2",
+      "title": "Detecting and Suppressing Reward Hacking with Gradient Fingerprints",
+      "publishedDate": "2026-08-23T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/html/2607.22925v1",
+      "url": "https://arxiv.org/html/2607.22925v1",
+      "title": "Not All LLM Reasoning is Visible in the Chain-of-Thought - arXiv",
+      "publishedDate": "2026-07-24T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.29070",
+      "url": "https://arxiv.org/abs/2608.29070",
+      "title": "[2608.29070] Selective Disclosure of Hidden Directives in Reasoning Models: Behavioral Asymmetry and Steering",
+      "publishedDate": "2026-08-29T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2609.07162",
+      "url": "https://arxiv.org/abs/2609.07162",
+      "title": "[2609.07162] The Oversight Gap: What LLM Safety Monitors Miss, and Why It Is Not Capability",
+      "publishedDate": "2026-09-07T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/pdf/2606.05625",
+      "url": "https://arxiv.org/pdf/2606.05625",
+      "title": "[PDF] A Reward-Free Probe for Prompted Implicit Hacking - arXiv",
+      "publishedDate": "2026-06-04T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/pdf/2607.22925",
+      "url": "https://arxiv.org/pdf/2607.22925",
+      "title": "[PDF] Not All LLM Reasoning is Visible in the Chain-of-Thought - arXiv",
+      "publishedDate": "2026-07-24T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/abs/2608.29464",
+      "url": "https://arxiv.org/abs/2608.29464",
+      "title": "[2608.29464] Chain-of-Thought Faithfulness of Reasoning Models Varies with Where and How Preference Cues Are Delivered",
+      "publishedDate": "2026-08-29T00:00:00.000Z"
+    },
+    {
+      "id": "https://arxiv.org/html/2603.28590v3",
+      "url": "https://arxiv.org/html/2603.28590v3",
+      "title": "A Comprehensive Benchmark for Chain-of-Thought Monitorability in ...",
+      "publishedDate": "2026-08-09T00:00:00.000Z"
+    }
+  ]
+}

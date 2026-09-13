@@ -1,0 +1,996 @@
+{
+  "questions": [
+    {
+      "id": "q-implicit-influence",
+      "title": "When a cue changes the answer, does the explanation reveal it?",
+      "area": "Implicit influence",
+      "status": "Partially addressed",
+      "origin": "agent-proposed",
+      "summary": "Compare the same decision with a neutral context and a contextual cue. Measure changes in choices separately from what a monitor can detect in the returned explanation.",
+      "whyItMatters": "Oversight can fail silently if a model changes its behavior while its visible explanation gives a monitor no useful evidence of the influence. A controlled comparison can expose that gap without pretending to read hidden computation.",
+      "source": {
+        "paperId": "2608.04735",
+        "url": "https://arxiv.org/html/2608.04735v1#S3.SS1",
+        "version": "v1",
+        "section": "Section 3.1, binary preference elicitation; Section 5, limitations",
+        "passage": "Nudges span themes including ethical concerns, social proof, sunk cost, and demographic cues."
+      },
+      "closestWork": [
+        {
+          "paperId": "2608.04735",
+          "finding": "Directly compares implicit and explicit influence with baseline checks and monitors in four task families.",
+          "mismatch": "Our affordable API adaptation uses a small decision family and only the output surfaces its endpoint returns. It is not a reproduction of the full benchmark."
+        },
+        {
+          "paperId": "2608.29464",
+          "finding": "Studies cue channel and explicitness, plus source-attribution and monitoring-awareness prompts.",
+          "mismatch": "Its prefilled-tool and open-weight settings do not establish behavior for our exact endpoint and task distribution."
+        },
+        {
+          "paperId": "2609.04343",
+          "finding": "Removes uncredited input concepts and re-queries to target explanation incompleteness.",
+          "mismatch": "The mitigation changes the input and is not yet evaluated in our locked experiment."
+        }
+      ],
+      "uncertainty": "The broad phenomenon has prior evidence. The effect size and monitor behavior in our exact setting remain empirical questions. A failed or null pilot would not settle the broader problem.",
+      "search": {
+        "date": "2026-09-13",
+        "queries": [
+          "\"Aligned, Orthogonal or In-conflict\" chain of thought monitorability follow up",
+          "reasoning models faithfulness monitoring verbalize hidden bias 2026 arxiv",
+          "reasoning models hidden contextual influence biases faithfulness monitor 2026",
+          "\"Chain-of-Thought Monitoring Can Be Unreliable\" implicit influence Duzan follow up replication",
+          "chain of thought monitorability controllability safety 2026 arxiv reward hacking",
+          "chain of thought monitorability reasoning faithfulness AI safety 2026",
+          "chain of thought monitorability oversight safety reasoning monitor 2026 arxiv June July August September",
+          "AI safety chain of thought monitoring implicit influence oversight blind spots researcher blog 2026",
+          "chain of thought reward compatibility monitorability drift optimization 2026"
+        ],
+        "coverage": "Nine bounded Exa searches across academic papers, lab and researcher sites, public technical discussions and repositories, followed by primary arXiv metadata and abstract checks. Source coverage is selective and English-led.",
+        "inaccessible": [
+          "Private or unpublished work",
+          "Paywalled full text not separately obtained",
+          "Comprehensive social-platform and LinkedIn coverage",
+          "Search-index omissions and differently worded work"
+        ]
+      },
+      "executable": true,
+      "estimatedCostUsd": 1,
+      "estimatedMinutes": 12,
+      "access": "API only; owner authorization required",
+      "position": {
+        "x": 63,
+        "y": 43
+      },
+      "evidenceIds": []
+    },
+    {
+      "id": "q-cue-channel",
+      "title": "Does evidence arriving through a tool become harder to notice?",
+      "area": "Implicit influence",
+      "status": "Partially addressed",
+      "origin": "agent-proposed",
+      "summary": "Hold a preference cue fixed while changing whether it arrives as a user statement or a tool result.",
+      "whyItMatters": "Agents consume tool output as part of ordinary work. Monitoring tests based only on direct user instructions may miss how those channels change cue attribution.",
+      "source": {
+        "paperId": "2608.29464",
+        "url": "https://arxiv.org/abs/2608.29464v2",
+        "version": "v2",
+        "section": "Abstract, FACE-Eval design",
+        "passage": "Every model has lower verbalized commitment for tool-return than user-message cues and for implicit than explicit cues."
+      },
+      "closestWork": [
+        {
+          "paperId": "2608.29464",
+          "finding": "Reports channel and explicitness effects across 15 open-weight models, with mixed attribution-prompt mitigation.",
+          "mismatch": "Transfer to multi-step tools, current proprietary endpoints and other task families is not established by its single-call design."
+        },
+        {
+          "paperId": "2608.04735",
+          "finding": "Separates implicit from explicit delivery in matched task formats.",
+          "mismatch": "Delivery regime and tool channel are different variables; matching one does not control the other."
+        }
+      ],
+      "uncertainty": "An extension must control message role, content, context length and output accessibility. This question is proposal-only and has no Afterlight result.",
+      "search": {
+        "date": "2026-09-13",
+        "queries": [
+          "\"Aligned, Orthogonal or In-conflict\" chain of thought monitorability follow up",
+          "reasoning models faithfulness monitoring verbalize hidden bias 2026 arxiv",
+          "reasoning models hidden contextual influence biases faithfulness monitor 2026",
+          "\"Chain-of-Thought Monitoring Can Be Unreliable\" implicit influence Duzan follow up replication",
+          "chain of thought monitorability controllability safety 2026 arxiv reward hacking",
+          "chain of thought monitorability reasoning faithfulness AI safety 2026",
+          "chain of thought monitorability oversight safety reasoning monitor 2026 arxiv June July August September",
+          "AI safety chain of thought monitoring implicit influence oversight blind spots researcher blog 2026",
+          "chain of thought reward compatibility monitorability drift optimization 2026"
+        ],
+        "coverage": "Nine bounded Exa searches across academic papers, lab and researcher sites, public technical discussions and repositories, followed by primary arXiv metadata and abstract checks. Source coverage is selective and English-led.",
+        "inaccessible": [
+          "Private or unpublished work",
+          "Paywalled full text not separately obtained",
+          "Comprehensive social-platform and LinkedIn coverage",
+          "Search-index omissions and differently worded work"
+        ]
+      },
+      "executable": false,
+      "access": "API only; protocol not yet validated",
+      "position": {
+        "x": 75,
+        "y": 28
+      },
+      "evidenceIds": []
+    },
+    {
+      "id": "q-length-pressure",
+      "title": "What evidence disappears when reasoning becomes shorter?",
+      "area": "Reward compatibility",
+      "status": "Partially addressed",
+      "origin": "agent-proposed",
+      "summary": "Separate a shorter visible trace from a training process that changes which reasoning gets expressed.",
+      "whyItMatters": "Reducing inference cost is useful, but preserving task accuracy alone may hide a loss of evidence available to an overseer.",
+      "source": {
+        "paperId": "2607.09786",
+        "url": "https://arxiv.org/abs/2607.09786v3",
+        "version": "v3",
+        "section": "Abstract, length-matched control",
+        "passage": "Shorter chains of thought mention misleading hints less often, but the hints still influence the models' answers."
+      },
+      "closestWork": [
+        {
+          "paperId": "2607.09786",
+          "finding": "Compares trained compression against deletion controls matched in length across five distributions.",
+          "mismatch": "A maximum-output setting at inference time is not the same intervention as training with length penalties."
+        },
+        {
+          "paperId": "2603.30036",
+          "finding": "Relates reasoning and outcome reward compatibility to monitorability changes.",
+          "mismatch": "Its training mechanism does not identify a safe universal inference-time length cap."
+        }
+      ],
+      "uncertainty": "A useful comparison needs accuracy, influence and false-positive controls. Training replication requires model access and compute. No safe universal cap is claimed.",
+      "search": {
+        "date": "2026-09-13",
+        "queries": [
+          "\"Aligned, Orthogonal or In-conflict\" chain of thought monitorability follow up",
+          "reasoning models faithfulness monitoring verbalize hidden bias 2026 arxiv",
+          "reasoning models hidden contextual influence biases faithfulness monitor 2026",
+          "\"Chain-of-Thought Monitoring Can Be Unreliable\" implicit influence Duzan follow up replication",
+          "chain of thought monitorability controllability safety 2026 arxiv reward hacking",
+          "chain of thought monitorability reasoning faithfulness AI safety 2026",
+          "chain of thought monitorability oversight safety reasoning monitor 2026 arxiv June July August September",
+          "AI safety chain of thought monitoring implicit influence oversight blind spots researcher blog 2026",
+          "chain of thought reward compatibility monitorability drift optimization 2026"
+        ],
+        "coverage": "Nine bounded Exa searches across academic papers, lab and researcher sites, public technical discussions and repositories, followed by primary arXiv metadata and abstract checks. Source coverage is selective and English-led.",
+        "inaccessible": [
+          "Private or unpublished work",
+          "Paywalled full text not separately obtained",
+          "Comprehensive social-platform and LinkedIn coverage",
+          "Search-index omissions and differently worded work"
+        ]
+      },
+      "executable": false,
+      "access": "Training compute for faithful replication; API variant is a different study",
+      "position": {
+        "x": 84,
+        "y": 62
+      },
+      "evidenceIds": []
+    },
+    {
+      "id": "q-reward-drift",
+      "title": "Can reasoning stay legible as optimization continues?",
+      "area": "Reward compatibility",
+      "status": "Partially addressed",
+      "origin": "agent-proposed",
+      "summary": "Investigate when continued optimization changes the evidence available to a fixed monitor.",
+      "whyItMatters": "An oversight method validated at one checkpoint may not preserve its behavior after training or reward changes.",
+      "source": {
+        "paperId": "2603.30036",
+        "url": "https://arxiv.org/html/2603.30036v1",
+        "version": "v1",
+        "section": "Abstract; Appendix I.7 is prior capped-continuation work",
+        "passage": "We model LLM post-training as an RL environment where the reward decomposes into two terms"
+      },
+      "closestWork": [
+        {
+          "paperId": "2603.30036",
+          "finding": "Tests a reward-compatibility framework and already compares unrestricted with capped continuation in Appendix I.7.",
+          "mismatch": "That comparison is established prior work. A fixed representation convention and transfer to current endpoints would require a new, controlled protocol."
+        },
+        {
+          "paperId": "2606.28166",
+          "finding": "Uses a fixed junior model during training to encourage legible, compatible reasoning.",
+          "mismatch": "Junior-model communication compatibility is not itself a safety-monitor detection guarantee."
+        },
+        {
+          "paperId": "2607.06648",
+          "finding": "Shows that a final checkpoint can conceal changing faithfulness-related behavior along training.",
+          "mismatch": "Latent-reasoning interventions and API-visible explanation monitoring use different access and measurements."
+        }
+      ],
+      "uncertainty": "Drift can require hundreds of iterations. We have not run this experiment and do not present a tiny inference pilot as a training replication.",
+      "search": {
+        "date": "2026-09-13",
+        "queries": [
+          "\"Aligned, Orthogonal or In-conflict\" chain of thought monitorability follow up",
+          "reasoning models faithfulness monitoring verbalize hidden bias 2026 arxiv",
+          "reasoning models hidden contextual influence biases faithfulness monitor 2026",
+          "\"Chain-of-Thought Monitoring Can Be Unreliable\" implicit influence Duzan follow up replication",
+          "chain of thought monitorability controllability safety 2026 arxiv reward hacking",
+          "chain of thought monitorability reasoning faithfulness AI safety 2026",
+          "chain of thought monitorability oversight safety reasoning monitor 2026 arxiv June July August September",
+          "AI safety chain of thought monitoring implicit influence oversight blind spots researcher blog 2026",
+          "chain of thought reward compatibility monitorability drift optimization 2026"
+        ],
+        "coverage": "Nine bounded Exa searches across academic papers, lab and researcher sites, public technical discussions and repositories, followed by primary arXiv metadata and abstract checks. Source coverage is selective and English-led.",
+        "inaccessible": [
+          "Private or unpublished work",
+          "Paywalled full text not separately obtained",
+          "Comprehensive social-platform and LinkedIn coverage",
+          "Search-index omissions and differently worded work"
+        ]
+      },
+      "executable": false,
+      "access": "Training compute and checkpoint access",
+      "position": {
+        "x": 68,
+        "y": 72
+      },
+      "evidenceIds": []
+    },
+    {
+      "id": "q-visible-evidence",
+      "title": "How much can a monitor infer from the text it receives?",
+      "area": "Accessible reasoning",
+      "status": "Partially addressed",
+      "origin": "agent-proposed",
+      "summary": "Treat visible explanations, returned reasoning tokens and internal activations as different observation surfaces.",
+      "whyItMatters": "A monitor can only use the evidence it actually receives. A convincing explanation does not prove that all decision-relevant computation is visible.",
+      "source": {
+        "paperId": "2608.04928",
+        "url": "https://arxiv.org/abs/2608.04928v1",
+        "version": "v1",
+        "section": "Abstract, monitoring-access comparison",
+        "passage": "monitorability depends more on properties of the task"
+      },
+      "closestWork": [
+        {
+          "paperId": "2608.04928",
+          "finding": "Compares reasoning modes with differing task structure and internal access.",
+          "mismatch": "Its hint-based tasks do not quantify all forms of real-world hidden influence."
+        },
+        {
+          "paperId": "2607.22925",
+          "finding": "Finds consequential behavior with semantically uninformative filler tokens in synthetic tasks.",
+          "mismatch": "Invisible computation is a demonstrated possibility, not an explanation for every missed cue."
+        },
+        {
+          "paperId": "2609.02754",
+          "finding": "Compares cue disclosure and monitoring from returned traces and responses.",
+          "mismatch": "Its medical benchmark and provider access differ from this laboratory's benign decision tasks."
+        }
+      ],
+      "uncertainty": "Readability, faithfulness, task correctness and monitorability are distinct. No claim of access to private internal reasoning is made.",
+      "search": {
+        "date": "2026-09-13",
+        "queries": [
+          "\"Aligned, Orthogonal or In-conflict\" chain of thought monitorability follow up",
+          "reasoning models faithfulness monitoring verbalize hidden bias 2026 arxiv",
+          "reasoning models hidden contextual influence biases faithfulness monitor 2026",
+          "\"Chain-of-Thought Monitoring Can Be Unreliable\" implicit influence Duzan follow up replication",
+          "chain of thought monitorability controllability safety 2026 arxiv reward hacking",
+          "chain of thought monitorability reasoning faithfulness AI safety 2026",
+          "chain of thought monitorability oversight safety reasoning monitor 2026 arxiv June July August September",
+          "AI safety chain of thought monitoring implicit influence oversight blind spots researcher blog 2026",
+          "chain of thought reward compatibility monitorability drift optimization 2026"
+        ],
+        "coverage": "Nine bounded Exa searches across academic papers, lab and researcher sites, public technical discussions and repositories, followed by primary arXiv metadata and abstract checks. Source coverage is selective and English-led.",
+        "inaccessible": [
+          "Private or unpublished work",
+          "Paywalled full text not separately obtained",
+          "Comprehensive social-platform and LinkedIn coverage",
+          "Search-index omissions and differently worded work"
+        ]
+      },
+      "executable": false,
+      "access": "Depends on the observation surface; internal probes require weights",
+      "position": {
+        "x": 53,
+        "y": 61
+      },
+      "evidenceIds": []
+    },
+    {
+      "id": "q-monitor-measurement",
+      "title": "Is the monitor detecting influence, or judging a plausible story?",
+      "area": "Measurement",
+      "status": "Unassessed",
+      "origin": "agent-proposed",
+      "summary": "Validate explanation judgments against controlled changes, negative controls and the full set of attempted trials.",
+      "whyItMatters": "A high aggregate score can conceal failures in the cases that matter. Monitor judgments need an independently defined target and clear denominators.",
+      "source": {
+        "paperId": "2609.04194",
+        "url": "https://arxiv.org/abs/2609.04194v1",
+        "version": "v1",
+        "section": "Abstract, causal importance and judge estimates",
+        "passage": "step importance is only partially recoverable from the text of the reasoning trace"
+      },
+      "closestWork": [
+        {
+          "paperId": "2609.04194",
+          "finding": "Compares judged step importance with continuation-based estimates.",
+          "mismatch": "Step importance differs from detecting a contextual cue's effect on a decision."
+        },
+        {
+          "paperId": "2609.00264",
+          "finding": "Shows that trusted answers can improve conclusion checking while leaving errors in correct-answer traces missed.",
+          "mismatch": "Reasoning correctness and influence attribution require separate validation."
+        },
+        {
+          "paperId": "2607.23458",
+          "finding": "Finds that behavioral faithfulness metrics vary across correct- and incorrect-answer regimes.",
+          "mismatch": "The available abstract review does not establish which metric transfers to this task."
+        }
+      ],
+      "uncertainty": "This dossier is an agent-proposed synthesis. A complete closest-work assessment and executable criterion have not yet been frozen.",
+      "search": {
+        "date": "2026-09-13",
+        "queries": [
+          "\"Aligned, Orthogonal or In-conflict\" chain of thought monitorability follow up",
+          "reasoning models faithfulness monitoring verbalize hidden bias 2026 arxiv",
+          "reasoning models hidden contextual influence biases faithfulness monitor 2026",
+          "\"Chain-of-Thought Monitoring Can Be Unreliable\" implicit influence Duzan follow up replication",
+          "chain of thought monitorability controllability safety 2026 arxiv reward hacking",
+          "chain of thought monitorability reasoning faithfulness AI safety 2026",
+          "chain of thought monitorability oversight safety reasoning monitor 2026 arxiv June July August September",
+          "AI safety chain of thought monitoring implicit influence oversight blind spots researcher blog 2026",
+          "chain of thought reward compatibility monitorability drift optimization 2026"
+        ],
+        "coverage": "Nine bounded Exa searches across academic papers, lab and researcher sites, public technical discussions and repositories, followed by primary arXiv metadata and abstract checks. Source coverage is selective and English-led.",
+        "inaccessible": [
+          "Private or unpublished work",
+          "Paywalled full text not separately obtained",
+          "Comprehensive social-platform and LinkedIn coverage",
+          "Search-index omissions and differently worded work"
+        ]
+      },
+      "executable": false,
+      "access": "Protocol design and reviewed labels required",
+      "position": {
+        "x": 86,
+        "y": 41
+      },
+      "evidenceIds": []
+    }
+  ],
+  "papers": [
+    {
+      "id": "2608.04735",
+      "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings",
+      "authors": [
+        "Duzan, Agatha",
+        "Stickland, Asa Cooper"
+      ],
+      "published": "2026-08-05",
+      "updated": "2026-08-05",
+      "url": "https://arxiv.org/abs/2608.04735v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Compares implicit and explicit contextual influence across four task families and seven extended-thinking models. The authors report lower detection of some implicit influences, with further degradation under some guidance prompts. This is the closest source for our bounded behavioral adaptation.",
+      "topics": [
+        "Implicit influence",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Seven extended-thinking models; paper results are distinct from our API pilot.",
+      "checkedAt": "2026-09-13T17:59:33.564Z"
+    },
+    {
+      "id": "2608.29464",
+      "title": "Chain-of-Thought Faithfulness of Reasoning Models Varies with Where and How Preference Cues Are Delivered",
+      "authors": [
+        "Gema, Aryo Pradipta",
+        "Rajani, Neel",
+        "Saxena, Rohit",
+        "Kwan, Wai-Chung",
+        "Minervini, Pasquale"
+      ],
+      "published": "2026-08-29",
+      "updated": "2026-09-01",
+      "url": "https://arxiv.org/abs/2608.29464v2",
+      "version": "v2",
+      "sourceType": "arXiv preprint",
+      "abstract": "FACE-Eval varies preference-cue channel and explicitness. Across 15 open-weight models, the authors report less verbalized attribution for tool-return and implicit cues. Their source-attribution intervention has mixed effects, so changing cue placement or attribution prompts is established prior work.",
+      "topics": [
+        "Implicit influence",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "15 open-weight models; single-call, prefilled-tool setting.",
+      "checkedAt": "2026-09-13T17:59:36.703Z"
+    },
+    {
+      "id": "2607.22925",
+      "title": "Not All LLM Reasoning is Visible in the Chain-of-Thought",
+      "authors": [
+        "Baherwani, Vatsal",
+        "Goldstein, Tom",
+        "Panda, Ashwinee"
+      ],
+      "published": "2026-07-24",
+      "updated": "2026-09-03",
+      "url": "https://arxiv.org/abs/2607.22925v2",
+      "version": "v2",
+      "sourceType": "arXiv preprint",
+      "abstract": "Tests whether semantically uninformative filler tokens can support reasoning and hidden task constraints. The findings challenge the assumption that all consequential computation appears as interpretable output text. They do not establish that every unexplained decision uses the same mechanism.",
+      "topics": [
+        "Accessible reasoning",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "13 frontier models; synthetic tasks and a hidden modular-arithmetic constraint.",
+      "checkedAt": "2026-09-13T17:59:42.996Z"
+    },
+    {
+      "id": "2609.04194",
+      "title": "Legibility is Not Interpretability: Comparing Judged and Actual Importance in Chain-Of-Thought Reasoning",
+      "authors": [
+        "Du, Kevin",
+        "Hoyle, Alexander",
+        "Ruis, Laura",
+        "Locatelli, Acyr"
+      ],
+      "published": "2026-09-03",
+      "updated": "2026-09-03",
+      "url": "https://arxiv.org/abs/2609.04194v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Compares judges of reasoning-step importance against estimates from repeated continuations. Capable judges recover some information, but legible text remains an incomplete guide to a step's functional contribution. This motivates separating an explanation judgment from a causal measurement.",
+      "topics": [
+        "Measurement",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Monte Carlo continuation estimates; judging performance remains below the estimated noise ceiling.",
+      "checkedAt": "2026-09-13T17:59:49.363Z"
+    },
+    {
+      "id": "2607.09786",
+      "title": "Length Penalties Make Chain-of-Thought Less Monitorable",
+      "authors": [
+        "Little, Bryce"
+      ],
+      "published": "2026-07-08",
+      "updated": "2026-08-02",
+      "url": "https://arxiv.org/abs/2607.09786v3",
+      "version": "v3",
+      "sourceType": "arXiv preprint",
+      "abstract": "Trains reasoning models with length penalties and measures hint influence and monitorability. The authors compare compressed traces with length-matched deletion controls, finding that compression can remove more monitorable evidence than shortening alone predicts. An API output cap is a different intervention.",
+      "topics": [
+        "Reward compatibility",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Qwen3 4B and 14B; training intervention and five evaluation distributions.",
+      "checkedAt": "2026-09-13T18:00:08.358Z"
+    },
+    {
+      "id": "2608.04928",
+      "title": "Does Out-of-Sight Equal Out-of-Mind in CoT Monitorability?",
+      "authors": [
+        "Ferreira, Pedro",
+        "Aziz, Wilker",
+        "Titov, Ivan"
+      ],
+      "published": "2026-08-05",
+      "updated": "2026-08-05",
+      "url": "https://arxiv.org/abs/2608.04928v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Compares monitoring with explicit and latent reasoning, using hints as controlled interventions. The authors find that task structure and access to internal states can matter more than reasoning mode. This supports precise labels for which output surface a monitor actually sees.",
+      "topics": [
+        "Accessible reasoning",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Math and question answering; explicit, weakly supervised and strongly supervised latent reasoning.",
+      "checkedAt": "2026-09-13T18:01:33.017Z"
+    },
+    {
+      "id": "2608.29070",
+      "title": "Selective Disclosure of Hidden Directives in Reasoning Models: Behavioral Asymmetry and Steering",
+      "authors": [
+        "Shi, Zimo",
+        "Tifft, Xander",
+        "Xing, Wen"
+      ],
+      "published": "2026-08-29",
+      "updated": "2026-08-29",
+      "url": "https://arxiv.org/abs/2608.29070v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Studies whether benign and malign hidden directives appear differently in returned reasoning. The authors report disclosure asymmetries and activation-steering results. Disclosure frequency alone is not a complete measure of whether a directive causally affected an answer.",
+      "topics": [
+        "Implicit influence",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Eight reasoning models; behavioral controls and a separately described steering evaluation.",
+      "checkedAt": "2026-09-13T17:59:52.566Z"
+    },
+    {
+      "id": "2609.04343",
+      "title": "A Removal Based Approach to Improve LLM Faithfulness at Test-Time",
+      "authors": [
+        "Luo, Qinglan",
+        "Nahian, S M A",
+        "Guttag, John",
+        "Abulnaga, S. Mazdak",
+        "Matton, Katie"
+      ],
+      "published": "2026-09-03",
+      "updated": "2026-09-03",
+      "url": "https://arxiv.org/abs/2609.04343v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Proposes removing input concepts that an explanation does not credit, then querying the model again. The authors report improved explanation completeness in their tested datasets. This is a relevant attempted mitigation, with transfer to our tasks and observation surface unestablished.",
+      "topics": [
+        "Implicit influence",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Two datasets and multiple model families; test-time intervention without changing weights.",
+      "checkedAt": "2026-09-13T17:59:55.713Z"
+    },
+    {
+      "id": "2607.23458",
+      "title": "Two Regimes of Chain-of-Thought Unfaithfulness: Metric-Based Detection Fails Where Models Are Wrong",
+      "authors": [
+        "Angdembay, Suramya R.",
+        "Aryal, Dikshant",
+        "Rahimi, Nick"
+      ],
+      "published": "2026-07-26",
+      "updated": "2026-08-23",
+      "url": "https://arxiv.org/abs/2607.23458v2",
+      "version": "v2",
+      "sourceType": "arXiv preprint",
+      "abstract": "Audits behavioral faithfulness metrics against annotated traces. Performance differs substantially between correct and incorrect answers, and some familiar signals fail in the regime containing most annotated unfaithfulness. A convenient metric needs validation for the population being studied.",
+      "topics": [
+        "Measurement",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "FaithCoT-Bench audit; model- and source-dependent transfer results.",
+      "checkedAt": "2026-09-13T17:59:39.851Z"
+    },
+    {
+      "id": "2609.02754",
+      "title": "Untangling the Mechanisms of Misleading Context in Medical Question Answering",
+      "authors": [
+        "Linzmayer, Robin",
+        "Elhadad, Noémie"
+      ],
+      "published": "2026-09-02",
+      "updated": "2026-09-02",
+      "url": "https://arxiv.org/abs/2609.02754v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Examines misleading context in medical question answering and compares disclosure in reasoning traces with disclosure in final responses. Monitoring results vary with access and cue type. This is methodological context, not medical guidance or a demonstration task.",
+      "topics": [
+        "Accessible reasoning",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Three reasoning models on a clinician-reviewed benchmark; output accessibility differs by model.",
+      "checkedAt": "2026-09-13T17:59:58.855Z"
+    },
+    {
+      "id": "2607.06648",
+      "title": "Final Checkpoints Are Not Enough: Analyzing Latent Reasoning Faithfulness Along Training Trajectories",
+      "authors": [
+        "Jin, Hengyu",
+        "Yang, Shu",
+        "Wang, Di"
+      ],
+      "published": "2026-07-07",
+      "updated": "2026-09-01",
+      "url": "https://arxiv.org/abs/2607.06648v2",
+      "version": "v2",
+      "sourceType": "arXiv preprint",
+      "abstract": "Tracks faithfulness-related behavior and activation interventions through latent-reasoning training. Strong final accuracy can coexist with declining counterfactual responsiveness. The results motivate checking a training trajectory rather than assuming a final checkpoint captures all changes.",
+      "topics": [
+        "Reward compatibility",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Latent reasoning on ProsQA and GSM settings; intervention dependence is a stated limitation.",
+      "checkedAt": "2026-09-13T18:00:05.221Z"
+    },
+    {
+      "id": "2606.28166",
+      "title": "Tandem Reinforcement Learning with Verifiable Rewards",
+      "authors": [
+        "Jiao, Difan",
+        "Singhal, Raghav",
+        "West, Robert",
+        "Anderson, Ashton"
+      ],
+      "published": "2026-06-26",
+      "updated": "2026-06-26",
+      "url": "https://arxiv.org/abs/2606.28166v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Co-generates reasoning between a trained senior model and a fixed junior during reinforcement learning. The authors report improved handoff robustness and junior-model legibility while maintaining solo capability. Communication compatibility is relevant but does not establish safety monitorability.",
+      "topics": [
+        "Reward compatibility",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Qwen3-4B-Instruct competition-math training; junior-model compatibility.",
+      "checkedAt": "2026-09-13T18:00:11.500Z"
+    },
+    {
+      "id": "2607.08066",
+      "title": "Persuasion Attacks Can Decrease Effectiveness of CoT Monitoring",
+      "authors": [
+        "Za, Jennifer",
+        "Bainiaksina, Julija",
+        "Ostrovsky, Nikita",
+        "Chopra, Tanush",
+        "Krakovna, Victoria"
+      ],
+      "published": "2026-07-09",
+      "updated": "2026-07-09",
+      "url": "https://arxiv.org/abs/2607.08066v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Tests whether an agent's written reasoning can persuade a monitor to approve a policy-violating proposal. The authors evaluate a fact-checking intervention, with model diversity affecting its performance. This studies adversarial persuasion, a different mechanism from our benign contextual cues.",
+      "topics": [
+        "Oversight",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Forty tasks; reported examples include Claude 3.7 Sonnet and GPT-4.1, so publication recency is not model recency.",
+      "checkedAt": "2026-09-13T17:59:46.164Z"
+    },
+    {
+      "id": "2609.07162",
+      "title": "The Oversight Gap: What LLM Safety Monitors Miss, and Why It Is Not Capability",
+      "authors": [
+        "Xu, Xin"
+      ],
+      "published": "2026-09-07",
+      "updated": "2026-09-07",
+      "url": "https://arxiv.org/abs/2609.07162v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Formalizes limits on properties that require comparing executions, and separates missing information from failures to apply a comparison procedure. The paper also reports a benchmark-construction error found despite favorable judge reviews. Its synthetic settings require careful transfer claims.",
+      "topics": [
+        "Measurement",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Synthetic leak families and replay comparisons; theoretical and empirical claims not independently replicated here.",
+      "checkedAt": "2026-09-13T18:01:36.163Z"
+    },
+    {
+      "id": "2609.05797",
+      "title": "Recall Is Not Protection: Evaluating Safety Monitors Against Model Compliance",
+      "authors": [
+        "Karne, Sripad"
+      ],
+      "published": "2026-09-05",
+      "updated": "2026-09-05",
+      "url": "https://arxiv.org/abs/2609.05797v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Separates monitor recall on harmful prompts that a target model will comply with from recall on prompts it will refuse. The reported gap shows why a monitor's aggregate classification score may differ from the protection it provides in a coupled system.",
+      "topics": [
+        "Oversight",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Six monitor configurations and three model families; harmfulness labels and compliance are different targets.",
+      "checkedAt": "2026-09-13T18:01:39.305Z"
+    },
+    {
+      "id": "2608.24232",
+      "title": "TRACE: An Evidence-Grounded Benchmark for Safety Evaluation of Large Reasoning Models",
+      "authors": [
+        "Wu, Zhenyu",
+        "Chen, Siyuan",
+        "Yang, Changchun",
+        "Dong, Jiaqi",
+        "Zhou, Min",
+        "Almadan, Ali",
+        "Hammad, Talal",
+        "Wahbo, Faisal",
+        "Tora, Aminullah",
+        "Alshahrani, Mona",
+        "Gao, Xin"
+      ],
+      "published": "2026-08-25",
+      "updated": "2026-08-25",
+      "url": "https://arxiv.org/abs/2608.24232v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Introduces evidence annotations across prompts, reasoning traces and final responses. The authors find guardrail models struggle to locate supporting evidence in reasoning. The benchmark addresses unsafe-content judgment, which is distinct from detecting an influence on a decision.",
+      "topics": [
+        "Oversight",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "Eighteen guardrail models and traces from four reasoning models.",
+      "checkedAt": "2026-09-13T18:01:42.442Z"
+    },
+    {
+      "id": "2609.00264",
+      "title": "The Answer Is Not the Argument",
+      "authors": [
+        "Yeadon, Will",
+        "Juárez, Sergio",
+        "Mackay, Paul",
+        "Dowling, T. J.",
+        "Agra, Elise",
+        "Inyang, Oto-obong",
+        "Mizouri, Arin",
+        "Testrow, Craig P."
+      ],
+      "published": "2026-08-31",
+      "updated": "2026-08-31",
+      "url": "https://arxiv.org/abs/2609.00264v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Tests whether reference-answer access improves reasoning verification or mainly reveals a mismatch with the conclusion. Monitors can benefit overall while missing genuine errors in traces whose final answer is correct. Correctness and sound reasoning should remain separate measures.",
+      "topics": [
+        "Measurement",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "237 solutions to 79 physics questions; eight monitors and independently labeled errors.",
+      "checkedAt": "2026-09-13T18:01:45.591Z"
+    },
+    {
+      "id": "2608.03745",
+      "title": "Risky Business: Measuring The Faithfulness-Safety Tension",
+      "authors": [
+        "Meier, Dominik",
+        "Francis, Luca Joshua",
+        "Kaiser, Marco Bernhard",
+        "Ruas, Terry",
+        "Wahle, Jan Philip",
+        "Gipp, Bela"
+      ],
+      "published": "2026-08-04",
+      "updated": "2026-08-04",
+      "url": "https://arxiv.org/abs/2608.03745v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Intervenes directly on reasoning text to study the tension between following a trace and rejecting unsafe reasoning. The authors describe a task-specific faithfulness-safety tradeoff and a steering intervention. Greater trace dependence is not automatically greater safety.",
+      "topics": [
+        "Accessible reasoning",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": true,
+      "modelScope": "HazMart shopkeeper setting with reasoning replacement and open-model analysis.",
+      "checkedAt": "2026-09-13T18:01:48.810Z"
+    },
+    {
+      "id": "2603.30036",
+      "title": "Aligned, Orthogonal or In-conflict: When can we safely optimize Chain-of-Thought?",
+      "authors": [
+        "Kaufmann, Max",
+        "Lindner, David",
+        "Zimmermann, Roland S.",
+        "Shah, Rohin"
+      ],
+      "published": "2026-03-31",
+      "updated": "2026-03-31",
+      "url": "https://arxiv.org/abs/2603.30036v1",
+      "version": "v1",
+      "sourceType": "arXiv preprint",
+      "abstract": "Models output rewards and reasoning rewards as aligned, orthogonal or in conflict, then tests predicted monitorability changes during training. Appendix I.7 already studies capped continuation. That comparison is prior work, and a tiny inference-time pilot cannot reproduce long training drift.",
+      "topics": [
+        "Reward compatibility",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": false,
+      "modelScope": "Older foundation, submitted March 2026; training experiments require resources beyond the core API demonstration.",
+      "checkedAt": "2026-09-13T18:00:24.157Z"
+    },
+    {
+      "id": "2603.28590",
+      "title": "MonitorBench: A Comprehensive Benchmark for Chain-of-Thought Monitorability in Large Language Models",
+      "authors": [
+        "Wang, Han",
+        "Sun, Yifan",
+        "Ko, Brian",
+        "Talati, Mann",
+        "Gong, Jiawen",
+        "Li, Zimeng",
+        "Yu, Naicheng",
+        "Yu, Xucheng",
+        "Shen, Wei",
+        "Jolly, Vedant",
+        "Zhang, Huan"
+      ],
+      "published": "2026-03-30",
+      "updated": "2026-08-09",
+      "url": "https://arxiv.org/abs/2603.28590v3",
+      "version": "v3",
+      "sourceType": "arXiv preprint",
+      "abstract": "Provides a multi-task monitorability benchmark with controlled decision-critical factors and prompting stress tests. The authors find that task structure, subject model and monitor all matter. Its August revision is recent, but its original submission is March.",
+      "topics": [
+        "Measurement",
+        "AI safety"
+      ],
+      "verificationStatus": "Primary metadata and abstract checked; findings not independently replicated",
+      "featured": false,
+      "modelScope": "Older foundation, 1,514 instances across 19 tasks; updated August 2026.",
+      "checkedAt": "2026-09-13T18:01:58.379Z"
+    }
+  ],
+  "edges": [
+    {
+      "id": "raises-q-implicit-influence",
+      "source": "2608.04735",
+      "target": "q-implicit-influence",
+      "type": "raises",
+      "explanation": "This paper motivates the agent-proposed question under the stated scope. The paper is not claimed to state this exact question.",
+      "evidenceUrl": "https://arxiv.org/html/2608.04735v1#S3.SS1"
+    },
+    {
+      "id": "adjacent-2608.29464-q-implicit-influence",
+      "source": "2608.29464",
+      "target": "q-implicit-influence",
+      "type": "methodologically adjacent",
+      "explanation": "Studies cue channel and explicitness, plus source-attribution and monitoring-awareness prompts. Remaining mismatch: Its prefilled-tool and open-weight settings do not establish behavior for our exact endpoint and task distribution.",
+      "evidenceUrl": "https://arxiv.org/abs/2608.29464v2"
+    },
+    {
+      "id": "adjacent-2609.04343-q-implicit-influence",
+      "source": "2609.04343",
+      "target": "q-implicit-influence",
+      "type": "methodologically adjacent",
+      "explanation": "Removes uncredited input concepts and re-queries to target explanation incompleteness. Remaining mismatch: The mitigation changes the input and is not yet evaluated in our locked experiment.",
+      "evidenceUrl": "https://arxiv.org/abs/2609.04343v1"
+    },
+    {
+      "id": "raises-q-cue-channel",
+      "source": "2608.29464",
+      "target": "q-cue-channel",
+      "type": "raises",
+      "explanation": "This paper motivates the agent-proposed question under the stated scope. The paper is not claimed to state this exact question.",
+      "evidenceUrl": "https://arxiv.org/abs/2608.29464v2"
+    },
+    {
+      "id": "adjacent-2608.04735-q-cue-channel",
+      "source": "2608.04735",
+      "target": "q-cue-channel",
+      "type": "methodologically adjacent",
+      "explanation": "Separates implicit from explicit delivery in matched task formats. Remaining mismatch: Delivery regime and tool channel are different variables; matching one does not control the other.",
+      "evidenceUrl": "https://arxiv.org/abs/2608.04735v1"
+    },
+    {
+      "id": "raises-q-length-pressure",
+      "source": "2607.09786",
+      "target": "q-length-pressure",
+      "type": "raises",
+      "explanation": "This paper motivates the agent-proposed question under the stated scope. The paper is not claimed to state this exact question.",
+      "evidenceUrl": "https://arxiv.org/abs/2607.09786v3"
+    },
+    {
+      "id": "adjacent-2603.30036-q-length-pressure",
+      "source": "2603.30036",
+      "target": "q-length-pressure",
+      "type": "methodologically adjacent",
+      "explanation": "Relates reasoning and outcome reward compatibility to monitorability changes. Remaining mismatch: Its training mechanism does not identify a safe universal inference-time length cap.",
+      "evidenceUrl": "https://arxiv.org/abs/2603.30036v1"
+    },
+    {
+      "id": "raises-q-reward-drift",
+      "source": "2603.30036",
+      "target": "q-reward-drift",
+      "type": "raises",
+      "explanation": "This paper motivates the agent-proposed question under the stated scope. The paper is not claimed to state this exact question.",
+      "evidenceUrl": "https://arxiv.org/html/2603.30036v1"
+    },
+    {
+      "id": "adjacent-2606.28166-q-reward-drift",
+      "source": "2606.28166",
+      "target": "q-reward-drift",
+      "type": "methodologically adjacent",
+      "explanation": "Uses a fixed junior model during training to encourage legible, compatible reasoning. Remaining mismatch: Junior-model communication compatibility is not itself a safety-monitor detection guarantee.",
+      "evidenceUrl": "https://arxiv.org/abs/2606.28166v1"
+    },
+    {
+      "id": "adjacent-2607.06648-q-reward-drift",
+      "source": "2607.06648",
+      "target": "q-reward-drift",
+      "type": "methodologically adjacent",
+      "explanation": "Shows that a final checkpoint can conceal changing faithfulness-related behavior along training. Remaining mismatch: Latent-reasoning interventions and API-visible explanation monitoring use different access and measurements.",
+      "evidenceUrl": "https://arxiv.org/abs/2607.06648v2"
+    },
+    {
+      "id": "raises-q-visible-evidence",
+      "source": "2608.04928",
+      "target": "q-visible-evidence",
+      "type": "raises",
+      "explanation": "This paper motivates the agent-proposed question under the stated scope. The paper is not claimed to state this exact question.",
+      "evidenceUrl": "https://arxiv.org/abs/2608.04928v1"
+    },
+    {
+      "id": "adjacent-2607.22925-q-visible-evidence",
+      "source": "2607.22925",
+      "target": "q-visible-evidence",
+      "type": "methodologically adjacent",
+      "explanation": "Finds consequential behavior with semantically uninformative filler tokens in synthetic tasks. Remaining mismatch: Invisible computation is a demonstrated possibility, not an explanation for every missed cue.",
+      "evidenceUrl": "https://arxiv.org/abs/2607.22925v2"
+    },
+    {
+      "id": "adjacent-2609.02754-q-visible-evidence",
+      "source": "2609.02754",
+      "target": "q-visible-evidence",
+      "type": "methodologically adjacent",
+      "explanation": "Compares cue disclosure and monitoring from returned traces and responses. Remaining mismatch: Its medical benchmark and provider access differ from this laboratory's benign decision tasks.",
+      "evidenceUrl": "https://arxiv.org/abs/2609.02754v1"
+    },
+    {
+      "id": "raises-q-monitor-measurement",
+      "source": "2609.04194",
+      "target": "q-monitor-measurement",
+      "type": "raises",
+      "explanation": "This paper motivates the agent-proposed question under the stated scope. The paper is not claimed to state this exact question.",
+      "evidenceUrl": "https://arxiv.org/abs/2609.04194v1"
+    },
+    {
+      "id": "adjacent-2609.00264-q-monitor-measurement",
+      "source": "2609.00264",
+      "target": "q-monitor-measurement",
+      "type": "methodologically adjacent",
+      "explanation": "Shows that trusted answers can improve conclusion checking while leaving errors in correct-answer traces missed. Remaining mismatch: Reasoning correctness and influence attribution require separate validation.",
+      "evidenceUrl": "https://arxiv.org/abs/2609.00264v1"
+    },
+    {
+      "id": "adjacent-2607.23458-q-monitor-measurement",
+      "source": "2607.23458",
+      "target": "q-monitor-measurement",
+      "type": "methodologically adjacent",
+      "explanation": "Finds that behavioral faithfulness metrics vary across correct- and incorrect-answer regimes. Remaining mismatch: The available abstract review does not establish which metric transfers to this task.",
+      "evidenceUrl": "https://arxiv.org/abs/2607.23458v2"
+    }
+  ],
+  "coverage": {
+    "searchedAt": "2026-09-13T18:05:01.988Z",
+    "paperCount": 20,
+    "questionCount": 6,
+    "recentPaperCount": 18,
+    "foundationCount": 2,
+    "note": "A selected monitorability neighborhood: 18 papers first submitted June to September 2026, plus 2 older foundations. Six agent-proposed dossiers; five scoped assessments and one unassessed synthesis. This is not a comprehensive map of AI safety.",
+    "searchCount": 9,
+    "searchCostUsd": 0.063,
+    "searchArtifactUrl": "https://github.com/RaphaelKhalid/afterlight/tree/main/artifacts/search"
+  }
+}

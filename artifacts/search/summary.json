@@ -1,0 +1,29 @@
+{
+  "searchedAt": "2026-09-13T18:05:01.988Z",
+  "paperCount": 20,
+  "questionCount": 6,
+  "recentPaperCount": 18,
+  "foundationCount": 2,
+  "note": "A selected monitorability neighborhood: 18 papers first submitted June to September 2026, plus 2 older foundations. Six agent-proposed dossiers; five scoped assessments and one unassessed synthesis. This is not a comprehensive map of AI safety.",
+  "searchCount": 9,
+  "searchCostUsd": 0.063,
+  "searchArtifactUrl": "https://github.com/RaphaelKhalid/afterlight/tree/main/artifacts/search",
+  "queries": [
+    "\"Aligned, Orthogonal or In-conflict\" chain of thought monitorability follow up",
+    "reasoning models faithfulness monitoring verbalize hidden bias 2026 arxiv",
+    "reasoning models hidden contextual influence biases faithfulness monitor 2026",
+    "\"Chain-of-Thought Monitoring Can Be Unreliable\" implicit influence Duzan follow up replication",
+    "chain of thought monitorability controllability safety 2026 arxiv reward hacking",
+    "chain of thought monitorability reasoning faithfulness AI safety 2026",
+    "chain of thought monitorability oversight safety reasoning monitor 2026 arxiv June July August September",
+    "AI safety chain of thought monitoring implicit influence oversight blind spots researcher blog 2026",
+    "chain of thought reward compatibility monitorability drift optimization 2026"
+  ],
+  "limitations": [
+    "Private or unpublished work",
+    "Paywalled full text not separately obtained",
+    "Comprehensive social-platform and LinkedIn coverage",
+    "Search-index omissions and differently worded work"
+  ],
+  "scope": "Nine bounded Exa searches across academic papers, lab and researcher sites, public technical discussions and repositories, followed by primary arXiv metadata and abstract checks. Source coverage is selective and English-led."
+}

@@ -1,0 +1,12 @@
+import fs from 'node:fs/promises';
+const origin='https://afterlight-api.raphaelbahadurkhan.workers.dev';
+const checkedAt=new Date().toISOString();
+const health=await fetch(origin+'/api/health').then(r=>r.json());
+const tr=await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/setWebhook`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:origin+'/api/telegram/webhook',secret_token:process.env.TELEGRAM_WEBHOOK_SECRET,allowed_updates:['message','callback_query'],drop_pending_updates:false})});
+const tj=await tr.json();
+const dr=await fetch('https://discord.com/api/v10/applications/@me',{method:'PATCH',headers:{Authorization:'Bot '+process.env.DISCORD_BOT_TOKEN,'Content-Type':'application/json'},body:JSON.stringify({interactions_endpoint_url:origin+'/api/discord/interactions'})});
+const dj=await dr.json();
+await fs.writeFile('.cache/social-connect.json',JSON.stringify({checkedAt,telegram:{status:tr.status,response:tj},discord:{status:dr.status,response:dj}},null,2));
+const safe={checkedAt,health,telegram:{status:tr.status,ok:tj.ok},discord:{status:dr.status,endpoint:dj.interactions_endpoint_url,error:dr.ok?undefined:dj.message}};
+await fs.mkdir('artifacts/integrations',{recursive:true}); await fs.writeFile('artifacts/integrations/connections.json',JSON.stringify(safe,null,2));console.log(JSON.stringify(safe));
+if(!tr.ok||!tj.ok||!dr.ok)process.exitCode=1;

@@ -1,0 +1,59 @@
+{
+  "reviewStatus": "Lead-agent reviewed reference labels; independent human review pending",
+  "fixtures": [
+    {
+      "id": "source-supported",
+      "kind": "source_support",
+      "source": {
+        "paperId": "2608.04928",
+        "url": "https://arxiv.org/abs/2608.04928v1",
+        "version": "v1",
+        "section": "Abstract, monitoring-access comparison",
+        "passage": "monitorability depends more on properties of the task"
+      },
+      "claim": "Task properties can matter for monitorability.",
+      "expected": "supported",
+      "rationale": "The quoted source explicitly states that monitorability depends on task properties."
+    },
+    {
+      "id": "duplicate-wording",
+      "kind": "relationship",
+      "question": "Does tool-delivered preference information receive less attribution than the same information in a user message?",
+      "candidate": "When the same preference cue comes from a tool rather than a user, does the model acknowledge it less in its reasoning?",
+      "expected": "duplicate",
+      "rationale": "The compared variables, cue and attribution target are the same."
+    },
+    {
+      "id": "partial-mitigation",
+      "kind": "relationship",
+      "question": "Does a source-attribution prompt eliminate the cue-channel gap for every evaluated model?",
+      "candidate": "In FACE-Eval, source-attribution prompting narrows the channel gap on seven models, sometimes by increasing user-channel unverbalized adoption.",
+      "sourceUrl": "https://arxiv.org/abs/2608.29464v2",
+      "expected": "partially_addresses",
+      "rationale": "A partial narrowing in some models does not establish elimination in all models."
+    },
+    {
+      "id": "related-not-answer",
+      "kind": "relationship",
+      "question": "Do implicit contextual cues change decisions without being attributed in returned explanations?",
+      "candidate": "A separate paper tests whether adversarial persuasion in a reasoning trace makes a monitor approve policy-violating actions, and evaluates a fact-checking intervention.",
+      "sourceUrl": "https://arxiv.org/abs/2607.08066v1",
+      "expected": "methodologically_adjacent",
+      "rationale": "Adversarial persuasion of the monitor is a different mechanism from implicit influence on the subject."
+    },
+    {
+      "id": "unsupported-universal",
+      "kind": "source_support",
+      "source": {
+        "paperId": "2608.04928",
+        "url": "https://arxiv.org/abs/2608.04928v1",
+        "version": "v1",
+        "section": "Abstract, monitoring-access comparison",
+        "passage": "monitorability depends more on properties of the task"
+      },
+      "claim": "The paper proves every frontier model reveals all decision-relevant computation in its output.",
+      "expected": "unsupported",
+      "rationale": "The short source does not support a universal claim or proof of complete visibility."
+    }
+  ]
+}

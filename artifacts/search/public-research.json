@@ -1,0 +1,92 @@
+{
+  "id": "public-research",
+  "startedAt": "2026-09-13T17:57:46.438Z",
+  "completedAt": "2026-09-13T17:57:48.054Z",
+  "request": {
+    "query": "AI safety chain of thought monitoring implicit influence oversight blind spots researcher blog 2026",
+    "excludeDomains": [
+      "arxiv.org"
+    ],
+    "startPublishedDate": "2026-06-01T00:00:00Z",
+    "endPublishedDate": "2026-09-14T00:00:00Z",
+    "type": "auto",
+    "numResults": 10
+  },
+  "httpStatus": 200,
+  "requestId": "3d53f359af9a417c3516ad4ff39be8d2",
+  "costDollars": {
+    "total": 0.007,
+    "search": {
+      "neural": 0.007
+    }
+  },
+  "costStatus": "provider-returned",
+  "rawResponseSha256": "ea952c4cfd07b9f81d664c0bbedcd385aacd9c72aaf109d4430edd6421ae83a4",
+  "results": [
+    {
+      "id": "https://www.layerthelatestinalattice.com/papers/de84c1263e82c97dd2bab9bd88e3ba48e1d71320",
+      "url": "https://www.layerthelatestinalattice.com/papers/de84c1263e82c97dd2bab9bd88e3ba48e1d71320",
+      "title": "Chain-of-Thought Monitoring Can Be Unreliable in Implicit-Influence Settings | Lattice",
+      "publishedDate": "2026-08-05T00:00:00.000Z"
+    },
+    {
+      "id": "https://deepmind.google/blog/securing-the-future-of-ai-agents/",
+      "url": "https://deepmind.google/blog/securing-the-future-of-ai-agents/",
+      "title": "Securing the future of AI agents - Google DeepMind",
+      "publishedDate": "2026-06-18T00:00:00.000Z",
+      "author": "Rohin Shah and Four Flynn"
+    },
+    {
+      "id": "https://huggingface.co/blog/gcjordi/beyond-chain-of-thought-monitoring-cognitive-secur",
+      "url": "https://huggingface.co/blog/gcjordi/beyond-chain-of-thought-monitoring-cognitive-secur",
+      "title": "Beyond Chain-of-Thought Monitoring: Cognitive Security Implications of GPT-6 Astra",
+      "publishedDate": "2026-09-04T00:00:00.000Z"
+    },
+    {
+      "id": "https://ai.stanford.edu/blog/cot-monitoring-history/",
+      "url": "https://ai.stanford.edu/blog/cot-monitoring-history/",
+      "title": "CoT Monitoring: Where Does a Hot Safety Problem Come From? | SAIL Blog",
+      "publishedDate": "2026-06-18T00:00:00.000Z",
+      "author": "<a href='https://peterbhase.github.io'>Peter Hase</a> and <a href='https://stanford.edu/~cgpotts/'>Christopher Potts</a>"
+    },
+    {
+      "id": "https://www.alphaxiv.org/abs/2607.08066",
+      "url": "https://www.alphaxiv.org/abs/2607.08066",
+      "title": "Persuasion Attacks Can Decrease Effectiveness of CoT Monitoring | alphaXiv",
+      "publishedDate": "2026-07-09T00:00:00.000Z",
+      "author": "Victoria Krakovna"
+    },
+    {
+      "id": "https://robotics.stanford.edu/blog/cot-monitoring-history/",
+      "url": "https://robotics.stanford.edu/blog/cot-monitoring-history/",
+      "title": "CoT Monitoring: Where Does a Hot Safety Problem Come From? | SAIL Blog",
+      "publishedDate": "2026-06-17T00:00:00.000Z",
+      "author": "<a href='https://peterbhase.github.io'>Peter Hase</a> and <a href='https://stanford.edu/~cgpotts/'>Christopher Potts</a>"
+    },
+    {
+      "id": "https://www.lesswrong.com/posts/hLPGv8QjPcNLtDp3A/proposal-for-tracking-the-effects-of-architecture-on",
+      "url": "https://www.lesswrong.com/posts/hLPGv8QjPcNLtDp3A/proposal-for-tracking-the-effects-of-architecture-on",
+      "title": "Proposal for tracking the effects of architecture on monitorability — LessWrong",
+      "publishedDate": "2026-09-10T17:18:38.000Z"
+    },
+    {
+      "id": "https://groundy.com/articles/why-chain-of-thought-monitoring-misses-hidden-llm-reasoning/",
+      "url": "https://groundy.com/articles/why-chain-of-thought-monitoring-misses-hidden-llm-reasoning/",
+      "title": "Why Chain-of-Thought Monitoring Misses Hidden LLM Reasoning · Groundy",
+      "publishedDate": "2026-09-07T00:00:00.000Z",
+      "author": "Berry Mingus"
+    },
+    {
+      "id": "https://agi-bible.com/en/risk-alignment/chain-of-thought-monitoring-faithfulness-problem-2026/",
+      "url": "https://agi-bible.com/en/risk-alignment/chain-of-thought-monitoring-faithfulness-problem-2026/",
+      "title": "The Monitor Reveals Its Own Blind Spot: Once a Model Knows Its Chain of Thought Is Being Watched, It Learns to Beat the Watcher  | AGI Bible",
+      "publishedDate": "2026-09-02T00:00:00.000Z"
+    },
+    {
+      "id": "https://ai2.work/blog/chain-of-thought-monitoring-failed-the-test-it-was-built-for",
+      "url": "https://ai2.work/blog/chain-of-thought-monitoring-failed-the-test-it-was-built-for",
+      "title": "Chain-of-Thought Monitoring Failed the Test It Was Built For | AI2Work",
+      "publishedDate": "2026-09-05T00:00:00.000Z"
+    }
+  ]
+}
