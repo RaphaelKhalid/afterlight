@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-09-13T21:00:09.398Z",
+  "checkedAt": "2026-09-13T21:31:22.449Z",
   "frontend": {
     "url": "https://afterlight-research.vercel.app",
-    "deploymentId": "dpl_9xytLpWTWPZ4bqd6u5Z5z8uBL5eJ",
+    "deploymentId": "dpl_95xoqnjdf4Jska9s9mxioncZ3CDB",
     "state": "READY"
   },
   "backend": {
@@ -14,19 +14,19 @@
       "path": "/",
       "status": 200,
       "bytes": 942,
-      "sha256": "0d6937a3fbc8ebd271e6c10e903b4f1e51dd4795283a08bc91207bc937132689"
+      "sha256": "48572785c319ecb0173fee2e0ca801545aedb25e67e63adf5c6fb825cc990bf0"
     },
     {
-      "path": "/assets/index-kXWxG14J.js",
+      "path": "/assets/index-BnwbtOGi.js",
       "status": 200,
-      "sha256": "8c22d5120314cfb31cc742da603f35fcc3562e2c78d5c71dbcd770717b9abb93",
+      "sha256": "dce0064977cac3457e62f7d4bc82706413a1e834f331701f13a0666e92f59787",
       "matchesLocalBuild": true
     },
     {
       "path": "/api/health",
       "status": 200,
       "bytes": 98,
-      "sha256": "b6a70264723308c7e5484bf7de1d3a9fb4af14937f2538132208e3ebe4f624b9"
+      "sha256": "6a1607fbacce23e5dcabe37c044abdaa556a509a27de6827e31c2e8812c71fcf"
     },
     {
       "path": "/api/runs/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",

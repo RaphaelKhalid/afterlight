@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "afterlight.visual-revision.v1",
+  "checkedAt": "2026-09-13T21:31:21.643905+00:00",
+  "deploymentId": "dpl_95xoqnjdf4Jska9s9mxioncZ3CDB",
+  "changes": [
+    "Rebuilt opening with cream introduction and intact photographic composition",
+    "Added real interactive research-thread filters and immediate completed-study entry",
+    "Search includes associated paper titles and authors",
+    "Revised navigation and dossier/designer/lab/result typography and surfaces",
+    "Human-readable case names preserve original trial IDs and raw evidence",
+    "Collapsed technical run references without removing provenance"
+  ],
+  "desktop": {
+    "viewport": [
+      1280,
+      800
+    ],
+    "heroStudyBottomPx": 725,
+    "pairedCardsBottomPx": 775.609375,
+    "pairedCase": "eval-vpn-direct-1",
+    "caseLabel": "VPN choice",
+    "comparison": "Direct request",
+    "choices": [
+      "A",
+      "B"
+    ],
+    "bothMonitorVerdicts": "NO",
+    "conditionBars": 5,
+    "intervals": 4,
+    "horizontalOverflow": false,
+    "freshSessionRuntimeErrors": 0,
+    "paperTitleSearchVerified": true
+  },
+  "mobile": {
+    "viewport": [
+      390,
+      844
+    ],
+    "atlasHorizontalOverflow": false,
+    "labHorizontalOverflow": false,
+    "resultsHorizontalOverflow": false,
+    "designerHorizontalOverflow": false,
+    "mainCompletedTrials": 100,
+    "plannedTrials": 100,
+    "resultIntervals": 4
+  },
+  "researchMutation": false,
+  "providerCallsDispatched": 0,
+  "limits": "Browser checks cover the reviewed routes and breakpoints. The previous release browser receipt remains historical evidence."
+}

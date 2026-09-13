@@ -216,7 +216,8 @@
         "results"
       ],
       "actualReadOnlyApiVerified": true,
-      "publicImmutablePayloadVerified": true
+      "publicImmutablePayloadVerified": true,
+      "visualRevisionSource": "artifacts/evaluation/visual-revision.json"
     }
   },
   "semantic_limits": {
@@ -229,5 +230,5 @@
     "humanReviewScope": "Reviewed the five concise statements and reference judgments presented in the task. This is not an independent review of full source papers or a general validation of scientific reasoning.",
     "interpretation": "Five passed fixtures document scoped reference-label agreement. They do not estimate general research-agent accuracy or validate complete papers and unseen examples."
   },
-  "updatedAt": "2026-09-13T21:01:24.015749+00:00"
+  "updatedAt": "2026-09-13T21:31:21.643905+00:00"
 }
