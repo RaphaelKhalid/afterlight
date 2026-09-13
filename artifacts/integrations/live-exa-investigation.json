@@ -1,0 +1,110 @@
+{
+  "checkedAt": "2026-09-13T19:00:53.493Z",
+  "httpStatus": 201,
+  "response": {
+    "investigation": {
+      "id": "investigation_7ed3ff7d-a8a2-482b-a1df-92fea9c4d21d",
+      "questionId": "q-implicit-influence",
+      "query": "When a cue changes the answer, does the explanation reveal it? AI safety related work evidence",
+      "sources": [
+        {
+          "title": "Reasoning Traces Shape Outputs but Models Won’t Say So",
+          "url": "https://doi.org/10.18653/v1/2026.acl-long.1986",
+          "publishedDate": "2026-01-01T00:00:00.000Z",
+          "highlights": [
+            "Our experiments yield two main findings. First, reasoning traces causally influence outputs. Across 45,000 samples from three state-of-the-art LRMs, injected hints reliably change model answers, confirming that traces are not merely posthoc narration. Second, models systematically conceal this influence. When asked to explain their changed outputs, models fail to acknowledge the injected reasoning in over 90% of extreme-hint cases (30,000 follow-up samples). Instead, they fabricate aligned-appearing explanations that are irrelevant to the actual reasoning.\n...\nTakeaway. The dominant behavior we observe is systematic non-disclosure. In our controlled setup, the causal influence on model behaviors can be unambiguously attributed to the explicitly injected hint; however, when asked to justify their behaviors, models overwhelmingly conceal this influence and instead generate explanations that are unrelated to the hint. In real-world settings, model behavior is unlikely to be driven solely by reasoning content that is directly observable in explicit reasoning traces. Our findings show that models can act on misaligned internal reasoning while consistently producing aligned-appearing"
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        },
+        {
+          "title": "Can We Trust AI Explanations? Evidence of Systematic Underreporting in Chain-of-Thought Reasoning",
+          "url": "https://arxiv.org/pdf/2601.00830",
+          "highlights": [
+            "Our follow-up probe protocol revealed the most striking finding of the study: 99.4% of models in the baseline \ncondition (1,896 of 1,908) confirmed seeing the hints when directly asked afterward. Yet only 20.7% had mentioned \nthem in their initial reasoning. This 78.7 percentage point gap between perception and acknowledgment demonstrates \nthat low baseline acknowledgment reflects deliberate omission rather than perceptual failure. Models see the hints; \nthey simply choose not to report them.\n...\n% of trials\n...\n.1%\n...\nstatistically significant improvement (+1.1pp, p=0.38).\n...\nExplicit instruction has severe tradeoffs. While achieving high acknowledgment, it introduces 68.2% false\n...\npositives when no hints exist and reduces task accuracy by 15.9 percentage points while increasing susceptibility\n...\nby 23.7 percentage points.\n...\nSycophancy shows hidden influence. User-pleasing hints achieved highest susceptibility (45.5%) with only\n...\nmoderate acknowledgment (43.6%), revealing systematic hidden influence from this known alignment failure\n...\nmode.\n...\nThese results suggest that chain-of-thought visibility alone is insufficient for reliable AI safety monitoring. Future"
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        },
+        {
+          "title": "Would this change your answer? Evaluating Explanations of LLM Behavior In The Wild with Counterfactual Experiments",
+          "url": "https://arxiv.org/abs/2608.16747?lid=1ocrR7nx4FJEp2fRi",
+          "publishedDate": "2026-08-17T00:00:00.000Z",
+          "highlights": [
+            "Training for faithful self-explanation. Most work on training models to explain their own behavior uses hint settings, where a known cue is planted in the prompt, such as a suggested answer on an MMLU question (Turpin et al., 2023). Ground truth comes from removing the cue: if the model’s answer flips, the cue mattered. Some of this work trains the model’s chain of thought to acknowledge the cue only when it mattered (Chua et al., 2025; Turpin et al., 2025; Hase and Potts, 2026). Closest to our setup, Guo et al. (2026) and Li et al. (2026) train models to predict whether their answer would change if the cue were removed.\n...\n, as there is\n...\n. Where prior\n...\nis narrow, such\n...\n. To our knowledge, no training for causal self-report has been shown\n...\nis held out\n...\n. There is also evidence\n...\nstrong hint-setting results may\n...\n(2026) find that a\n...\nperforming well in the hint setting (+35pp) obtains much weaker results in a\n...\ngeneral setting of benchmark questions (+2pp).\n...\nwhether removing the\n...\nwould change its answer.\n...\nand AUROC over the\n...\nbase model (Figure 5) and\n...\nOpus reference."
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        },
+        {
+          "title": "Faithful or Fabricated? A Causal Framework for Rationalization Bias in LLM Judges",
+          "url": "https://arxiv.org/html/2605.23970",
+          "highlights": [
+            "let $C$ denote non-evidential cues such as metadata labels. An LLM judge is cue-invariant if its ranking $r$ and explanation $e$ remain stable when $C$ is perturbed while $X$ is held constant. This perspective turns a vague notion of “faithfulness” into a precise robustness target: measure the causal effect of $C$ on $(r,e)$ under controlled interventions. To that end, we introduce a suite of cue interventions that manipulate $C$ while keeping $X$ fixed: Blind (no cues), Truth (ground-truth label), Flip (inverted label), Placebo (credible but\n...\nViolations of (3) indicate outcome anchoring; violations of (4) indicate rationale anchoring (e.g., increased label-aligned rhetoric or greater explanation drift). In our framework, we intervene on $C$ via controlled conditions (Blind, Truth, Flip, Placebo, Reveal-After) while keeping $\\mathcal{X}_{d}$ fixed, and we quantitatively estimate the resulting shifts in $r_{J,d}$ and $e_{J,d}$ . This causal, cue-centric view provides a practical surrogate for faithfulness: when a judge is cue-invariant, its decisions and explanations are robust to non-evidential perturbations, thereby reducing opportunities for post-hoc rationalization."
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        },
+        {
+          "title": "Reasoning Models Don’t Always Say What They Think",
+          "url": "https://arxiv.org/html/2505.05410",
+          "highlights": [
+            "Safety cases are structured arguments that AI systems are unlikely to cause a catastrophe (Clymer et al., 2024). On the positive side, our results show that CoTs of reasoning model are faithful on at least some examples on most hints. This suggests that CoT monitoring can be useful at detecting some malicious behaviors during training and evaluations, particularly threats that are frequent or require multiple actions, which increases the chance of at least one threat/action being verbalized in the CoT. However, for rarer threats that don’t require multiple actions (e.g., self-exfiltration), our findings of low faithfulness suggest that CoT monitoring may be less effective.\n...\ncannot perform the\n...\nwithout CoTs, even with strong elicitation\n...\nmodels could sandbag and pretend\n...\nwithout CoTs when they actually can\n...\ndevelop clever ways to evade\n...\n, such as\n...\nography (Ray,\n...\n2023)\n...\njustifications for reasoning steps or tool use"
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        },
+        {
+          "title": "Language Models Don’t Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting",
+          "url": "https://papers.neurips.cc/paper_files/paper/2023/file/ed3fea9033a80fea1376299fa7863f4a-Paper-Conference.pdf",
+          "highlights": [
+            "reordering the multiple-choice options in a few\n...\ngenerate CoT\n...\n6% on\n...\nGPT-3\n...\ngiving answers in line with\n...\nthese social biases\n...\nOur findings indicate that CoT explanations\n...\nmisleading, which risks increasing our trust in LLMs\n...\nguaranteeing their safety\n...\nBuilding more transparent and explainable systems will require either improving CoT faithfulness through targeted efforts or abandoning CoT in favor of alternative methods\n...\nAre unfaithful explanations a sign of dishonesty or lack of capability? LLMs may be able to recognize that the biasing features are influencing their predictions—e.g., this could be revealed through post-hoc critiques (Saunders et al., 2022), interpretability tools (Burns et al., 2023), or other indirect means (Pacchiardi et al., 2023)—even if their CoT explanations do not verbalize them. If they can, then this implies that unfaithful CoT explanations may be a form of model dishonesty, as opposed to a lack of capability. This distinction can guide the choice of\n...\ninterventions. For"
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        },
+        {
+          "title": "Language Models Don’t Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/ed3fea9033a80fea1376299fa7863f4a-Paper-Conference.pdf",
+          "highlights": [
+            "reordering the multiple-choice options in a few\n...\ngenerate CoT\n...\n6% on\n...\nGPT-3\n...\ngiving answers in line with\n...\nthese social biases\n...\nOur findings indicate that CoT explanations\n...\nmisleading, which risks increasing our trust in LLMs\n...\nguaranteeing their safety\n...\nBuilding more transparent and explainable systems will require either improving CoT faithfulness through targeted efforts or abandoning CoT in favor of alternative methods\n...\nAre unfaithful explanations a sign of dishonesty or lack of capability? LLMs may be able to recognize that the biasing features are influencing their predictions—e.g., this could be revealed through post-hoc critiques (Saunders et al., 2022), interpretability tools (Burns et al., 2023), or other indirect means (Pacchiardi et al., 2023)—even if their CoT explanations do not verbalize them. If they can, then this implies that unfaithful CoT explanations may be a form of model dishonesty, as opposed to a lack of capability. This distinction can guide the choice of\n...\ninterventions. For"
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        },
+        {
+          "title": "When Chains of Thought Don’t Matter: Causal Bypass in Large Language Models",
+          "url": "https://arxiv.org/html/2602.03994v1",
+          "highlights": [
+            "-related signals in\n...\nactivations and longer traces), while\n...\ndrift metrics change modestly\n...\nAcross pilot runs\n...\nobserve a mean\n...\n0$ (\n...\n97$\n...\n0$ ), demonstrating that\n...\nmisleading proxy for\n...\nin these settings.\n...\nour approach is explicitly auditor\n...\nrationales, models frequently operate in a\n...\n$ ) where answers are causally invariant to CoT\n...\nto a specific\n...\nbypass circuit.\n...\ncomputes answers via\n...\n, non-verbal\n...\npathways while the\n...\ntext based on surface\n...\n. Consequently, the\n...\nreadout is effectively disconnected from CoT hidden states, rendering textual\n...\nFor an auditor, these results serve as a negative signal. A CMI of zero warns the auditor that the provided rationale is non-faithful. Even if the final answer appears correct, the audit reveals that the reasoning trace is decorative and does not reflect the underlying mechanism the model used to arrive at that answer."
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        },
+        {
+          "title": "Reasoning or Retrieval? A Study of Answer Attribution on Large Reasoning Models",
+          "url": "https://arxiv.org/html/2509.24156v1",
+          "highlights": [
+            "influence of reasoning capability on final answers, we perform perturbations\n...\nTs by injecting misleading cues (e.g., if the original answer is ‘A’, the cue might be “A reliable expert suggests the answer is ‘B”’). Specifically, we first collect the original Co\n...\n(Kuo et al., 2025) on manipulating CoTs, we hijack the CoT by appending a misleading cue $c$ that points to a target answer $y_{\\mathrm{r}}$ different from $y$ , then prefill the perturbed CoT (delimited by tokens) into the prompt and rerun the reasoning process, yielding\n...\nPost-Hoc Explanation. Recall that the poisoned model generates CoT $z^{\\prime}$ and answer $y^{\\prime}$ in the retrieval-level perturbation experiment. We further investigate cases where the model outputs both the poisoned answer ( $y^{\\prime}=y_{t}$ ) and a CoT $z^{\\prime}$ that logically concludes with this poisoned answer ( ${\\mathcal{A}}(z^{\\prime})=y^{\\prime}$ ). We term this the “post-hoc explanation” phenomenon, where the rationale justifies a retrieved conclusion rather than deriving it from the given prompt. §C.2 provides detailed examples of “post-hoc explanation”.\n...\nanswer in the retrieval"
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        },
+        {
+          "title": "Reasoning Models Don't Always Say What They Think",
+          "url": "https://doi.org/10.48550/arxiv.2505.05410",
+          "publishedDate": "2025-05-08T00:00:00.000Z",
+          "highlights": [
+            ") offers a potential boon for AI\n...\nas it allows monitoring a model's Co\n...\nto try to understand its intentions and reasoning processes. However, the effectiveness of such\n...\non CoTs faithfully representing models' actual reasoning processes. We evaluate\n...\nfaithfulness of state-of-the-art reasoning models across 6 reasoning hints presented in the prompts and find: (1) for most settings and models tested, Co\n...\nreveal their usage of\n...\nin at least 1% of examples where they use the hint, but the reveal rate is often below 20%, (2) outcome-based reinforcement learning initially improves faithfulness but plateaus without saturating, and (3) when reinforcement learning increases how frequently hints are used (reward hacking), the propensity to\n...\nthem does not increase, even without training against a CoT monitor. These results suggest that CoT monitoring is a promising way of noticing undesired behaviors during training and evaluations, but that it is not sufficient to rule them out. They also suggest that in settings like ours where CoT reasoning is not necessary, test-time monitoring of CoTs is unlikely to reliably catch rare and catastrophic unexpected behaviors"
+          ],
+          "sourceType": "Exa result",
+          "verificationStatus": "retrieved, not independently assessed"
+        }
+      ],
+      "status": "completed",
+      "costUsd": 0.1,
+      "createdAt": "2026-09-13T19:00:49.237Z",
+      "deduplicated": false
+    }
+  }
+}

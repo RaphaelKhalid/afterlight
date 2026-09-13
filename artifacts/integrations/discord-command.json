@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-09-13T20:27:56.670Z",
+  "verification": "Production D1 read of persisted signed interaction after owner reported personal installation and /afterlight use",
+  "interactionId": "1548790789914632222",
+  "createdAt": "2026-09-13T20:21:39.918Z",
+  "questionId": "q-implicit-influence",
+  "command": "afterlight",
+  "response": {
+    "questionTitle": "When a cue changes the answer, does the explanation reveal it?",
+    "questionStatus": "Partially addressed",
+    "completedEvidenceHeadline": "Context remained inconclusive.",
+    "resultUrl": "https://afterlight-research.vercel.app/#/results/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+    "components": [
+      "Start an attempt",
+      "Open the question"
+    ]
+  },
+  "actualCommandVerified": true,
+  "buttonAttemptVerified": false,
+  "privacy": "User, guild, channel and interaction tokens omitted."
+}

@@ -1,0 +1,9 @@
+{
+  "createdAt": "2026-09-13T19:03:15.944Z",
+  "rows": 25,
+  "accountFieldsRedacted": 10,
+  "originalPrivateSha256": "9cdc85afba95bad250d8e67b65de99be9ac21896f6c228709939ddf083dffc37",
+  "publicSha256": "3edc833dddfac6c9591cebc75fc3c0f1607b45c792239ec5fb9f5638f4990a2f",
+  "reason": "Provider error bodies included the owner account identifier. Exact originals are retained privately; public artifacts preserve scientific and operational evidence.",
+  "measurementFieldsChanged": false
+}

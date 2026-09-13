@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "afterlight.browser-verification.v1",
+  "checkedAt": "2026-09-13T21:01:24.015749+00:00",
+  "application": "https://afterlight-research.vercel.app",
+  "deploymentId": "dpl_9xytLpWTWPZ4bqd6u5Z5z8uBL5eJ",
+  "tool": "agent-browser",
+  "desktop": {
+    "viewport": [
+      1280,
+      800
+    ],
+    "freshSession": "afterlight-final",
+    "runtimeErrors": 0,
+    "heroActionBottomPx": 715.25,
+    "heroActionVisibleWithoutScrolling": true,
+    "keyboard": {
+      "tabFocused": "Afterlight atlas",
+      "focusOutline": "solid"
+    },
+    "atlas": {
+      "questions": 6,
+      "papers": 20,
+      "zeroMatchQuery": "zz-no-match",
+      "filteredPoints": 0,
+      "emptyMessage": "No matching questions",
+      "clearViaKeyboardRestoredPoints": 6,
+      "mapPointClickRoute": "#/questions/q-implicit-influence",
+      "navigationScrollY": 0,
+      "evidencePanelBelowMap": true
+    },
+    "dossier": {
+      "attemptStatus": "completed",
+      "attemptResultRunId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+      "horizontalOverflow": false
+    },
+    "designer": {
+      "ownerFieldType": "password",
+      "capUsd": 2,
+      "contractId": "visible-explanation-v1",
+      "unauthenticatedActionMessage": "Owner authorization is required to spend provider credits.",
+      "paidCalls": 0
+    },
+    "laboratory": {
+      "runLabel": "RECORDED RUN",
+      "completedTrials": 100,
+      "plannedTrials": 100,
+      "displayedCostUsd": 0.0236,
+      "defaultCase": "eval-vpn-direct-1",
+      "defaultComparison": "Direct request",
+      "baselineChoice": "A",
+      "selectedChoice": "B",
+      "bothMonitorVerdicts": "NO",
+      "deliveredContextMatchesSavedRequest": true,
+      "pairedCardsVisuallyReviewed": true,
+      "horizontalOverflow": false
+    },
+    "results": {
+      "navigationScrollY": 0,
+      "conditionBars": 5,
+      "intervals": 4,
+      "pairedCasesPerInterval": 20,
+      "primaryIntervalPercentagePoints": [
+        -10,
+        30
+      ],
+      "secondaryExplicitIntervalPercentagePoints": [
+        35,
+        75
+      ],
+      "horizontalOverflow": false
+    }
+  },
+  "apiUnavailableCheck": {
+    "method": "Abort browser API requests, reload completed Results, then remove the abort rule",
+    "deploymentWhenChecked": "dpl_4fcvoPrVKF4qopqZ42Hhd5xET8p1",
+    "label": "SAVED SNAPSHOT",
+    "conditionBars": 5,
+    "intervals": 4,
+    "completedTrials": 100,
+    "plannedTrials": 100,
+    "displayedCostUsd": 0.0236,
+    "note": "Final deployment changes route scroll reset and filtered empty-state copy; saved-data logic was unchanged."
+  },
+  "visualReview": "Actual desktop screenshot review of the supplied-photo hero, paired observation cards, and results; latest screenshots supplied separately with the handoff. Mobile verification recorded separately below.",
+  "providerCallsDispatched": 0,
+  "mobile": {
+    "checkedAt": "2026-09-13T21:02:55.668221+00:00",
+    "deploymentId": "dpl_9xytLpWTWPZ4bqd6u5Z5z8uBL5eJ",
+    "viewport": [
+      390,
+      844
+    ],
+    "routes": [
+      "atlas",
+      "question",
+      "laboratory",
+      "results"
+    ],
+    "horizontalOverflow": false,
+    "mapClickQuestionId": "q-implicit-influence",
+    "routeScrollResetPx": 0,
+    "completedTrials": 100,
+    "runLabel": "RECORDED RUN",
+    "conditionsComplete": "5 conditions at 20/20",
+    "resultIntervals": 4,
+    "pairedCasesPerInterval": 20,
+    "pageErrors": 0,
+    "providerCallsDispatched": 0
+  }
+}

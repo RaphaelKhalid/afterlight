@@ -1,0 +1,17 @@
+{
+  "at": "2026-09-13T19:27:43.028Z",
+  "request": {
+    "contractId": "visible-explanation-v1",
+    "contractHash": "2768dcca1f11b86debc641429e9d1befb6c7d503903b98155c001b28d82020f5",
+    "capUsd": 2
+  },
+  "httpStatus": 202,
+  "response": {
+    "run": {
+      "id": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+      "status": "queued",
+      "capUsd": 2,
+      "totalTrials": 100
+    }
+  }
+}

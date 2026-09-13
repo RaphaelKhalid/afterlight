@@ -253,10 +253,23 @@
   "costStatus": "estimated from returned tokens and official rate card; not a billing receipt",
   "pricingUrl": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
   "capUsd": 0.2,
-  "reviewStatus": "Lead-agent reviewed; independent human review pending",
+  "reviewStatus": "Five concise reference judgments reviewed and agreed by project owner",
   "limitations": [
     "Five selected fixtures do not estimate general research-agent accuracy.",
-    "The author of reference labels and reviewer are AI agents, not independent human annotators.",
+    "Reference labels were authored by AI agents. The project owner reviewed five concise statements, not the complete papers or unseen examples.",
     "The classification call was run once with no retry or tuning on these results."
-  ]
+  ],
+  "referenceReview": {
+    "receivedAt": "2026-09-13T18:34:02.241Z",
+    "reviewer": "Project owner",
+    "response": "agreed",
+    "scope": "Reviewed the five concise statements and reference judgments presented in the task. This is not an independent review of full source papers or a general validation of scientific reasoning.",
+    "fixtureIds": [
+      "source-supported",
+      "duplicate-wording",
+      "partial-mitigation",
+      "related-not-answer",
+      "unsupported-universal"
+    ]
+  }
 }

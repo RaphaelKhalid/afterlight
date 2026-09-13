@@ -1,0 +1,12 @@
+{
+  "checkedAt": "2026-09-13T20:10:50.134Z",
+  "artifactSha256": "186ebcb4c3dacc8705e068e5c47e29aa6fa3139a7ff6e6e4c11ce45bb4939b84",
+  "bytes": 1047308,
+  "trialRows": 100,
+  "providerResponses": 200,
+  "freeformReview": "All 100 subject rationales and all 100 monitor explanations inspected. Twenty fictional A/B choice cases and frozen prompt templates. No private personal or account content.",
+  "sensitiveFieldFindings": [],
+  "rawTrialsMatchArchivedStudy": true,
+  "authorization": "Execution handoff sections 1, 13 and 16 authorize public GitHub publication of actual raw outputs, frozen prompts, input cases, reproducible artifacts and evidence.",
+  "metadataReview": "Generated run/trial/request/response identifiers, model name, usage counts, timestamps and scientific status only. No bot chat or user IDs, credentials or account headers."
+}

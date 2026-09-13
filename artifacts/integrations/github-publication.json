@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-09-13T20:11:19.029Z",
+  "runId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+  "artifactSha256": "186ebcb4c3dacc8705e068e5c47e29aa6fa3139a7ff6e6e4c11ce45bb4939b84",
+  "first": {
+    "httpStatus": 201,
+    "body": {
+      "publication": {
+        "id": "pub_a68c59ae-3eac-4c0f-a4b0-06b25fb8441e",
+        "runId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+        "artifactHash": "186ebcb4c3dacc8705e068e5c47e29aa6fa3139a7ff6e6e4c11ce45bb4939b84",
+        "repositoryUrl": "https://github.com/RaphaelKhalid/afterlight",
+        "publicationUrl": "https://github.com/RaphaelKhalid/afterlight/blob/main/artifacts/runs/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37.json",
+        "status": "published",
+        "deduplicated": false
+      }
+    }
+  },
+  "repeat": {
+    "httpStatus": 200,
+    "body": {
+      "publication": {
+        "id": "pub_a68c59ae-3eac-4c0f-a4b0-06b25fb8441e",
+        "runId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+        "artifactHash": "186ebcb4c3dacc8705e068e5c47e29aa6fa3139a7ff6e6e4c11ce45bb4939b84",
+        "status": "published",
+        "publicationUrl": "https://github.com/RaphaelKhalid/afterlight/blob/main/artifacts/runs/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37.json",
+        "deduplicated": true
+      }
+    }
+  },
+  "immutableCommit": "5ff3d22951efd85a278d88dad7776e4722324a8f",
+  "immutableUrl": "https://github.com/RaphaelKhalid/afterlight/blob/5ff3d22951efd85a278d88dad7776e4722324a8f/artifacts/runs/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37.json"
+}

@@ -1,0 +1,82 @@
+{
+  "kind": "development-capability-check",
+  "notScientificObservation": true,
+  "startedAt": "2026-09-13T18:49:26.538Z",
+  "completedAt": "2026-09-13T18:49:28.405Z",
+  "request": {
+    "model": "openai/gpt-oss-120b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Return a JSON object with status equal to ready."
+      }
+    ],
+    "max_tokens": 256,
+    "temperature": 0,
+    "reasoning": {
+      "effort": "low"
+    },
+    "include_reasoning": true,
+    "provider": {
+      "order": [
+        "deepinfra/bf16"
+      ],
+      "allow_fallbacks": false
+    }
+  },
+  "status": 200,
+  "response": {
+    "id": "gen-1789325364-uB9p0slAVqxsctsAJGuv",
+    "object": "chat.completion",
+    "created": 1789325364,
+    "model": "openai/gpt-oss-120b",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"ready\"\n}",
+          "refusal": null,
+          "reasoning": "User asks: \"Return a JSON object with status equal to ready.\" So respond with JSON: {\"status\":\"ready\"}.\n\nMake sure it's a JSON object with status equal to ready. Probably they want {\"status\":\"ready\"}.\n\nWill output just that JSON.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "User asks: \"Return a JSON object with status equal to ready.\" So respond with JSON: {\"status\":\"ready\"}.\n\nMake sure it's a JSON object with status equal to ready. Probably they want {\"status\":\"ready\"}.\n\nWill output just that JSON.",
+              "format": "unknown",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 64,
+      "completion_tokens": 71,
+      "total_tokens": 135,
+      "cost": 0.000014438,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000014438,
+        "upstream_inference_prompt_cost": 0.000002368,
+        "upstream_inference_completions_cost": 0.00001207
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 59,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

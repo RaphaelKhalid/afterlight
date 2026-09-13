@@ -12,7 +12,8 @@
     "OPENROUTER_BUDGET_USD": "6",
     "TELEGRAM_ALLOWED_CHAT_IDS": "chat1",
     "OWNER_ACCESS_TOKEN": "integration-owner",
-    "TELEGRAM_WEBHOOK_SECRET": "integration-telegram"
+    "TELEGRAM_WEBHOOK_SECRET": "integration-telegram",
+    "GITHUB_PUBLICATION_TOKEN": "integration-github"
   },
   "d1_databases": [{ "binding": "DB", "database_name": "afterlight-research", "database_id": "7455423a-6856-43f6-8ac3-210c9cadcb04", "migrations_dir": "migrations" }],
   "workflows": [{ "binding": "AFTERLIGHT_WORKFLOW", "name": "afterlight-experiment-test", "class_name": "AfterlightWorkflow" }]

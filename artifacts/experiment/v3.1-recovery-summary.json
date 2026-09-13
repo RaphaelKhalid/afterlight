@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "afterlight.experiment.recovery.v3.1",
+  "completedAt": "2026-09-13T18:39:26.700144+00:00",
+  "parentRun": "v3-heldout-raw.jsonl",
+  "eligible429": 32,
+  "retriesAttempted": 4,
+  "recoveredSubjects": 2,
+  "recoveryFailures": 2,
+  "monitorEligibleSubjects": 166,
+  "monitorRows": 41,
+  "monitorCompleted": 35,
+  "monitorFailures": 6,
+  "monitorValidVerdicts": 35,
+  "spendUsd": 0.0009827,
+  "stopRule": "at most one retry per HTTP429 subject, then stop after two consecutive recovery failures; monitor stops after two consecutive failures",
+  "rawEvidence": "v3.1-recovery-raw.jsonl"
+}

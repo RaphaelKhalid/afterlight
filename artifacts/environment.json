@@ -1,0 +1,13 @@
+{
+  "recordedAt": "2026-09-13T20:34:27.326Z",
+  "node": "v24.18.0",
+  "python": "3.12.10",
+  "npm": "11.16.0",
+  "platform": "win32",
+  "architecture": "x64",
+  "frontendLockSha256": "5833e3be54b8fdfa72ba8ea5d37f54a5a456e956a7debfbf6d10a439406e8786",
+  "backendLockSha256": "f56a1a686adafbfe55b2292f105079dbe401963ace57b25e72533bf8dff3ac94",
+  "frozenAdapterSha256": "be55335ac39ab6ae6cc8a37205442bcd42e0454c9efab4ff886cec67bb4c6c96",
+  "analyzerSha256": "ed32e1e178682700daa93dbf4f55ece6c7b8f2ad890beb91264e0c960d6d89ca",
+  "reproduction": "Offline analysis uses Python standard library. Paid execution uses Node24, exact frozen adapter, explicit opt-in and cap. Provider stochastic outputs need not be byte-identical."
+}

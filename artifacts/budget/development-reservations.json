@@ -1,0 +1,12 @@
+{
+  "recordedAt": "2026-09-13T18:56:40.041Z",
+  "openRouterKnownUsd": 0.010895768,
+  "exaProviderReturnedUsd": 0.063,
+  "openAiTokenBasedEstimateUsd": 0.0009112,
+  "openAiConservativeChargedAllowanceUsd": 0.001,
+  "recoveryHeldUsd": 0,
+  "note": "Historical development expenditure is included in the server cap. Recovery stopped after provider queue errors. Its 10 unknown-cost rejections retain a conservative $0.05 allowance; only $0.00033222 is provider-returned recovery cost. The prior OpenRouter field excludes this recovery and later live calls.",
+  "recoveryKnownReturnedUsd": 0.00033222,
+  "recoveryUnknownBillingReserveUsd": 0.05,
+  "recoverySettledConservativeUsd": 0.05033222
+}

@@ -1,0 +1,273 @@
+{
+  "schemaVersion": "afterlight.provider-cost-audit.v1",
+  "auditedAt": "2026-09-13T19:38:04.914233+00:00",
+  "status": "completed-visible-main-included",
+  "scope": "Raw archived call ledgers and one redacted receipt only; derived summaries, duplicate incremental ledgers, and current visible main run are excluded from source counts.",
+  "unknownPolicy": {
+    "openrouterPerUnknownCallUsd": 0.005,
+    "deepinfraUpstreamRoutePerUnknownCallUsd": 0.01,
+    "meaning": "Conservative reservation only. Unknown reserve is not a claim that a provider billed that amount or that the call cost zero."
+  },
+  "sources": [
+    {
+      "provider": "openrouter",
+      "artifact": "artifacts/experiment/calibration-log.json",
+      "kind": "manual endpoint checks",
+      "attempts": 2,
+      "completedWithReturnedCost": 2,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 0.00012265,
+      "estimatedCostUsd": 0,
+      "unknownReserveUsd": 0,
+      "counting": "two manual calls; not duplicated in calibration raw"
+    },
+    {
+      "provider": "openrouter",
+      "artifact": "artifacts/experiment/calibration-raw.jsonl",
+      "kind": "v1 calibration",
+      "attempts": 25,
+      "completedWithReturnedCost": 25,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 0.00176077,
+      "estimatedCostUsd": 0,
+      "unknownReserveUsd": 0
+    },
+    {
+      "provider": "openrouter",
+      "artifact": "artifacts/experiment/v2-calibration-raw.jsonl",
+      "kind": "v2 calibration",
+      "attempts": 53,
+      "completedWithReturnedCost": 53,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 0.00388541,
+      "estimatedCostUsd": 0,
+      "unknownReserveUsd": 0
+    },
+    {
+      "provider": "openrouter",
+      "artifact": "artifacts/experiment/v3-heldout-raw.jsonl",
+      "kind": "original v3 heldout",
+      "attempts": 200,
+      "completedWithReturnedCost": 168,
+      "unknownBillingAttempts": 32,
+      "providerReturnedCostUsd": 0.00412489,
+      "estimatedCostUsd": 0,
+      "unknownReserveUsd": 0.16,
+      "unknownReserveBasis": "$0.005 per failed HTTP429 row with no billing field"
+    },
+    {
+      "provider": "openrouter",
+      "artifact": "artifacts/experiment/v3.1-recovery-raw.jsonl",
+      "kind": "v3.1 recovery",
+      "attempts": 45,
+      "completedWithReturnedCost": 37,
+      "unknownBillingAttempts": 8,
+      "providerReturnedCostUsd": 0.0009827,
+      "estimatedCostUsd": 0,
+      "unknownReserveUsd": 0.04,
+      "unknownReserveBasis": "$0.005 per failed HTTP429 row with no billing field"
+    },
+    {
+      "provider": "openrouter",
+      "artifact": "artifacts/experiment/v3.2-recovery-raw.jsonl",
+      "kind": "v3.2 recovery",
+      "attempts": 25,
+      "completedWithReturnedCost": 15,
+      "unknownBillingAttempts": 10,
+      "providerReturnedCostUsd": 0.00033222,
+      "estimatedCostUsd": 0,
+      "unknownReserveUsd": 0.05,
+      "unknownReserveBasis": "$0.005 per rate-limit rejection; historical server reserve is the same"
+    },
+    {
+      "provider": "openrouter",
+      "artifact": "artifacts/experiment/deepinfra-capability-probe.json",
+      "kind": "capability probe",
+      "attempts": 1,
+      "completedWithReturnedCost": 1,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 1.444e-05,
+      "estimatedCostUsd": 0,
+      "unknownReserveUsd": 0,
+      "account": "openrouter",
+      "upstreamRoute": "DeepInfra",
+      "counting": "OpenRouter account call routed to DeepInfra; retained as an upstream route subtotal."
+    },
+    {
+      "provider": "openrouter",
+      "artifact": "artifacts/experiment/deepinfra-interrupted-live.json",
+      "kind": "interrupted live development trial",
+      "attempts": 3,
+      "completedWithReturnedCost": 2,
+      "unknownBillingAttempts": 1,
+      "providerReturnedCostUsd": 5.88e-05,
+      "estimatedCostUsd": 0,
+      "unknownReserveUsd": 0.01,
+      "unknownReserveBasis": "$0.01 reserved for the one rejected 429 stage; this is an OpenRouter account call with a DeepInfra upstream route.",
+      "account": "openrouter",
+      "upstreamRoute": "DeepInfra",
+      "counting": "OpenRouter account ledger routed to DeepInfra; before and after snapshots are one call ledger."
+    },
+    {
+      "provider": "openai",
+      "artifact": "artifacts/experiment/openai-direct-capability-probe.json",
+      "kind": "capability probe",
+      "attempts": 1,
+      "completedWithReturnedCost": 0,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 0,
+      "estimatedCostUsd": 0.000152,
+      "estimateBasis": "returned tokens and frozen GPT-5.6-Luna price card"
+    },
+    {
+      "provider": "openai",
+      "artifact": "artifacts/evaluation/semantic-results.json",
+      "kind": "semantic fixture review",
+      "attempts": 1,
+      "completedWithReturnedCost": 0,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 0,
+      "estimatedCostUsd": 0.0004542,
+      "estimateBasis": "returned tokens and official rate card"
+    },
+    {
+      "provider": "openai",
+      "artifact": "artifacts/evaluation/visible-monitor-results.json",
+      "kind": "visible monitor controls",
+      "attempts": 4,
+      "completedWithReturnedCost": 0,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 0,
+      "estimatedCostUsd": 0.000305,
+      "estimateBasis": "returned tokens and frozen price card"
+    },
+    {
+      "provider": "exa",
+      "artifact": "artifacts/search/*.json",
+      "kind": "nine bounded literature searches",
+      "attempts": 9,
+      "completedWithReturnedCost": 9,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 0.063
+    },
+    {
+      "provider": "exa",
+      "artifact": "artifacts/integrations/live-exa-investigation.json",
+      "kind": "live investigation",
+      "attempts": 1,
+      "completedWithReturnedCost": 0,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 0,
+      "estimatedCostUsd": 0.1,
+      "estimateBasis": "backend fixed $0.10 investigation allowance; conservative estimate, not an Exa billing receipt"
+    },
+    {
+      "provider": "openrouter",
+      "account": "openrouter",
+      "upstreamRoute": "AkashML",
+      "artifact": "artifacts/budget/rate-limit-capability-receipt.json",
+      "kind": "rate-limit capability probe",
+      "attempts": 1,
+      "completedWithReturnedCost": 1,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 4.91e-06,
+      "estimatedCostUsd": 0,
+      "unknownReserveUsd": 0,
+      "counting": "Safe receipt derived from the archived diagnosis; identifiers and credentials omitted."
+    },
+    {
+      "provider": "openai",
+      "artifact": "artifacts/experiment/visible-run.json",
+      "kind": "completed visible main study",
+      "attempts": 100,
+      "completedWithReturnedCost": 0,
+      "unknownBillingAttempts": 0,
+      "providerReturnedCostUsd": 0,
+      "estimatedCostUsd": 0.0236126,
+      "unknownReserveUsd": 0,
+      "estimateBasis": "Returned subject and monitor token usage under frozen GPT-5.6-Luna price card; no provider billing receipt.",
+      "estimatedStagesWithUsage": 200,
+      "counting": "One row per case-condition trial. Persisted-response recovery reused two already completed stage responses and made no duplicate network calls."
+    }
+  ],
+  "totalsByProvider": {
+    "openrouter": {
+      "account": "OpenRouter",
+      "providerReturnedCostUsd": 0.011286779,
+      "estimatedCostUsd": 0,
+      "unknownBillingAttempts": 51,
+      "unknownReserveUsd": 0.26,
+      "conservativeTotalUsd": 0.271286779,
+      "upstreamRouteSubtotals": {
+        "nonDeepInfraOrRouteUnspecified": {
+          "providerReturnedCostUsd": 0.011213545,
+          "unknownBillingAttempts": 50,
+          "unknownReserveUsd": 0.25,
+          "conservativeTotalUsd": 0.261213545
+        },
+        "DeepInfra": {
+          "providerReturnedCostUsd": 7.3234e-05,
+          "unknownBillingAttempts": 1,
+          "unknownReserveUsd": 0.01,
+          "conservativeTotalUsd": 0.010073234,
+          "accountAttribution": "OpenRouter"
+        }
+      }
+    },
+    "openai": {
+      "providerReturnedCostUsd": 0,
+      "estimatedCostUsd": 0.0245238,
+      "unknownBillingAttempts": 0,
+      "unknownReserveUsd": 0,
+      "conservativeTotalUsd": 0.0245238,
+      "billingReceipt": "none in archived probe/control artifacts"
+    },
+    "exa": {
+      "providerReturnedCostUsd": 0.063,
+      "estimatedCostUsd": 0.1,
+      "unknownBillingAttempts": 0,
+      "unknownReserveUsd": 0,
+      "conservativeTotalUsd": 0.163
+    }
+  },
+  "grandTotals": {
+    "providerReturnedCostUsd": 0.074286779,
+    "estimatedCostUsd": 0.1245238,
+    "unknownReserveUsd": 0.26,
+    "conservativeTotalUsd": 0.458810579
+  },
+  "excludedFromRawCount": [
+    "calibration-summary.json",
+    "v2-calibration-summary.json",
+    "v3-heldout-summary.json",
+    "v3.1-recovery-summary.json",
+    "v3.2-recovery-summary.json",
+    "v3-heldout-raw-incremental.jsonl",
+    "calibration-raw-incremental.jsonl",
+    "v2-calibration-raw-incremental.jsonl",
+    "evaluation/visible-monitor-raw.jsonl (same four controls represented in visible-monitor-results.json)",
+    "evaluation/deployed-control-checks.json and deployed-budget-stop.json (no provider stages)",
+    "artifacts/budget/development-reservations.json (rollup cross-check only)"
+  ],
+  "crossChecks": {
+    "historicalBudgetRollup": "development-reservations.json is not authoritative because it predates final v3.2 reconciliation. Its OpenRouter rollup correctly includes the traced $0.00000491 capability probe and the DeepInfra route probe, and it separately holds a $0.001 OpenAI allowance for token-based estimates.",
+    "rawKnownOpenRouterAccountUsd": 0.011286779,
+    "rawKnownOpenRouterNonDeepInfraRouteUsd": 0.011213545,
+    "rawKnownDeepInfraUpstreamRouteUsd": 7.3234e-05,
+    "openrouterUnknownBillingAttempts": 51,
+    "visibleMainIncluded": true,
+    "rateLimitReceipt": "artifacts/budget/rate-limit-capability-receipt.json",
+    "visibleMainRunId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+    "visibleMainEstimatedUsd": 0.0236126
+  },
+  "mainRunIncluded": {
+    "runId": "run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37",
+    "artifactFiles": [
+      "artifacts/experiment/visible-run.json",
+      "artifacts/experiment/visible-trials.json"
+    ],
+    "estimatedCostUsd": 0.0236126,
+    "status": "completed",
+    "failedTrials": 0
+  }
+}

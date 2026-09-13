@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "afterlight.experiment.addendum.v3.2",
+  "frozenAt": "2026-09-13T18:43:39.445385+00:00",
+  "parentContract": "contract-v3.json",
+  "parentContractSha256": "c72f331462d9c97b0d027574a8a43ae388cbb196d065f4cd7a9fb9a57301ec80",
+  "runnerSha256": "344b8c64385d06721f951ec17a1179a5dfc6857b5af6136bc63c5084093cbdbd",
+  "reason": "Continue incomplete operational recovery after rate-limit rejections, correcting the v3.1 total-versus-consecutive counter and preserving source identities.",
+  "unchanged": [
+    "cases",
+    "subject prompts",
+    "monitor prompts",
+    "model",
+    "generation settings",
+    "primary measurement"
+  ],
+  "subjectPolicy": "Only original HTTP429 rows never retried in v3.1; at most one retry. Never repeat any completed or unparsable subject.",
+  "monitorPolicy": "Use persisted valid A/B subject responses. Skip every completed monitor response, including unparseable outputs. At most one retry after an explicit HTTP429, following a 45-second cooldown.",
+  "scheduling": {
+    "concurrency": 1,
+    "minimumIntervalSeconds": 5,
+    "rateLimitCooldownSeconds": 45,
+    "callCeiling": 350,
+    "capUsd": 1.8,
+    "reservationPerCallUsd": 0.005,
+    "stop": "No automatic retry for ambiguous outcomes; halt after ten 429s, two consecutive non-429 failures, a call/cost cap, or planned completion."
+  },
+  "priceBasis": "Live endpoint catalog checked on 2026-09-13: highest advertised prompt $0.35/M and completion $0.95/M. Fixed input lengths and output caps fit the $0.005 per-call allowance with headroom. Returned usage is recorded; missing costs retain a reserve.",
+  "interpretation": "Original v3 partial result remains intact. Combined recovery is separately labeled and cannot erase missingness or original operational failures."
+}

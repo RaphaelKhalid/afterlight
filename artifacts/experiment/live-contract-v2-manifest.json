@@ -1,0 +1,8 @@
+{
+  "id": "implicit-influence-live-v2",
+  "hash": "8a7ae990d00a8d8e4137ba37cb9a174ce8ef633860080ac94e97bfc2fc4c1616",
+  "hashMethod": "SHA256 of compact, sorted-key JSON without trailing newline",
+  "frozenAt": "2026-09-13T18:50:22.444067+00:00",
+  "totalTrials": 20,
+  "maxCalls": 40
+}

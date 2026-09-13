@@ -9,10 +9,10 @@ export const emptyCorpus: CorpusPayload = {
 
 export async function loadCorpus(): Promise<CorpusPayload> {
   const local = await fetch('/data/corpus.json').then((r) => r.ok ? r.json() : null).catch(() => null)
-  const remote = await fetch('/api/questions').then((r) => r.ok ? r.json() : null).catch(() => null)
+  const remote = await fetch('/api/questions', {signal: AbortSignal.timeout(8000)}).then((r) => r.ok ? r.json() : null).catch(() => null)
   const candidate = remote?.questions?.length ? remote : local
   if (!candidate || !Array.isArray(candidate.questions)) return emptyCorpus
-  return { ...emptyCorpus, ...candidate }
+  return { ...emptyCorpus, ...candidate, coverage: { ...local?.coverage, ...candidate.coverage } }
 }
 
 export async function loadDemo(): Promise<DemoPayload> {

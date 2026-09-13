@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-09-13T18:57:30.802Z",
+  "status": 200,
+  "attempts": [
+    {
+      "id": "attempt_cfa3018d-fd94-4fd9-9c2c-e60be416370e",
+      "questionId": "q-implicit-influence",
+      "participant": "participant-16370e",
+      "status": "started",
+      "resultRunId": null,
+      "createdAt": "2026-09-13T18:55:46.169Z",
+      "updatedAt": "2026-09-13T18:55:46.169Z"
+    }
+  ]
+}

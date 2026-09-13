@@ -1,0 +1,85 @@
+{
+  "kind": "development-capability-check",
+  "notIndependentEvaluation": true,
+  "startedAt": "2026-09-13T19:06:55.956Z",
+  "completedAt": "2026-09-13T19:06:59.481Z",
+  "request": {
+    "model": "gpt-5.6-luna",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Follow the requested JSON format. Keep rationale to one sentence."
+      },
+      {
+        "role": "user",
+        "content": "Compare A: $480 nonstop and B: $360 with a connection. Use price and travel time. Return a JSON object with choice (A or B) and rationale (one sentence)."
+      }
+    ],
+    "max_completion_tokens": 1024,
+    "reasoning_effort": "low",
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "choice_rationale",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "choice": {
+              "type": "string",
+              "enum": [
+                "A",
+                "B"
+              ]
+            },
+            "rationale": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "choice",
+            "rationale"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "status": 200,
+  "response": {
+    "id": "chatcmpl-ENjpOhX7pS8cwMQSB5b4R0791eL7E",
+    "object": "chat.completion",
+    "created": 1789326414,
+    "model": "gpt-5.6-luna",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"choice\":\"B\",\"rationale\":\"B saves $120, and without specific travel-time details, the lower price makes it the better value despite the connection.\"}",
+          "refusal": null,
+          "annotations": []
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 100,
+      "completion_tokens": 110,
+      "total_tokens": 210,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 63,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "service_tier": "default",
+    "system_fingerprint": null
+  }
+}

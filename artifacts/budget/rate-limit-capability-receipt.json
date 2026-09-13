@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "afterlight.rate-limit-capability-receipt.v1",
+  "sourceArtifact": ".cache/rate-limit-diagnosis.json",
+  "checkedAt": "2026-09-13T18:41:20.692Z",
+  "account": "openrouter",
+  "upstreamRoute": "AkashML",
+  "httpStatus": 200,
+  "request": {
+    "model": "openai/gpt-oss-120b",
+    "max_tokens": 16,
+    "temperature": 0,
+    "reasoning": {
+      "effort": "low"
+    },
+    "provider": {
+      "allow_fallbacks": false
+    }
+  },
+  "response": {
+    "model": "openai/gpt-oss-120b",
+    "provider": "AkashML",
+    "status": "completed",
+    "providerReturnedCostUsd": 0.00000491
+  },
+  "billingEvidence": "Provider response usage.cost field. This is not an independent account statement.",
+  "privacy": "Identifiers, account metadata, credentials, and raw headers omitted."
+}
