@@ -1,0 +1,26 @@
+{
+  "phase": "discovery-and-development-screen",
+  "studyId": "persona-discovery-v1",
+  "executionConfirmedBy": "Structured notebook events after successful GPU and SAE activation checks",
+  "runtimeLimitSeconds": 7200,
+  "autolabsStudy": "https://autolabs-ebon.vercel.app/experiments/persona-discovery",
+  "notebook": "raphaelkhalid0/unsupervisedsaes",
+  "verification": "Standalone and embedded question handoffs, study navigation, measured public counters, desktop/mobile layout, and unauthorized status writes checked.",
+  "contractHash": "71a3221c7f5e077b1af061635aaf4972aac320a6d04c46d97b839e4e9d070b43",
+  "apiSpendUsd": 0,
+  "confirmationStatus": "not-started",
+  "lastVerifiedStatus": {
+    "status": "running",
+    "phase": "discovery",
+    "completed": 200,
+    "total": 1024,
+    "updatedAt": "2026-09-14T22:03:36Z",
+    "message": "Collecting responses and SAE activations; no confirmed persona finding.",
+    "telemetry": "notebook-log",
+    "notebookUrl": "https://www.kaggle.com/code/raphaelkhalid0/unsupervisedsaes",
+    "artifactUrl": "https://github.com/RaphaelKhalid/afterlight/tree/main/research/persona-discovery",
+    "receivedAt": "2026-09-14T22:03:36.654Z"
+  },
+  "kaggleVersion": 1,
+  "afterlightQuestion": "https://afterlight-research.vercel.app/#/questions/q-unsupervised-persona"
+}
