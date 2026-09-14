@@ -2,6 +2,7 @@ import { env, SELF, introspectWorkflowInstance } from "cloudflare:test";
 import { beforeAll, describe, expect, it } from "vitest";
 
 beforeAll(async () => {
+  await env.DB.exec("CREATE TABLE IF NOT EXISTS external_study_status (id TEXT PRIMARY KEY,payload_json TEXT NOT NULL,received_at TEXT NOT NULL)");
   await env.DB.exec("CREATE TABLE IF NOT EXISTS questions (id TEXT PRIMARY KEY,title TEXT NOT NULL,area TEXT NOT NULL,status TEXT NOT NULL,origin TEXT NOT NULL,summary TEXT NOT NULL,why_it_matters TEXT NOT NULL,source_json TEXT NOT NULL,closest_work_json TEXT NOT NULL,uncertainty TEXT NOT NULL,search_json TEXT NOT NULL,executable INTEGER NOT NULL DEFAULT 0,estimated_cost_usd REAL,estimated_minutes INTEGER,access TEXT NOT NULL,position_json TEXT,created_at TEXT NOT NULL,featured INTEGER NOT NULL DEFAULT 0)");
   await env.DB.exec("CREATE TABLE IF NOT EXISTS papers (id TEXT PRIMARY KEY,title TEXT NOT NULL,authors_json TEXT NOT NULL,published TEXT NOT NULL,updated TEXT,url TEXT NOT NULL,version TEXT,source_type TEXT NOT NULL,abstract TEXT NOT NULL,topics_json TEXT NOT NULL,verification_status TEXT NOT NULL,featured INTEGER NOT NULL DEFAULT 0,created_at TEXT NOT NULL)");
   await env.DB.exec("CREATE TABLE IF NOT EXISTS edges (id TEXT PRIMARY KEY,source_id TEXT NOT NULL,target_id TEXT NOT NULL,type TEXT NOT NULL,explanation TEXT NOT NULL,evidence_url TEXT)");
@@ -382,4 +383,19 @@ describe("Afterlight Worker handler boundaries", () => {
     expect(response.status).toBe(200);
     expect((await response.json() as { publication: { deduplicated: boolean } }).publication.deduplicated).toBe(true);
   });
+});
+
+it('protects external study writes and serves measured progress without caching', async () => {
+  const url='https://afterlight.test/api/studies/persona-discovery/status';
+  const status={status:'running',phase:'discovery',completed:8,total:1024,updatedAt:'2026-09-14T01:00:00Z',message:'Recorded eight responses',telemetry:'notebook-log'};
+  const unauthorized=await SELF.fetch(url,{method:'POST',body:JSON.stringify(status)});
+  expect(unauthorized.status).toBe(401);
+  const write=(value: unknown)=>SELF.fetch(url,{method:'POST',headers:{authorization:'Bearer integration-owner','content-type':'application/json'},body:JSON.stringify(value)});
+  expect((await write({...status,completed:1025})).status).toBe(400);
+  expect((await write(status)).status).toBe(200);
+  expect((await write({...status,completed:4,updatedAt:'2026-09-14T00:00:00Z'})).status).toBe(200);
+  const response=await SELF.fetch(url);
+  expect(response.headers.get('cache-control')).toBe('no-store');
+  expect(response.headers.get('access-control-allow-origin')).toBe('*');
+  expect((await response.json() as {completed: number}).completed).toBe(8);
 });

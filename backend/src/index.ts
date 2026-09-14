@@ -1,3 +1,4 @@
+import { validateStudyStatus } from './study-status';
 import { WorkflowEntrypoint, WorkflowStep } from "cloudflare:workers";
 import type { WorkflowEvent } from "cloudflare:workers";
 import { publicationPath, shouldStopBeforeDispatch, telegramCallbackKey } from "./policy";
@@ -609,6 +610,25 @@ export default {
     const url = new URL(request.url);
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: { "access-control-allow-origin": "*", "access-control-allow-headers": "content-type, authorization, x-afterlight-owner-token, x-telegram-bot-api-secret-token", "access-control-allow-methods": "GET,POST,OPTIONS" } });
     try {
+      if (url.pathname === "/api/studies/persona-discovery/status") {
+        const headers = { "access-control-allow-origin": "*", "cache-control": "no-store" };
+        if (request.method === "GET") {
+          const row = await env.DB.prepare("SELECT payload_json,received_at FROM external_study_status WHERE id = ?").bind("persona-discovery-v1").first<{payload_json: string; received_at: string}>();
+          return row ? json({ ...asJson<JsonObject>(row.payload_json, {}), receivedAt: row.received_at }, { headers }) : json({ error: "Status has not been synchronized." }, { status: 404, headers });
+        }
+        if (request.method === "POST") {
+          if (!(await isOwner(request, env))) return errorResponse("UNAUTHORIZED", "Owner authorization is required to synchronize study status.", 401);
+          const raw = await request.text();
+          if (raw.length > 4096) return errorResponse("INVALID_STATUS", "Status payload is too large.", 400);
+          let value: unknown;
+          try { value = JSON.parse(raw); } catch { return errorResponse("INVALID_STATUS", "Status must be valid JSON.", 400); }
+          const status = validateStudyStatus(value);
+          if (!status) return errorResponse("INVALID_STATUS", "Status fields are invalid.", 400);
+          await env.DB.prepare("INSERT INTO external_study_status (id,payload_json,received_at) VALUES (?,?,?) ON CONFLICT(id) DO UPDATE SET payload_json=excluded.payload_json, received_at=excluded.received_at WHERE json_extract(excluded.payload_json,'$.updatedAt') >= json_extract(external_study_status.payload_json,'$.updatedAt')").bind("persona-discovery-v1", JSON.stringify(status), NOW()).run();
+          return json({ ok: true }, { headers });
+        }
+        return errorResponse("METHOD_NOT_ALLOWED", "Use GET or authorized POST.", 405);
+      }
       if (url.pathname === "/api/health" && request.method === "GET") return json({ ok: true, service: "afterlight-api", environment: env.ENVIRONMENT ?? "unknown", now: NOW() }, {}, true);
       if (url.pathname === "/api/discord/interactions") return discordInteractions(request, env);
       const investigate = url.pathname.match(/^\/api\/questions\/([^/]+)\/investigate$/);
