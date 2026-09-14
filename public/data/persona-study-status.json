@@ -1,0 +1,10 @@
+{
+  "total": 1024,
+  "updatedAt": "2026-09-14T21:47:23.6112854Z",
+  "notebookUrl": "https://www.kaggle.com/code/raphaelkhalid0/unsupervisedsaes",
+  "completed": 0,
+  "message": "Kaggle reports notebook version 1 running. Per-trial progress is unavailable until its output is retrieved; the displayed count is not a live GPU counter.",
+  "artifactUrl": "https://github.com/RaphaelKhalid/afterlight/tree/main/research/persona-discovery",
+  "status": "running",
+  "phase": "discovery"
+}

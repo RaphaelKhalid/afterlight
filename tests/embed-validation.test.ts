@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { AUTOLABS_ORIGIN, buildDesignMessage, createEmbedBridge, buildNavigationMessage, normalizeEmbedOrigins, validateEmbedPath, validateParentNavigateEvent } from '../src/embed.ts'
+import { AUTOLABS_ORIGIN, buildAutolabsStudioUrl, buildDesignMessage, createEmbedBridge, buildNavigationMessage, normalizeEmbedOrigins, validateEmbedPath, validateParentNavigateEvent } from '../src/embed.ts'
 
 test('accepts only the documented route shapes and safe identifiers', () => {
   assert.equal(validateEmbedPath('/atlas'), '/atlas')
@@ -57,4 +57,9 @@ test('deduplicates ready and navigation while accepting parent navigation once',
   listeners.forEach((listener) => listener(parentEvent))
   assert.deepEqual(received, ['/questions/q-1'])
   stop()
+})
+test('encodes proposed question context for standalone AutoLabs handoff', () => {
+  const url = buildAutolabsStudioUrl({ id: 'q-proposed', title: 'A question with & spaces', sourceUrl: 'https://arxiv.org/abs/2608.04735?v=1' })
+  assert.equal(url, `${AUTOLABS_ORIGIN}/studio?question=q-proposed&title=A+question+with+%26+spaces&source=https%3A%2F%2Farxiv.org%2Fabs%2F2608.04735%3Fv%3D1`)
+  assert.equal(buildAutolabsStudioUrl({ id: 'q-proposed', title: 'A question', sourceUrl: 'javascript:alert(1)' }), null)
 })
