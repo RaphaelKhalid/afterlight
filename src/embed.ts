@@ -99,6 +99,17 @@ export function buildDesignMessage(question: { id: unknown; title: unknown; sour
     question: { id: question.id, title: question.title, sourceUrl: question.sourceUrl },
   }
 }
+export function buildAutolabsStudioUrl(question: { id: unknown; title: unknown; sourceUrl: unknown }): string | null {
+  const message = buildDesignMessage(question)
+  if (!message) return null
+  const url = new URL('/studio', AUTOLABS_ORIGIN)
+  url.search = new URLSearchParams({
+    question: message.question.id,
+    title: message.question.title,
+    source: message.question.sourceUrl,
+  }).toString()
+  return url.toString()
+}
 
 export type EmbedBridge = {
   ready: () => void

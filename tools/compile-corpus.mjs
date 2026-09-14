@@ -1,3 +1,4 @@
+import { addPersonaProposal } from './persona-proposal.mjs';
 import fs from 'node:fs/promises';
 const notes={
 '2608.04735': ['Implicit influence','Compares implicit and explicit contextual influence across four task families and seven extended-thinking models. The authors report lower detection of some implicit influences, with further degradation under some guidance prompts. This is the closest source for our bounded behavioral adaptation.','Seven extended-thinking models; paper results are distinct from our API pilot.'],
@@ -42,7 +43,7 @@ const questions=[
 ];
 const edges=questions.flatMap(q=>[{id:`raises-${q.id}`,source:q.source.paperId,target:q.id,type:'raises',explanation:'This paper motivates the agent-proposed question under the stated scope. The paper is not claimed to state this exact question.',evidenceUrl:q.source.url},...q.closestWork.filter(w=>w.paperId!==q.source.paperId).map(w=>({id:`adjacent-${w.paperId}-${q.id}`,source:w.paperId,target:q.id,type:'methodologically adjacent',explanation:w.finding+' Remaining mismatch: '+w.mismatch,evidenceUrl:papers.find(p=>p.id===w.paperId)?.url}))]);
 const coverage={searchedAt:new Date().toISOString(),paperCount:papers.length,questionCount:questions.length,recentPaperCount:papers.filter(p=>p.featured).length,foundationCount:papers.filter(p=>!p.featured).length,note:'A selected monitorability neighborhood: 18 papers first submitted June to September 2026, plus 2 older foundations. Six agent-proposed dossiers; five scoped assessments and one unassessed synthesis. This is not a comprehensive map of AI safety.',searchCount:searches.length,searchCostUsd:searches.reduce((s,x)=>s+(x.costDollars?.total??0),0),searchArtifactUrl:'https://github.com/RaphaelKhalid/afterlight/tree/main/artifacts/search'};
-const corpus={questions,papers,edges,coverage};
+const corpus=addPersonaProposal({questions,papers,edges,coverage});
 await fs.writeFile('public/data/corpus.json',JSON.stringify(corpus,null,2));
 await fs.writeFile('artifacts/sources/corpus.json',JSON.stringify(corpus,null,2));
 await fs.writeFile('artifacts/search/summary.json',JSON.stringify({...coverage,queries:allQueries,limitations:search.inaccessible,scope:search.coverage},null,2));
