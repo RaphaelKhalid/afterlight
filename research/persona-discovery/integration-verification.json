@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-09-14T22:02:28.186Z",
+  "checks": [
+    {
+      "name": "Standalone question handoff",
+      "url": "https://autolabs-ebon.vercel.app/studio?question=q-unsupervised-persona&title=Can+SAEs+reveal+persona+tendencies+that+prompting+struggles+to+recover%3F&source=https%3A%2F%2Farxiv.org%2Fhtml%2F2507.21509v3%23S8"
+    },
+    {
+      "name": "Embedded question handoff",
+      "url": "https://autolabs-ebon.vercel.app/studio?question=q-unsupervised-persona&title=Can+SAEs+reveal+persona+tendencies+that+prompting+struggles+to+recover%3F&source=https%3A%2F%2Farxiv.org%2Fhtml%2F2507.21509v3%23S8"
+    },
+    {
+      "name": "Live study",
+      "status": "PUBLIC STATUS\n\nRUNNING\nCollecting responses and SAE activations; no confirmed persona finding.\nPHASE\ndiscovery\nRECORDED UNITS\n184 / 1024\n\nLast synchronized status · 2026-09-14T22:02:29.000Z · Sep 14, 2026, 3:02 PM\n\nProtocol and source ↗"
+    },
+    {
+      "name": "Mobile study",
+      "horizontalOverflow": false
+    }
+  ],
+  "errors": []
+}
