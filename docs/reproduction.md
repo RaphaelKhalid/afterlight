@@ -66,3 +66,13 @@ Set `AFTERLIGHT_API_BASE` and `AFTERLIGHT_OWNER_TOKEN` in the private environmen
 ## Evidence and completion
 
 Freeze the analysis plan before reading the main outcome. Keep the plan hash, contract hash, adapter hash, run ID, raw trial export, scientific-call journal, and analysis output together. A completed status does not remove failed, ambiguous, missing, or invalid rows from the report. A null estimate does not establish equivalence. The direct OpenAI study observes only the final visible rationale and does not expose internal reasoning content.
+
+
+## Sharing a reproduction bundle
+
+When copying evidence for review, include the frozen contract, manifest, adapter,
+analysis plan and output, run and trial exports, environment record, analyzer,
+and this guide. Exclude `.env.local`, `.dev.vars`, `local-access.json`,
+private error files, and any generated `work/` directory. The default checks
+make no provider calls and never read a provider key. Review copied files for
+private identifiers and credential-shaped values before publishing them.
