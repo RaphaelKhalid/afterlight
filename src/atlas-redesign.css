@@ -46,7 +46,7 @@ body { -webkit-font-smoothing:antialiased; }
 .art-point { width:7px; height:7px; border-radius:50%; background:#d3b576; box-shadow:0 0 0 4px #caae7130,0 0 18px #d7b97766; }
 .art-point.violet { background:#c0b2da; box-shadow:0 0 0 4px #a896c330; }
 .art-label-one { top:22%; left:12%; }.art-label-two { top:47%; right:8%; }.art-label-three { bottom:18%; left:16%; }
-.study-entry { display:grid; grid-template-columns:150px minmax(0,1fr) auto; gap:30px; align-items:center; padding:30px 32px; border:1px solid var(--border); border-radius:9px; margin-top:16px; background:var(--raised); }
+.study-entry { display:grid; grid-template-columns:150px minmax(0,1fr) auto; gap:30px; align-items:center; padding:30px 32px; border:1px solid var(--border); border-bottom:0; border-radius:9px; margin-top:16px; background:var(--raised); }
 .study-entry-label { font:9px var(--mono); color:#6c775f; letter-spacing:.1em; display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
 .study-entry-label small { font:11px var(--sans); display:block; width:100%; color:#8a8d80; padding-left:15px; letter-spacing:0; }
 .study-signal { width:6px; height:6px; border-radius:50%; background:#86966e; }
@@ -70,6 +70,7 @@ body { -webkit-font-smoothing:antialiased; }
 .collection-toolbar .filters { justify-content:flex-start; gap:8px; }
 .collection-toolbar .filter { border:0; border-radius:20px; font-size:11px; padding:9px 14px; background:#eae8df; }
 .collection-toolbar .filter.active { background:#32392e; color:#faf9f1; }
+.collection-toolbar .filter.active:after { content:none; }
 .clear-search { flex-shrink:0; border:0; background:transparent; color:#8b7652; font-size:11px; max-width:220px; overflow:hidden; text-overflow:ellipsis; }
 .atlas-collection .map-grid { grid-template-columns:minmax(0,1.12fr) minmax(380px,1fr); gap:20px; }
 .atlas-collection .map-card { border-radius:7px; height:490px; min-height:490px; }
