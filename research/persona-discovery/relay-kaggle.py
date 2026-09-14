@@ -23,11 +23,16 @@ messages=queue.Queue()
 stop=threading.Event()
 
 def stream():
-    try:
-        for item in api.kernels_logs_stream(notebook):
+    delay=5
+    while not stop.is_set():
+        try:
+            for item in api.kernels_logs_stream(notebook):
+                if stop.is_set():break
+                messages.put(item)
             if stop.is_set():break
-            messages.put(item)
-    except Exception as e: messages.put({'relayError':str(e)})
+        except Exception as e: messages.put({'relayError':str(e)})
+        if stop.wait(delay):break
+        delay=min(delay*2,30)
 
 threading.Thread(target=stream,daemon=True).start()
 latest=None;last_poll=0;started=time.monotonic();terminal=False
@@ -64,6 +69,7 @@ def consume(item):
 while time.monotonic()-started < args.seconds:
     try:consume(messages.get(timeout=1))
     except queue.Empty:pass
+    except requests.RequestException as e:print('Progress publish failed; next notebook event will retry synchronization: '+str(e),flush=True)
     if time.monotonic()-last_poll>=30:
         last_poll=time.monotonic()
         try:
