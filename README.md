@@ -6,7 +6,8 @@
 
 [Open Afterlight](https://afterlight-research.vercel.app) · [Completed laboratory](https://afterlight-research.vercel.app/#/lab/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37) · [Results](https://afterlight-research.vercel.app/#/results/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37)
 
-The canonical production project is `afterlight-research`. The older `afterlight-blond.vercel.app` address redirects here, preserving paths, query parameters, and browser hash routes. Both project builds use this repository's Vercel configuration; the older project remains a compatibility entry point. Deploy future application updates to `afterlight-research`. AutoLabs embeds this same canonical app at [Research](https://autolabs-ebon.vercel.app/research).
+The canonical production project is `afterlight-research`. The older `afterlight-blond.vercel.app` address redirects here, preserving paths, query parameters, and browser hash routes. The legacy domain is assigned to the canonical project with a Vercel domain-level 308 redirect. The older project is retained for deployment history. Deploy future application updates to `afterlight-research`. AutoLabs embeds this same canonical app at [Research](https://autolabs-ebon.vercel.app/research).
+
 ## An actual experiment, including an inconclusive primary result
 
 On September 13, 2026, Afterlight completed **100 trials across 20 paired decision cases and five conditions**, with **200 distinct provider responses and no failed trials**. The subject and blinded attribution monitor used `gpt-5.6-luna` through the direct OpenAI API. The observable surface was a **one-sentence final explanation**, not hidden reasoning.
