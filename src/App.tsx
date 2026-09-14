@@ -2,10 +2,37 @@ import { AnimatePresence, motion, useReducedMotion, useInView } from 'framer-mot
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { asRun, asTrials, emptyCorpus, findQuestion, loadCorpus, loadDemo } from './data'
 import type { CorpusPayload, DemoPayload, Edge, Question, Run, Trial } from './types'
+import { buildDesignMessage, createEmbedBridge, isAutolabsEmbed, validateEmbedPath, type EmbedBridge } from './embed'
 
 const img = '/assets/afterlight-fireworks.webp'
 
-function go(path: string) { window.location.hash = path }
+let activeEmbedBridge: EmbedBridge | null = null
+function routePathFromHash(hash: string): string | null {
+  const path = hash.replace(/^#\/?/, '')
+  return validateEmbedPath(`/${path || 'atlas'}`)
+}
+function setRouteHash(path: string) {
+  const nextHash = `#${path}`
+  if (window.location.hash === nextHash) return
+  if (activeEmbedBridge) {
+    const nextUrl = `${window.location.pathname}${window.location.search}${nextHash}`
+    window.history.replaceState(window.history.state, '', nextUrl)
+    window.dispatchEvent(new Event('hashchange'))
+  } else {
+    window.location.hash = path
+  }
+}
+function go(path: string, notify = true) {
+  const validPath = validateEmbedPath(path)
+  if (!validPath) return
+  if (notify) activeEmbedBridge?.navigation(validPath)
+  setRouteHash(validPath)
+}
+function handoffDesign(question: Question): boolean {
+  const message = buildDesignMessage({ id: question.id, title: question.title, sourceUrl: question.source.url })
+  if (!message || !activeEmbedBridge) return false
+  return activeEmbedBridge.design(message.question)
+}
 function useRoute() {
   const [hash, setHash] = useState(window.location.hash || '#/atlas')
   useEffect(() => { const onHash = () => setHash(window.location.hash || '#/atlas'); window.addEventListener('hashchange', onHash); return () => window.removeEventListener('hashchange', onHash) }, [])
@@ -20,15 +47,30 @@ function App() {
   const [corpus, setCorpus] = useState<CorpusPayload>(emptyCorpus)
   const [demo, setDemo] = useState<DemoPayload>({})
   const [loaded, setLoaded] = useState(false)
+  const embedded = isAutolabsEmbed()
+  const configuredOrigins = (import.meta.env.VITE_AFTERLIGHT_EMBED_PARENT_ORIGINS || '').split(',').map((origin: string) => origin.trim()).filter(Boolean)
+  const bridge = useMemo(() => createEmbedBridge(embedded && window.parent !== window, configuredOrigins), [embedded])
+  useEffect(() => {
+    activeEmbedBridge = bridge
+    if (!bridge) return () => { if (activeEmbedBridge === bridge) activeEmbedBridge = null }
+    const stopListening = bridge.listen((path) => go(path, false))
+    const onHashChange = () => {
+      const path = routePathFromHash(window.location.hash)
+      if (path) bridge.navigation(path)
+    }
+    window.addEventListener('hashchange', onHashChange)
+    bridge.ready()
+    return () => { stopListening(); window.removeEventListener('hashchange', onHashChange); if (activeEmbedBridge === bridge) activeEmbedBridge = null }
+  }, [bridge])
   useEffect(() => { Promise.all([loadCorpus(), loadDemo()]).then(([c, d]) => { setCorpus(c); setDemo(d); setLoaded(true) }) }, [])
   const question = findQuestion(corpus, route.id)
   const demoRun = asRun(demo.run)
-  const content = route.page === 'questions' ? <Dossier question={question} corpus={corpus} demoRun={demoRun} />
+  const content = route.page === 'questions' ? <Dossier question={question} corpus={corpus} demoRun={demoRun} embedded={embedded} />
     : route.page === 'designer' ? <Designer question={question} demoRun={demoRun} demo={demo} />
     : route.page === 'lab' ? <Lab runId={route.id === 'demo' ? demoRun?.id : route.id} demo={demo} />
     : route.page === 'results' ? <Results runId={route.id} demo={demo} question={question || findQuestion(corpus, demoRun?.questionId)} />
-    : <Atlas corpus={corpus} demoRun={demoRun} loaded={loaded} />
-  return <div className="app-shell"><Header page={route.page} demoRun={demoRun} /><AnimatePresence mode="wait"><motion.main key={`${route.page}-${route.id || ''}`} initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={reduce ? undefined : { opacity: 0, y: -8 }} transition={reduce ? { duration: 0 } : { duration: .35 }}>{content}</motion.main></AnimatePresence><Footer /></div>
+    : <Atlas corpus={corpus} demoRun={demoRun} loaded={loaded} embedded={embedded} />
+  return <div className={`app-shell ${embedded ? 'embed-shell' : ''}`}><Header page={route.page} demoRun={demoRun} /><AnimatePresence mode="wait"><motion.main key={`${route.page}-${route.id || ''}`} initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={reduce ? undefined : { opacity: 0, y: -8 }} transition={reduce ? { duration: 0 } : { duration: .35 }}>{content}</motion.main></AnimatePresence><Footer /></div>
 }
 
 function Header({ page, demoRun }: { page: string; demoRun?: Run }) {
@@ -41,7 +83,7 @@ function Header({ page, demoRun }: { page: string; demoRun?: Run }) {
 
 function Footer() { return <footer><span>AFTERLIGHT / RESEARCH SYSTEM</span><span>Evidence is scoped to each tested setting.</span><a href="https://github.com/RaphaelKhalid/afterlight" target="_blank" rel="noreferrer">GitHub ↗</a></footer> }
 
-function Atlas({ corpus, demoRun, loaded }: { corpus: CorpusPayload; demoRun?: Run; loaded: boolean }) {
+function Atlas({ corpus, demoRun, loaded, embedded = false }: { corpus: CorpusPayload; demoRun?: Run; loaded: boolean; embedded?: boolean }) {
   const [query, setQuery] = useState('')
   const [area, setArea] = useState('all')
   const reduce = useReducedMotion()
@@ -53,6 +95,7 @@ function Atlas({ corpus, demoRun, loaded }: { corpus: CorpusPayload; demoRun?: R
   }), [corpus, query, area])
   const explore = (nextArea?: string) => { if (nextArea) setArea(nextArea); document.getElementById('atlas-map')?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }) }
   return <div className="atlas-home">
+    {embedded && <div className="embed-context"><div className="embed-context-copy"><p className="opening-kicker"><span /> AFTERLIGHT / RESEARCH EVIDENCE</p><h1>Inspect the question behind the experiment.</h1></div><p className="embed-context-note">Explore open questions, inspect their evidence, and bring a question into your next study.</p></div>}
     <section className="opening">
       <div className="opening-copy">
         <p className="opening-kicker"><span /> A FIELD GUIDE TO AI SAFETY</p>
@@ -106,13 +149,13 @@ function QuestionList({ questions, demoRun, loaded, reduce, hasCorpus }: { quest
 
 function Back({ label = 'Back to atlas', to = '/atlas' }: { label?: string; to?: string }) { return <button className="back-link" onClick={() => go(to)}>↖ {label}</button> }
 
-function Dossier({ question, corpus, demoRun }: { question?: Question; corpus: CorpusPayload; demoRun?: Run }) {
+function Dossier({ question, corpus, demoRun, embedded = false }: { question?: Question; corpus: CorpusPayload; demoRun?: Run; embedded?: boolean }) {
   const [attempts, setAttempts] = useState<AttemptRecord[]>([])
   useEffect(() => { setAttempts([]); if (!question) return; fetch('/api/attempts?questionId=' + encodeURIComponent(question.id)).then((r) => r.ok ? r.json() : null).then((data) => { if (Array.isArray(data?.attempts)) setAttempts(data.attempts) }).catch(() => undefined) }, [question?.id])
   if (!question) return <Pending title="Question dossier" detail="Select a question from the atlas once the public corpus is loaded." />
   const sourcePaper = corpus.papers.find((p) => p.id === question.source.paperId)
   const paperLabel = (id: string) => corpus.papers.find((paper) => paper.id === id)?.title || id
-  return <section className="detail-page"><Back /><div className="dossier-head"><div className="dossier-kicker"><span className="status-dot" /> {question.status} <span className="origin">{question.origin.replace('-', ' ')}</span></div><h1>{question.title}</h1><p className="dossier-summary">{question.summary}</p><div className="dossier-meta"><span><b>AREA</b>{question.area}</span><span><b>EST. RUN</b>{question.estimatedMinutes ? `${question.estimatedMinutes} min` : 'Unspecified'} · {question.estimatedCostUsd != null ? `$${question.estimatedCostUsd.toFixed(2)}` : 'cost pending'}</span><span><b>ACCESS</b>{question.access || 'See contract'}</span></div></div><div className="dossier-grid"><article><SectionLabel>Source passage</SectionLabel><blockquote>{question.source.passage || 'The source passage is not available in the current record.'}</blockquote><div className="source-line"><span className="source-mark">↗</span><span>{sourcePaper?.title || question.source.paperId}<small>{question.source.section || 'Source section not recorded'} · {question.source.version || 'version unspecified'}</small></span><a href={question.source.url} target="_blank" rel="noreferrer">Open source</a></div><SectionLabel>Why this matters</SectionLabel><p className="body-copy">{question.whyItMatters}</p></article><aside><SectionLabel>Closest work</SectionLabel>{question.closestWork.length ? question.closestWork.map((work) => <div className="closest" key={work.paperId}><span className="mono">{paperLabel(work.paperId)}</span><p>{work.finding}</p><small>Remaining mismatch: {work.mismatch}</small></div>) : <div className="pending-card">Closest work has not been assessed in this record.</div>}<OwnerAction mode="investigate" questionId={question.id} query={String(objectRecord(objectRecord(question.search).lastInvestigation).query || '')} /><SectionLabel>Search record</SectionLabel><LiveInvestigation search={question.search} /><div className="search-record"><span className="mono">{question.search.date || 'date pending'}</span><p>{question.search.coverage || 'Coverage statement is not recorded.'}</p>{question.search.queries?.length ? <details><summary>{question.search.queries.length} recorded queries</summary><ul>{question.search.queries.map((q) => <li key={q}>{q}</li>)}</ul></details> : null}</div>{attempts.length ? <><SectionLabel>Attempts</SectionLabel><div className="attempts-list">{attempts.map((attempt) => <div className="attempt-row" key={attempt.id}><span className="status-dot" /><span><strong>{attempt.label || 'Research participation'}</strong><small>{attempt.status || 'status not recorded'} · {attempt.contributor || attempt.participant || 'Participant'}</small></span>{(attempt.resultRunId || attempt.resultUrl || attempt.artifactUrl) && <a href={attempt.resultRunId ? '#/results/' + attempt.resultRunId : attempt.resultUrl || attempt.artifactUrl} target="_blank" rel="noreferrer">Open ↗</a>}</div>)}</div></> : null}</aside></div><div className="dossier-footer"><div><SectionLabel>Uncertainty</SectionLabel><p>{question.uncertainty}</p></div><div className="next-step"><span className="mono">NEXT AVAILABLE STEP</span>{question.executable ? <><strong>Review the executable contract</strong><button className="primary-action small" onClick={() => go(`/designer/${question.id}`)}>Open designer ↗</button></> : <p>This question does not have a reviewed executable contract yet.</p>}{demoRun?.questionId === question.id && <button className="evidence-return" onClick={() => go(`/results/${demoRun.id}`)}>Evidence attached to this question ↗</button>}</div></div></section>
+  return <section className="detail-page"><Back /><div className="dossier-head"><div className="dossier-kicker"><span className="status-dot" /> {question.status} <span className="origin">{question.origin.replace('-', ' ')}</span></div><h1>{question.title}</h1><p className="dossier-summary">{question.summary}</p><div className="dossier-meta"><span><b>AREA</b>{question.area}</span><span><b>EST. RUN</b>{question.estimatedMinutes ? `${question.estimatedMinutes} min` : 'Unspecified'} · {question.estimatedCostUsd != null ? `$${question.estimatedCostUsd.toFixed(2)}` : 'cost pending'}</span><span><b>ACCESS</b>{question.access || 'See contract'}</span></div></div><div className="dossier-grid"><article><SectionLabel>Source passage</SectionLabel><blockquote>{question.source.passage || 'The source passage is not available in the current record.'}</blockquote><div className="source-line"><span className="source-mark">↗</span><span>{sourcePaper?.title || question.source.paperId}<small>{question.source.section || 'Source section not recorded'} · {question.source.version || 'version unspecified'}</small></span><a href={question.source.url} target="_blank" rel="noreferrer">Open source</a></div><SectionLabel>Why this matters</SectionLabel><p className="body-copy">{question.whyItMatters}</p></article><aside><SectionLabel>Closest work</SectionLabel>{question.closestWork.length ? question.closestWork.map((work) => <div className="closest" key={work.paperId}><span className="mono">{paperLabel(work.paperId)}</span><p>{work.finding}</p><small>Remaining mismatch: {work.mismatch}</small></div>) : <div className="pending-card">Closest work has not been assessed in this record.</div>}<OwnerAction mode="investigate" questionId={question.id} query={String(objectRecord(objectRecord(question.search).lastInvestigation).query || '')} /><SectionLabel>Search record</SectionLabel><LiveInvestigation search={question.search} /><div className="search-record"><span className="mono">{question.search.date || 'date pending'}</span><p>{question.search.coverage || 'Coverage statement is not recorded.'}</p>{question.search.queries?.length ? <details><summary>{question.search.queries.length} recorded queries</summary><ul>{question.search.queries.map((q) => <li key={q}>{q}</li>)}</ul></details> : null}</div>{attempts.length ? <><SectionLabel>Attempts</SectionLabel><div className="attempts-list">{attempts.map((attempt) => <div className="attempt-row" key={attempt.id}><span className="status-dot" /><span><strong>{attempt.label || 'Research participation'}</strong><small>{attempt.status || 'status not recorded'} · {attempt.contributor || attempt.participant || 'Participant'}</small></span>{(attempt.resultRunId || attempt.resultUrl || attempt.artifactUrl) && <a href={attempt.resultRunId ? '#/results/' + attempt.resultRunId : attempt.resultUrl || attempt.artifactUrl} target="_blank" rel="noreferrer">Open ↗</a>}</div>)}</div></> : null}</aside></div><div className="dossier-footer"><div><SectionLabel>Uncertainty</SectionLabel><p>{question.uncertainty}</p></div><div className="next-step"><span className="mono">NEXT AVAILABLE STEP</span>{question.executable ? <><strong>Review the executable contract</strong><button className="primary-action small" onClick={() => { if (!embedded || !handoffDesign(question)) go(`/designer/${question.id}`) }}>{embedded ? 'Design in Auto Labs ↗' : 'Open designer ↗'}</button></> : <p>This question does not have a reviewed executable contract yet.</p>}{demoRun?.questionId === question.id && <button className="evidence-return" onClick={() => go(`/results/${demoRun.id}`)}>Evidence attached to this question ↗</button>}</div></div></section>
 }
 
 function SectionLabel({ children }: { children: string }) { return <p className="section-label">{children}</p> }
