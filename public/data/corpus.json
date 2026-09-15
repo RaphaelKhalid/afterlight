@@ -370,9 +370,9 @@
       "id": "q-unsupervised-persona",
       "title": "Can SAEs reveal persona tendencies that prompting struggles to recover?",
       "area": "Persona discovery",
-      "status": "Unassessed",
+      "status": "Active development",
       "origin": "user-proposed",
-      "summary": "Reuse a published SAE on Qwen2.5-7B-Instruct to discover candidate behavioral directions without selecting trait labels first. Test whether those directions cause consistent changes on fresh scenarios, and compare them with optimized prompting and prompt-extracted persona vectors.",
+      "summary": "An owner-authorized, label-free SAE development screen is running on Qwen2.5-7B-Instruct. It scans 1,024 discovery responses, selects up to 32 features, and screens them across 780 steered responses before any confirmation study.",
       "whyItMatters": "The original method needs a named trait that the model can express when prompted. This experiment asks whether label-free feature selection can reveal a useful behavioral direction outside what that extraction procedure reliably recovers. Discovery of a candidate is not proof of a new persona.",
       "source": {
         "paperId": "2507.21509",
@@ -393,7 +393,7 @@
           "mismatch": "Reasoning behavior discovery does not establish generalizable persona effects that outperform a strong prompt-extraction baseline."
         }
       ],
-      "uncertainty": "This is a proposed extension, not an established open problem or a novelty claim. Candidate names, rubrics, steering strengths and baselines must be frozen using development data before confirmation. The Kaggle runner is separate from the existing API experiment evaluator. No persona-discovery results are available yet.",
+      "uncertainty": "The development run is active and has not produced a result yet. Feature selection signals are not persona measures; topical, lexical, refusal, style, reconstruction and incoherence effects must be screened before any candidate is carried forward. Confirmation remains gated.",
       "search": {
         "date": "2026-09-14",
         "queries": [],
@@ -403,7 +403,7 @@
         ]
       },
       "executable": false,
-      "access": "Kaggle GPU study; evaluator and confirmation contract pending",
+      "access": "Kaggle GPU study; development run active; confirmation gated",
       "position": {
         "x": 39,
         "y": 33
