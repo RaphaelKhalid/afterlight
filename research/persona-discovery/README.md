@@ -1,14 +1,14 @@
 # Execution and monitoring
 
-The version-1 discovery and development screen completed on 2026-09-14 UTC. See [PHASE-REPORT.md](./PHASE-REPORT.md) for audited counts, environment, artifact verification and the gate before confirmation. Confirmation remains blocked until candidate behaviors, baselines, rubrics and power are frozen.
+The owner-authorized Experiment 3A development run is active in Kaggle notebook version 2 as of 2026-09-15 UTC. It is a development screen only: no confirmation result is claimed. See [PHASE-REPORT.md](./PHASE-REPORT.md) for the prior audited snapshot and the gate before confirmation. Confirmation remains blocked until candidate behaviors, baselines, rubrics and power are frozen.
 
-The current Kaggle notebook is private to the owner. Its reproducible source and discovery contract are public in this folder. Kaggle version 1 runs the discovery and development-screen phases only. LAUNCH.json is an explicitly dated launch/verification snapshot, not a live progress file.
+The current Kaggle notebook is private to the owner. Its reproducible source and discovery contract are public in this folder. Kaggle version 2 runs the discovery and development-screen phases only. LAUNCH.json is an explicitly dated launch/verification snapshot, not a live progress file. The public AutoLabs monitor carries the current coarse launch state.
 
 To reproduce, install the official Kaggle CLI, authenticate to your own account, change the notebook identity in build-notebook.mjs, then build the notebook from the Afterlight repository root:
 
 ```text
 node research/persona-discovery/build-notebook.mjs
-kaggle kernels push -p research/persona-discovery/kaggle --accelerator NvidiaTeslaT4 --timeout 7200
+kaggle kernels push -p research/persona-discovery/kaggle --accelerator NvidiaTeslaT4 --timeout 6600
 ```
 
 Pushing starts execution. Use the existing version's output for inspection; do not push a new version just to view progress. The runner requires two GPUs and records their actual names and memory. Model and SAE files download to temporary storage, while outputs remain under /kaggle/working/persona-discovery.
