@@ -1,5 +1,7 @@
 # Execution and monitoring
 
+The version-1 discovery and development screen completed on 2026-09-14 UTC. See [PHASE-REPORT.md](./PHASE-REPORT.md) for audited counts, environment, artifact verification and the gate before confirmation. Confirmation remains blocked until candidate behaviors, baselines, rubrics and power are frozen.
+
 The current Kaggle notebook is private to the owner. Its reproducible source and discovery contract are public in this folder. Kaggle version 1 runs the discovery and development-screen phases only. LAUNCH.json is an explicitly dated launch/verification snapshot, not a live progress file.
 
 To reproduce, install the official Kaggle CLI, authenticate to your own account, change the notebook identity in build-notebook.mjs, then build the notebook from the Afterlight repository root:
@@ -22,3 +24,4 @@ The owner-host relay reads Kaggle's authenticated log stream, deduplicates recor
 Start relay-kaggle.py with --env-file pointing to the owner's ignored environment file, --output pointing to a private/local log directory, and --seconds giving a bounded observation period. Keep all credentials outside this repository and notebook. The server fixes public provenance links, validates counters and rejects stale events or unauthenticated writes. This relay currently follows the latest session of this notebook; do not launch an overlapping replacement version under the same notebook identity.
 
 On completion, verify contractHash, actual response counts, finite activation diagnostics, all feature statistics, selection decisions, and the artifact hashes. Preserve failed or incomplete phase records. The full confirmation experiment is still pending candidate interpretation, development-only baseline tuning, frozen rubrics and an independently sized confirmation protocol, as described in PROTOCOL.md.
+
