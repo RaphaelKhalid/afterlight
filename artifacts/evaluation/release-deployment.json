@@ -6,7 +6,7 @@
     "state": "READY"
   },
   "backend": {
-    "url": "https://afterlight-api.raphaelbahadurkhan.workers.dev",
+    "url": "https://afterlight-api.noriron.workers.dev",
     "versionId": "2a5ca8ff-e477-4088-9d7e-f812c5a2e94f"
   },
   "checks": [

@@ -20,7 +20,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://afterlight-api.raphaelbahadurkhan.workers.dev/api/:path*"
+      "destination": "https://afterlight-api.noriron.workers.dev/api/:path*"
     }
   ]
 }

@@ -12,6 +12,6 @@
   },
   "discord": {
     "status": 200,
-    "endpoint": "https://afterlight-api.raphaelbahadurkhan.workers.dev/api/discord/interactions"
+    "endpoint": "https://afterlight-api.noriron.workers.dev/api/discord/interactions"
   }
 }
