@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-const origin='https://afterlight-api.raphaelbahadurkhan.workers.dev';
+const origin='https://afterlight-api.noriron.workers.dev';
 const checkedAt=new Date().toISOString();
 const health=await fetch(origin+'/api/health').then(r=>r.json());
 const tr=await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/setWebhook`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:origin+'/api/telegram/webhook',secret_token:process.env.TELEGRAM_WEBHOOK_SECRET,allowed_updates:['message','callback_query'],drop_pending_updates:false})});

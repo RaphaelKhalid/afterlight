@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 async function main() {
-const base='https://afterlight-api.raphaelbahadurkhan.workers.dev';
+const base='https://afterlight-api.noriron.workers.dev';
 const id=(await fs.readFile('.cache/visible-run-id.txt','utf8')).trim();
 const get=async path=>{const r=await fetch(base+path+'?export='+Date.now());if(!r.ok)throw new Error('Export HTTP '+r.status);return r.json()};
 const run=await get('/api/runs/'+id);

@@ -17,7 +17,7 @@ for line in Path(args.env_file).read_text(encoding='utf-8-sig').splitlines():
         k,v=line.split('=',1);config[k]=v.strip().strip('"').strip("'")
 owner=config['OWNER_ACCESS_TOKEN']
 api=KaggleApi();api.authenticate()
-endpoint='https://afterlight-api.raphaelbahadurkhan.workers.dev/api/studies/persona-discovery/status'
+endpoint='https://afterlight-api.noriron.workers.dev/api/studies/persona-discovery/status'
 notebook='raphaelkhalid0/unsupervisedsaes'
 messages=queue.Queue()
 stop=threading.Event()
