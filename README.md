@@ -2,19 +2,17 @@
 
 **An agent-powered lab for reproducible AI safety research.** Explore a sourced question, authorize a frozen experiment within a cap, inspect real observations, and return reproducible evidence to the research map.
 
-> **Two-minute demo video: recording pending.** The working application and recorded experiment are ready. Replace this paragraph with the public video URL after recording. [Script and exact click sequence](docs/recording-script.md).
-
 [Open Afterlight](https://afterlight-research.vercel.app) · [Completed laboratory](https://afterlight-research.vercel.app/#/lab/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37) · [Results](https://afterlight-research.vercel.app/#/results/run_0908e274-c24e-4bf0-a3ee-a6fae10cdf37)
 
 The canonical production project is `afterlight-research`. The older `afterlight-blond.vercel.app` address redirects here, preserving paths, query parameters, and browser hash routes. The legacy domain is assigned to the canonical project with a Vercel domain-level 308 redirect. The older project is retained for deployment history. Deploy future application updates to `afterlight-research`.
 
 ## Experiment 3A — Unsupervised persona discovery
 
-[Source question](https://afterlight-research.vercel.app/#/questions/q-unsupervised-persona) · [Live AutoLabs study](https://autolabs-ebon.vercel.app/experiments/persona-discovery) · [Kaggle notebook](https://www.kaggle.com/code/raphaelkhalid0/unsupervisedsaes)
+[Source question](https://afterlight-research.vercel.app/#/questions/q-unsupervised-persona) · [Live AutoLabs study](https://autolabs-ebon.vercel.app/experiments/persona-discovery)
 
-The owner-authorized development run is active on Kaggle notebook version 2. It uses two Tesla T4 GPUs, Qwen2.5-7B-Instruct with a pinned layer-19 pretrained BatchTopK SAE, 1,024 discovery responses, up to 32 label-free feature selections, and a 780-response positive/negative development screen. It makes no paid API calls; confirmation is disabled until candidate behaviors, baselines, rubrics, and power are frozen.
+The development run used a private Kaggle notebook (version 2). It uses two Tesla T4 GPUs, Qwen2.5-7B-Instruct with a pinned layer-19 pretrained BatchTopK SAE, 1,024 discovery responses, up to 32 label-free feature selections, and a 780-response positive/negative development screen. It makes no paid API calls; confirmation is disabled until candidate behaviors, baselines, rubrics, and power are frozen.
 
-This is development evidence only. No persona finding or confirmation result is claimed. The public AutoLabs page is the live run monitor; the Afterlight question remains the source record and is not itself an executable API evaluator.
+This is development evidence only. No persona finding or confirmation result is claimed. The public AutoLabs page records the run; the Afterlight question remains the source record and is not itself an executable API evaluator.
  AutoLabs embeds this same canonical app at [Research](https://autolabs-ebon.vercel.app/research).
 
 ## An actual experiment, including an inconclusive primary result
