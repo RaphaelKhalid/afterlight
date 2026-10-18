@@ -20,3 +20,6 @@ __pycache__/
 
 
 work/
+
+# local agent notes (kept out of the repo)
+/AGENTS.md
